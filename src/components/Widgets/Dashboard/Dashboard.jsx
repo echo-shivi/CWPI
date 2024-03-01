@@ -5,7 +5,7 @@ import SchemeReport from './SchemeReports';
 import ReportCards from './ReportCards'; 
 import StageAnalysis from './StageAnalysis';
 import AgencyAnalysis from './AgencyAnalysis'; 
-import PdfReports from './PdfReports'; 
+import PdfReports from './PdfReport/PdfReports'; 
 
 const Dashboard = () => {
   const [activeIndex, setActiveIndex] = useState(null);

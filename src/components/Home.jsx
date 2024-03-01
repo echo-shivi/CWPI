@@ -1,8 +1,8 @@
 import React from "react";
-import Sidebar from "./Sidebar";
-import Dashboard from "./Dashboard/Dashboard";
-import Navbar from "./Navbar";
-
+import Sidebar from "./Common/Sidebar";
+import Dashboard from "./Widgets/Dashboard/Dashboard";
+import Navbar from "./Common/Navbar";
+import CWPI from "./Widgets/Dashboard/PdfReport/CwpiReport";
 const Home = () => {
 
   return (
