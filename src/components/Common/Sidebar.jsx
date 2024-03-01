@@ -9,7 +9,7 @@ import { IoMdHelpCircleOutline } from "react-icons/io";
 import { TbAlertSquareRounded } from "react-icons/tb";
 import { ImProfile } from "react-icons/im";
 import { FaPeopleRoof } from "react-icons/fa6";
-import BvmLogo from '../assets/bvm-logo.png'
+import BvmLogo from '../../assets/bvm-logo.png'
 function Sidebar() {
     const menus = [
         { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
