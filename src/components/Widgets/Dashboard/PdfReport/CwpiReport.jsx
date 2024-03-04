@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Pagination from '../../../Atom/Pagination';
 
 const dummyData = [
-  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'present month report is not submitted', department: 'IT' },
   { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
 
   { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
