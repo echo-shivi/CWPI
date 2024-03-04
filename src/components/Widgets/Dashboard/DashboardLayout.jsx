@@ -11,7 +11,7 @@ const DashboardLayout = ({ title, children, index, activeIndex, setActiveIndex }
 
     return (
         <>
-            <div onClick={handleTogglePanel} className='mx-auto flex w-full h-[86px] justify-between p-2 mt-2 rounded bg-[#7575bf]'>
+            <div onClick={handleTogglePanel} className='mx-auto flex w-full h-[86px] justify-between p-2 mt-2 rounded bg-blue-400'>
                 <div className='flex'>
                     <div className='text-white text-lg md:text-xl font-bold p-4'>{title}</div>
                 </div>

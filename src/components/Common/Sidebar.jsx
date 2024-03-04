@@ -25,7 +25,7 @@ function Sidebar() {
       const [open, setOpen] = useState(true);
   return (
     <div
-    className={`bg-[#7575bf] min-h-screen ${
+    className={`bg-blue-400 min-h-screen ${
       open ? "w-72" : "w-16"
     } duration-500 text-gray-100 px-4`}
   >
