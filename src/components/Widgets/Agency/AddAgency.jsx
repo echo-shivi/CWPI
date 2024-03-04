@@ -7,7 +7,7 @@ function AddAgency() {
     occupation: '',
     designation: '',
     mobileNumber: '',
-    whatsAddAgency: '',
+    whatsAppNumber: '',
     languages: [], 
   });
 
@@ -110,9 +110,9 @@ function AddAgency() {
           <input
             type="number"
             className="w-full p-3  bg-white border text-base  border-blue-200 rounded"
-            name="whatsAddAgency"
+            name="whatsAppNumber"
             onChange={onChangeHandler}
-            value={formData.whatsAddAgency}
+            value={formData.whatsAppNumber}
           />
         </div>
         <div className="mb-4">
