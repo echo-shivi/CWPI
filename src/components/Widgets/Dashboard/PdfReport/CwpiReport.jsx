@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import DatePicker from '../../../Atom/DatePIcker';
 import SearchForm from '../../../Atom/SearchBar';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import Pagination from '../../../Atom/Pagination';
 
 const dummyData = [
@@ -28,21 +29,60 @@ const dummyData = [
   { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
 
   { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
+
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
 
 ];
-
 const TableComponent = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState('');
+  const [startDate, setStartDate] = useState(new Date());
+  const lastIndex = currentPage * entriesPerPage;
+  const firstIndex = lastIndex - entriesPerPage;
+  const records = dummyData.slice(firstIndex, lastIndex);
+  const totalEntries = dummyData.length;
+  const totalPages = Math.ceil(totalEntries / entriesPerPage);
+  const numbers = [...Array(totalPages + 1).keys()].slice(1);//(if 5 pages then [1,2,3,4,5])
 
-  const indexOfLastEntry = currentPage * entriesPerPage;
-  const indexOfFirstEntry = indexOfLastEntry - entriesPerPage;
-  const currentEntries = dummyData.slice(indexOfFirstEntry, indexOfLastEntry);
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
+  const prevPage = () => {
+    if (currentPage !== firstIndex) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+  const nextPage = () => {
+    if (currentPage !== lastIndex) {
+      setCurrentPage(currentPage + 1);
+    }
+  }
+  const handlePageChange = (id) => {
+    setCurrentPage(id);
+  }
 
   const handleEntriesChange = (event) => {
     setEntriesPerPage(parseInt(event.target.value, 10));
@@ -53,16 +93,19 @@ const TableComponent = () => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredEntries = currentEntries.filter(
-    (entry) =>
-      entry.department.toLowerCase().includes(searchTerm.toLowerCase())
+  const indexOfLastEntry = currentPage * entriesPerPage;
+  const indexOfFirstEntry = indexOfLastEntry - entriesPerPage;
+  const currentEntries = dummyData.slice(indexOfFirstEntry, indexOfLastEntry);
+
+  const filteredEntries = currentEntries.filter((entry) =>
+    entry.department.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div className="container mx-auto p-4">
       <div className="flex justify-between mb-4">
-        <div className="flex items-center text-lg font-medium bg-white ">
-          <label className="mr-2 text-[#7575bf] ">Show:</label>
+        <div className="flex items-center text-lg font-medium">
+          <label className="mr-2">Show:</label>
           <select
             className="px-2 py-1 bg-white rounded-md border border-[#7575bf]"
             onChange={handleEntriesChange}
@@ -72,7 +115,7 @@ const TableComponent = () => {
             <option value={20}>20</option>
             <option value={30}>30</option>
           </select>
-          <span className="ml-2 text-[#7575bf]">entries</span>
+          <span className="ml-2">entries</span>
         </div>
         <div className="flex items-center">
           <div className='px-4'>
@@ -80,7 +123,16 @@ const TableComponent = () => {
 
           </div>
           <div>
-            <DatePicker />
+            <DatePicker
+              placeholderText="DD/MM/YYYY"
+              dateFormat="dd/MM/yyyy"
+              id="start-date"
+              autoComplete="off"
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              className='p-2.5 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
+
+            />
 
           </div>
         </div>
@@ -89,11 +141,11 @@ const TableComponent = () => {
       <table className="table-auto w-full">
         <thead>
           <tr>
-            <th className="border h-16 text-base text-center bg-[#7575bf] text-white">Rank</th>
-            <th className="border h-16 text-base text-center bg-[#7575bf] text-white">CWPI Score Alpha</th>
-            <th className="border h-16 text-base text-center bg-[#7575bf] text-white">CWPI Score Beta</th>
-            <th className="border h-16 text-base text-center bg-[#7575bf] text-white">Change in CWPI Score Delta</th>
-            <th className="border h-16 text-base text-center bg-[#7575bf] text-white">Department</th>
+            <th className="border h-16 text-base text-center bg-blue-400 text-white">Rank</th>
+            <th className="border h-16 text-base text-center bg-blue-400 text-white">CWPI Score Alpha</th>
+            <th className="border h-16 text-base text-center bg-blue-400 text-white">CWPI Score Beta</th>
+            <th className="border h-16 text-base text-center bg-blue-400 text-white">Change in CWPI Score Delta</th>
+            <th className="border h-16 text-base text-center bg-blue-400 text-white">Department</th>
           </tr>
         </thead>
         <tbody>
@@ -111,9 +163,8 @@ const TableComponent = () => {
 
       </table>
 
-
-      <div className="mt-4">
-        <Pagination onPageChange={handlePageChange} />
+      <div>
+        <Pagination currentPage={currentPage} firstIndex={firstIndex} lastIndex={lastIndex} totalPages={totalPages} onPageChange={handlePageChange} pages={numbers} prevPage={prevPage} nextPage={nextPage} />
       </div>
     </div>
   );

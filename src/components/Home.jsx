@@ -13,7 +13,7 @@ const Home = () => {
       <div className="mx-0 text-xl w-full text-gray-900 font-semibold flex flex-col">
         <Navbar />
         <div className=" p-10">
-          <Dashboard  />
+          <CWPI />
         </div>
       </div>
     </section>
