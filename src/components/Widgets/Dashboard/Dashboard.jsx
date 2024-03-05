@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import DashboardLayout from './DashboardLayout';
-import WorkAgencies from './AgencyWork';
+import WorkAgencies from './WorkAgency/AgencyWork';
 import SchemeReport from './SchemeReports'; 
 import ReportCards from './ReportCards'; 
 import StageAnalysis from './StageAnalysis';
-import AgencyAnalysis from './AgencyAnalysis'; 
+import AgencyAnalysis from './WorkAgency/AgencyAnalysis'; 
 import PdfReports from './PdfReport/PdfReports'; 
 
 const Dashboard = () => {

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Pagination = ({ currentPage, totalPages, firstIndex, onPageChange, lastIndex, pages, prevPage, nextPage }) => {
+const Pagination = ({ currentPage, totalPages, firstIndex, onPageChange, lastIndex, pages, prevPage, nextPage,totalEntries}) => {
   return (
     <nav className=" flex justify-between pt-10" aria-label="Pagination">
-      <p className='text-base font-medium'>Showing {firstIndex + 1} to {lastIndex} of {currentPage} </p>
+      <p className='text-base font-medium'>Showing {firstIndex } to {lastIndex} of {totalEntries} </p>
       <ul className='flex'>
         <li>
           <a href="#" onClick={prevPage} className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-not-allowed rounded-l-md">
