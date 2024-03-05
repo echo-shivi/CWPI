@@ -64,10 +64,7 @@ const EmployeeDetail = () => {
     setCurrentPage(1);
   };
 
-  const handleSearch = (event) => {
-    const searchTerm = event.target.value.toLowerCase();
-    setSearchTerm(searchTerm);
-
+  const handleSearch = () => {
     const newFilteredEntries = dummyData.filter((entry) => {
       return entry.department.toLowerCase().includes(searchTerm.toLowerCase());
     });
@@ -75,6 +72,7 @@ const EmployeeDetail = () => {
     setFilteredEntries(newFilteredEntries);
     setCurrentPage(1);
   };
+
 
 
 

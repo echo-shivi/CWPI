@@ -63,18 +63,15 @@ const Admins = () => {
         setEntriesPerPage(parseInt(event.target.value, 10));
         setCurrentPage(1);
     };
-
-    const handleSearch = (event) => {
-        const searchTerm = event.target.value.toLowerCase();
-        setSearchTerm(searchTerm);
-
+    const handleSearch = () => {
         const newFilteredEntries = dummyData.filter((entry) => {
-            return entry.department.toLowerCase().includes(searchTerm.toLowerCase());
+          return entry.department.toLowerCase().includes(searchTerm.toLowerCase());
         });
-
+    
         setFilteredEntries(newFilteredEntries);
         setCurrentPage(1);
-    };
+      };
+    
 
 
 

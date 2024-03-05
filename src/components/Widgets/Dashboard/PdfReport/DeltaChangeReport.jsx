@@ -65,7 +65,7 @@ const TableComponent = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState('');
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(null);
   const lastIndex = currentPage * entriesPerPage;
   const firstIndex = lastIndex - entriesPerPage;
   const currentEntries = dummyData.slice(firstIndex, lastIndex);
@@ -114,10 +114,7 @@ const TableComponent = () => {
     setCurrentPage(1);
   };
 
-  const handleSearch = (event) => {
-    const searchTerm = event.target.value.toLowerCase();
-    setSearchTerm(searchTerm);
-
+  const handleSearch = () => {
     const newFilteredEntries = dummyData.filter((entry) => {
       return entry.department.toLowerCase().includes(searchTerm.toLowerCase());
     });
@@ -125,6 +122,7 @@ const TableComponent = () => {
     setFilteredEntries(newFilteredEntries);
     setCurrentPage(1);
   };
+
 
 
 
@@ -164,7 +162,7 @@ const TableComponent = () => {
               autoComplete="off"
               selected={startDate}
               onChange={(date) => setStartDate(date)}
-              className='p-2.5 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
+              className='p-5 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
 
             />
 
