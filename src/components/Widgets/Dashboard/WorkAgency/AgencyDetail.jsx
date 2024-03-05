@@ -8,7 +8,7 @@ export default function AgencyDetail() {
             <SchemesSubmitted />
             <hr style={{ borderTop: "1px solid lightgrey" }} />
             <EmployeeDetail />
-            <hr style={{ borderTop: "1px solid lightgrey" }} />
+            <hr style={{ borderTop: "1px solid lightgrey" }} /> 
             <Admin />
 
         </div>
