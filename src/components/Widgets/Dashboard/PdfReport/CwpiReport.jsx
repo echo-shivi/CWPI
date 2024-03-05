@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import SearchForm from '../../../Atom/SearchBar';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Pagination from '../../../Atom/Pagination';
+import { jsPDF } from "jspdf";
+import html2canvas from 'html2canvas';
+import { FaDownload } from 'react-icons/fa6';
 
 const dummyData = [
-  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'present month report is not submitted', department: 'IT' },
+  { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'present month report is not submitted', department: 'CSE' },
   { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
 
   { rank: 1, cwpiScoreAlpha: 'A', cwpiScoreBeta: 'B', data: 'Current month report is not submitted', department: 'IT' },
@@ -65,24 +68,46 @@ const TableComponent = () => {
   const [startDate, setStartDate] = useState(new Date());
   const lastIndex = currentPage * entriesPerPage;
   const firstIndex = lastIndex - entriesPerPage;
-  const records = dummyData.slice(firstIndex, lastIndex);
+  const currentEntries = dummyData.slice(firstIndex, lastIndex);
   const totalEntries = dummyData.length;
   const totalPages = Math.ceil(totalEntries / entriesPerPage);
-  const numbers = [...Array(totalPages + 1).keys()].slice(1);//(if 5 pages then [1,2,3,4,5])
+  const numbers = [...Array(totalPages + 1).keys()].slice(1);
+  const [filteredEntries, setFilteredEntries] = useState(currentEntries);
+ const pdfRef = useRef();
+ const downloadPDF = ()=>{
+  const input = pdfRef.current;
+  html2canvas(input)
+    .then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p','mm','a4',true);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+      const imgX = (pdfWidth - imgWidth * ratio) / 2;
+      const imgY = 30;
+      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+    pdf.save("download.pdf");
+    });
 
+ 
+ }
   const prevPage = () => {
     if (currentPage !== firstIndex) {
       setCurrentPage(currentPage - 1);
     }
-  }
+  };
+
   const nextPage = () => {
     if (currentPage !== lastIndex) {
       setCurrentPage(currentPage + 1);
     }
-  }
+  };
+
   const handlePageChange = (id) => {
     setCurrentPage(id);
-  }
+  };
 
   const handleEntriesChange = (event) => {
     setEntriesPerPage(parseInt(event.target.value, 10));
@@ -90,19 +115,28 @@ const TableComponent = () => {
   };
 
   const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
+    const searchTerm = event.target.value.toLowerCase();
+    setSearchTerm(searchTerm);
+
+    const newFilteredEntries = dummyData.filter((entry) => {
+      return entry.department.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+
+    setFilteredEntries(newFilteredEntries);
+    setCurrentPage(1);
   };
 
-  const indexOfLastEntry = currentPage * entriesPerPage;
-  const indexOfFirstEntry = indexOfLastEntry - entriesPerPage;
-  const currentEntries = dummyData.slice(indexOfFirstEntry, indexOfLastEntry);
 
-  const filteredEntries = currentEntries.filter((entry) =>
-    entry.department.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4" ref={pdfRef}>
+      <div className='justify-between flex  py-6'>
+        <h1 className='items-center justify-start font-medium text-2xl'>CWPI Report</h1>
+        <button onClick={downloadPDF} class="btn-blue p-4 flex text-white font-medium  rounded">
+          Download <FaDownload className='ml-2 mt-1'/>
+        </button>
+      </div>
+
       <div className="flex justify-between mb-4">
         <div className="flex items-center text-lg font-medium">
           <label className="mr-2">Show:</label>
@@ -119,7 +153,7 @@ const TableComponent = () => {
         </div>
         <div className="flex items-center">
           <div className='px-4'>
-            <SearchForm onChange={handleSearch} />
+            <SearchForm handleSearch={handleSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
           </div>
           <div>
