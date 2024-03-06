@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState,useRef } from 'react';
 import SearchForm from '../../../Atom/SearchBar';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -73,26 +73,26 @@ const TableComponent = () => {
   const totalPages = Math.ceil(totalEntries / entriesPerPage);
   const numbers = [...Array(totalPages + 1).keys()].slice(1);
   const [filteredEntries, setFilteredEntries] = useState(currentEntries);
-  const pdfRef = useRef();
+ const pdfRef = useRef();
+ const downloadPDF = ()=>{
+  const input = pdfRef.current;
+  html2canvas(input)
+    .then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p','mm','a4',true);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+      const imgX = (pdfWidth - imgWidth * ratio) / 2;
+      const imgY = 30;
+      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+    pdf.save("download.pdf");
+    });
 
-  const downloadPDF = () => {
-    const input = pdfRef.current;
-    html2canvas(input)
-      .then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF('p', 'mm', 'a4', true);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = pdf.internal.pageSize.getHeight();
-        const imgWidth = canvas.width;
-        const imgHeight = canvas.height;
-        const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-        const imgX = (pdfWidth - imgWidth * ratio) / 2;
-        const imgY = 30;
-        pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-        pdf.save("download.pdf");
-      });
-  };
-
+ 
+ }
   const prevPage = () => {
     if (currentPage !== firstIndex) {
       setCurrentPage(currentPage - 1);
@@ -123,12 +123,15 @@ const TableComponent = () => {
     setCurrentPage(1);
   };
 
+
+
+
   return (
     <div className="container mx-auto p-4" ref={pdfRef}>
       <div className='justify-between flex  py-6'>
-        <h1 className='items-center justify-start font-medium text-2xl'>CWPI Report</h1>
+        <h1 className='items-center justify-start font-medium text-2xl'>Delta Change</h1>
         <button onClick={downloadPDF} class="btn-blue p-4 flex text-white font-medium  rounded">
-          Download <FaDownload className='ml-2 mt-1' />
+          Download <FaDownload className='ml-2 mt-1'/>
         </button>
       </div>
 
@@ -151,7 +154,7 @@ const TableComponent = () => {
             <SearchForm handleSearch={handleSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
           </div>
-          <div > 
+          <div>
             <DatePicker
               placeholderText="DD/MM/YYYY"
               dateFormat="dd/MM/yyyy"
@@ -200,4 +203,3 @@ const TableComponent = () => {
 };
 
 export default TableComponent;
-

@@ -1,15 +1,17 @@
 import React from 'react';
 
-const SearchForm = () => {
+const SearchForm = ({ handleSearch, searchTerm, setSearchTerm }) => {
+
+
   return (
-    <form className="max-w-md mx-auto">   
+    <form className="max-w-md mx-auto" >
       <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
         Search
       </label>
       <div className="relative">
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
           <svg
-            className="w-4 h-4 text-[#7575bf] "
+            className="w-4 h-4 text-blue-400"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -24,14 +26,22 @@ const SearchForm = () => {
             />
           </svg>
         </div>
-        <input
-          type="search"
-          id="default-search"
-        className="block w-full p-2.5 ps-10 text-sm  border text-[#7575bf] border-[#7a7ab6] rounded-lg bg-gray-50 placeholder-[#7575bf] focus:ring-purple-500 focus:border-purple-500 "
-          placeholder="Search By Department "
-          required
-        />
        
+         <div className="relative flex border border-blue-500 p-2 bg-white rounded-lg">
+          <input
+            type="search"
+            id="default-search"
+            className="block w-full  ps-10 text-sm border text-blue-400 border-blue-500 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Search By Department"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            required
+          />
+          <button onClick={handleSearch} className="ml-2 px-4 py-2 border border-blue-500 rounded-lg bg-blue-500 text-white">
+            Submit
+          </button>
+        </div>
+
       </div>
     </form>
   );

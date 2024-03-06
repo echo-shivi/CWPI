@@ -1,12 +1,13 @@
+
 import React from 'react';
-import Card from './Card'; 
+import Card from '../Card'; 
 
 const AgencyWork = () => {
   const cardsData = [
-    { heading: 'Minor WAter Resource Department(MWRD)', index: 1 },
-    { heading: 'Bihar Police Building Construction Corporation(BPBCC)', index: 2 },
-    { heading: 'Infrastructure Development Corporation(BSTDC)', index: 3 },
-    { heading: 'Bihar State Tourism Development Corportaion(BSTDC)', index: 4 },
+    { heading: 'Card 1', index: 1 },
+    { heading: 'Card 2', index: 2 },
+    { heading: 'Card 3', index: 3 },
+    { heading: 'Card 4', index: 4 },
     { heading: 'Card 5', index: 5 },
     { heading: 'Card 6', index: 6 },
     { heading: 'Card 7', index: 7 },
