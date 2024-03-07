@@ -1,14 +1,18 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-
+import Navbar from "./components/Common/Navbar";
+import Sidebar from "./components/Common/Sidebar";
 const App = () => {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </div>
+    <section className="flex bg-blue-100">
+      <Sidebar />
+      <div className="mx-0 text-xl w-full text-gray-900 font-semibold flex flex-col">
+        <Navbar />
+        <div className=" p-10">
+          <Home />
+        </div>
+      </div>
+    </section>
   );
 };
 
