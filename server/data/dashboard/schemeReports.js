@@ -1,22 +1,26 @@
 const schemeReportDetails = [{
-    "SchemeDetails":"Flagship Schemes"
-  },
-  {
-    "SchemeDetails":"Over 5 Cr. Last 3 years"
-  },
-  {
-    "SchemeDetails":"50 Pending Schemes"
-  },
-  {
-    "SchemeDetails":"All Other Schemes"
-  },
-  {
-  
-    "SchemeDetails":"All Schemes"
-  }
+  "id": 1,
+  "SchemeDetails": "Flagship Schemes"
+},
+{
+  "id": 2,
+  "SchemeDetails": "Over 5 Cr. Last 3 years"
+},
+{
+  "id": 3,
+  "SchemeDetails": "50 Pending Schemes"
+},
+{
+  "id": 4,
+  "SchemeDetails": "All Other Schemes"
+},
+{
+  "id": 5,
+  "SchemeDetails": "All Schemes"
+}
 ]
-   
-  
-     
-  
-    module.exports = {schemeReportDetails}
+
+
+
+
+module.exports = { schemeReportDetails }

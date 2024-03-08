@@ -1,12 +1,14 @@
 const pdfReportsDetails = [{
-    "reportDetails":"Generate Reports for schemes"
-  },
-  {
-    "reportDetails":"Generate POP for Employees"
-  }
+  "id": 1,
+  "reportDetails": "Generate Reports for schemes"
+},
+{
+  "id": 2,
+  "reportDetails": "Generate POP for Employees"
+}
 ]
-   
-  
-     
-  
-    module.exports = {pdfReportsDetails}
+
+
+
+
+module.exports = { pdfReportsDetails }
