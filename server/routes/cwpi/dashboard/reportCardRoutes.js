@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const reportCardsDetails = require('../../data/reportCards');
+const reportCardsDetails = require('../../../data/dashboard/reportCards');
 
 router.get('/details',
   (req, res) => {
