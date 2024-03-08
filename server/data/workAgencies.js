@@ -1,5 +1,5 @@
 const workAgenciesDetails = [{
-  "DepartmentName":"Bihor Medical Services & Infrastructure Corporation Ltd (BMSICL)",
+  "DepartmentName":"Bihar Medical Services & Infrastructure Corporation Ltd (BMSICL)",
   "Project count": 0
 },
 {
