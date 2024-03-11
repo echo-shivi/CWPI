@@ -1,25 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import SearchForm from '../../../../Atom/SearchBar';
 import axios from 'axios';
 import Pagination from '../../../../Atom/Pagination';
-import { jsPDF } from "jspdf";
+import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { FaDownload } from 'react-icons/fa6';
-
 
 const SchemeSubmitted = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [tablesData, setTablesData] = useState([]);
     const [entriesPerPage, setEntriesPerPage] = useState(10);
     const [searchTerm, setSearchTerm] = useState('');
-    
-    const totalEntries = tablesData.length;
-    const lastIndex = totalEntries > 0 ? currentPage * entriesPerPage : 0;
-    const firstIndex = totalEntries > 0 ? lastIndex - entriesPerPage : 0;
-    const currentEntries = tablesData.slice(firstIndex, lastIndex);
-        const totalPages = Math.ceil(totalEntries / entriesPerPage);
-    const numbers = [...Array(totalPages + 1).keys()].slice(1);
-    const [filteredEntries, setFilteredEntries] = useState(tablesData);
 
     const pdfRef = useRef();
 
@@ -28,7 +19,7 @@ const SchemeSubmitted = () => {
             try {
                 const response = await axios.get('http://localhost:8001/api/cwpi/dashboard/workAgency/agencyDetails/schemeSubmitted/details');
                 setTablesData(response.data.schemeSubmitted);
-                console.log('API response:', tablesData);
+                console.log('API response:', response.data);
 
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -38,33 +29,45 @@ const SchemeSubmitted = () => {
         fetchData();
     }, []);
 
+    const filteredEntries = useMemo(() => {
+        return searchTerm
+            ? tablesData.filter(
+                (entry) =>
+                    entry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    entry.emailId.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            : tablesData;
+    }, [searchTerm, tablesData]);
+
+    const currentEntries = filteredEntries.slice((currentPage - 1) * entriesPerPage, currentPage * entriesPerPage);
+    const totalPages = Math.ceil(filteredEntries.length / entriesPerPage);
+    const numbers = [...Array(totalPages + 1).keys()].slice(1);
+
     const downloadPDF = () => {
         const input = pdfRef.current;
-        html2canvas(input)
-            .then((canvas) => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF('p', 'mm', 'a4', true);
-                const pdfWidth = pdf.internal.pageSize.getWidth();
-                const pdfHeight = pdf.internal.pageSize.getHeight();
-                const imgWidth = canvas.width;
-                const imgHeight = canvas.height;
-                const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-                const imgX = (pdfWidth - imgWidth * ratio) / 2;
-                const imgY = 30;
-                pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-                pdf.save("download.pdf");
-            });
+        html2canvas(input).then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4', true);
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = pdf.internal.pageSize.getHeight();
+            const imgWidth = canvas.width;
+            const imgHeight = canvas.height;
+            const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+            const imgX = (pdfWidth - imgWidth * ratio) / 2;
+            const imgY = 30;
+            pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+            pdf.save('download.pdf');
+        });
+    };
 
-
-    }
     const prevPage = () => {
-        if (currentPage !== firstIndex) {
+        if (currentPage !== 1) {
             setCurrentPage(currentPage - 1);
         }
     };
 
     const nextPage = () => {
-        if (currentPage !== lastIndex) {
+        if (currentPage < totalPages) {
             setCurrentPage(currentPage + 1);
         }
     };
@@ -77,25 +80,17 @@ const SchemeSubmitted = () => {
         setEntriesPerPage(parseInt(event.target.value, 10));
         setCurrentPage(1);
     };
+
     const handleSearch = () => {
-        const newFilteredEntries = tablesData.filter((entry) => {
-          return entry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                entry.emailId.toLowerCase().includes(searchTerm.toLowerCase());
-        });
-    
-        setFilteredEntries(newFilteredEntries);
         setCurrentPage(1);
-      };
-    
-
-
+    };
 
     return (
         <div className="container mx-auto p-4" ref={pdfRef}>
-            <div className='justify-between flex  py-6'>
-                <h1 className='items-center justify-start font-medium text-2xl'>Employee Details</h1>
-                <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium  rounded">
-                    Download <FaDownload className='ml-2 mt-1' />
+            <div className="justify-between flex py-6">
+                <h1 className="items-center justify-start font-medium text-2xl">Admins Details</h1>
+                <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
+                    Download <FaDownload className="ml-2 mt-1" />
                 </button>
             </div>
 
@@ -107,18 +102,22 @@ const SchemeSubmitted = () => {
                         onChange={handleEntriesChange}
                         value={entriesPerPage}
                     >
-                        <option value={10} >10</option>
+                        <option value={10}>10</option>
                         <option value={20}>20</option>
                         <option value={30}>30</option>
                     </select>
                     <span className="ml-2">entries</span>
                 </div>
                 <div className="flex items-center">
-                    <div className='px-4'>
-                        <SearchForm handleSearch={handleSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-
+                    <div className="px-4">
+                        <SearchForm
+                            handleSearch={() => {
+                                handleSearch();
+                            }}
+                            searchTerm={searchTerm}
+                            setSearchTerm={setSearchTerm}
+                        />
                     </div>
-
                 </div>
             </div>
 
@@ -132,28 +131,37 @@ const SchemeSubmitted = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {totalEntries > 0 ? (
-                            tablesData.map((entry, index) => (
-                                <tr key={entry.id} className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}>
-                                    <td className="border font-medium">{entry?.id}</td>
-                                    <td className="border font-medium">{entry?.name}</td>
-                                    
-                                </tr>
-                            ))
-                        ) : (
-                            <tr className="h-10 text-base text-center">
-                                <td className="border font-medium" colSpan="3">No data Available in the table</td>
+                    {currentEntries.length > 0 ? (
+                        currentEntries.map((entry, index) => (
+                            <tr
+                                key={entry.id}
+                                className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}
+                            >
+                                <td className="border font-medium">{entry?.id}</td>
+                                <td className="border font-medium">{entry?.name}</td>
+
                             </tr>
-                        )}
+                        ))
+                    ) : (
+                        <tr className="h-10 text-base text-center">
+                            <td className="border font-medium" colSpan="3">No data Available in the table</td>
+                        </tr>
+                    )}
                 </tbody>
-
-
-
-
             </table>
 
             <div>
-                <Pagination currentPage={currentPage} totalEntries={totalEntries} firstIndex={firstIndex} lastIndex={lastIndex} totalPages={totalPages} onPageChange={handlePageChange} pages={numbers} prevPage={prevPage} nextPage={nextPage} />
+                <Pagination
+                    currentPage={currentPage}
+                    totalEntries={filteredEntries.length}
+                    firstIndex={(currentPage - 1) * entriesPerPage + 1}
+                    lastIndex={Math.min(currentPage * entriesPerPage, filteredEntries.length)}
+                    totalPages={totalPages}
+                    onPageChange={handlePageChange}
+                    pages={numbers}
+                    prevPage={prevPage}
+                    nextPage={nextPage}
+                />
             </div>
         </div>
     );
