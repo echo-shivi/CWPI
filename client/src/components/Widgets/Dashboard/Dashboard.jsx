@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DashboardLayout from './DashboardLayout';
 import WorkAgencies from './WorkAgency/AgencyWork';
-import SchemeReport from './SchemeReports'; 
+import SchemeReport from './SchemeReports/SchemeReports'; 
 import ReportCards from './ReportCards/ReportCards'; 
 import StageAnalysis from './StageAnalysis';
 import AgencyAnalysis from './WorkAgency/AgencyAnalysis'; 

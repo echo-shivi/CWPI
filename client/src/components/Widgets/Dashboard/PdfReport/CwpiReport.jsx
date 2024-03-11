@@ -18,7 +18,7 @@ const CwpiReport = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8001/api/cwpi/dashboard/reportCard/reportDetails/cwpiReport/details');
+                const response = await axios.get('http://localhost:8001/api/dashboard/reportCard/reportDetails/cwpiReport/details');
                 setTablesData(response.data.cwpiReport);
                 console.log('API response:', response.data.cwpiReport);
             } catch (error) {

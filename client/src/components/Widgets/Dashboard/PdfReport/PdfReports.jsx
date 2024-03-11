@@ -6,7 +6,7 @@ const PdfReports = () => {
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8001/api/cwpi/dashboard/pdfReport/details')
+    axios.get('http://localhost:8001/api/dashboard/pdfReport/details')
       .then((response) => {
         console.log('API response:', response.data);
         setCardsData(response.data.pdfReportsDetails); 

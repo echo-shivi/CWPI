@@ -17,7 +17,7 @@ const EmployeeDetails = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8001/api/cwpi/dashboard/workAgency/agencyDetails/employeeDetails/details');
+                const response = await axios.get('http://localhost:8001/api/dashboard/workAgency/agencyDetails/employeeDetails/details');
                 setTablesData(response.data.employeeDetails);
                 console.log('API response:', tablesData);
 

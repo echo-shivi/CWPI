@@ -1,10 +1,10 @@
 const express = require('express');
 
-const cwpiRoutes = require('./cwpi');
+const dashboardRoutes = require('./dashboard');
 
 const router = express.Router();
 
 
-router.use('/cwpi', cwpiRoutes);
+router.use('/dashboard', dashboardRoutes);
 
 module.exports = router;

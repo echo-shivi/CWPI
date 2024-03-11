@@ -7,7 +7,7 @@ const AgencyWork = () => {
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8001/api/cwpi/dashboard/workAgency/workAgencies/details')
+    axios.get('http://localhost:8001/api/dashboard/workAgency/workAgencies/details')
       .then((response) => {
         console.log('API response:', response.data);
         setCardsData(response.data.workAgenciesDetails); 

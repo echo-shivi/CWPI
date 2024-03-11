@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const cwpiReportDetails = require('../../../../../data/dashboard/reportCards/cwpiReport');
+const cwpiReportDetails = require('../../../../data/dashboard/reportCards/cwpiReport');
 
 router.get('/details',
   (req, res) => {

@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const pdfReportDetails = require('../../../data/dashboard/pdfReport');
+const pdfReportDetails = require('../../data/dashboard/pdfReport');
 
 router.get('/details',
   (req, res) => {
