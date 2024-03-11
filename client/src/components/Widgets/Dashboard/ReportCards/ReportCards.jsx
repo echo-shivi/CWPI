@@ -6,7 +6,7 @@ const ReportCards = () => {
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8001/api/cwpi/dashboard/reportCard/details')
+    axios.get('http://localhost:8001/api/cwpi/dashboard/reportCard/reportCardRoutes/details')
       .then((response) => {
         console.log('API response:', response.data);
         setCardsData(response.data.reportCardDetails); 
