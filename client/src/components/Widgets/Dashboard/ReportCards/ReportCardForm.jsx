@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { FaArrowRight } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
 const ReportsForm = () => {
     const [formData, setFormData] = useState({
@@ -61,9 +60,9 @@ const ReportsForm = () => {
                 />
             </div>
             <div className="mb-4">
-                <Link to="/report-card-details2"  className="btn-blue flex text-white font-medium rounded" type="submit">
+                <button  className="btn-blue flex text-white font-medium rounded" type="submit">
                     Go <FaArrowRight className='mt-1.5 ml-1 text-lg' />
-                </Link>
+                </button>
             </div>
         </form>
     );
