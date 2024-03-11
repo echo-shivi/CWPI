@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DashboardLayout from './DashboardLayout';
 import WorkAgencies from './WorkAgency/AgencyWork';
 import SchemeReport from './SchemeReports'; 
-import ReportCards from './ReportCards'; 
+import ReportCards from './ReportCards/ReportCards'; 
 import StageAnalysis from './StageAnalysis';
 import AgencyAnalysis from './WorkAgency/AgencyAnalysis'; 
 import PdfReports from './PdfReport/PdfReports'; 

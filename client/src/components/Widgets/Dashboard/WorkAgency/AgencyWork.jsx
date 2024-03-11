@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import axios from 'axios'; 
 
 const AgencyWork = () => {
-  const cardsData = [
-    { heading: 'Minor Water Resource Department (MWRD)', index: 1, project: 5 },
-    { heading: 'Bihar Police Building Construction Corporation (BPBCC)', index: 2, project: 6 },
-    { heading: 'Infrastructure Development Corporation (BSTDC)', project: 7 },
-    { heading: 'Bihar State Tourism Development Corporation (BSTDC)', index: 4, project: 5 },
-    { heading: 'Card 5', index: 5 },
-    { heading: 'Card 6', index: 6 },
-    { heading: 'Card 7', index: 7 },
-    { heading: 'Card 8', index: 8 },
-    { heading: 'Card 9', index: 9 },
-    { heading: 'Card 10', index: 10 },
-    { heading: 'Card 11', index: 11 },
-  ];
+  const [cardsData, setCardsData] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8001/api/cwpi/dashboard/workAgencies/details')
+      .then((response) => {
+        console.log('API response:', response.data);
+        setCardsData(response.data.workAgenciesDetails); 
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
+  if (!Array.isArray(cardsData)) {
+    console.error('cardsData is not an array:', cardsData);
+    return null; 
+  }
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -26,19 +31,19 @@ const AgencyWork = () => {
           className="block max-w-sm p-6 bg-blue-300 text-black border border-gray-200 rounded-lg shadow hover:bg-blue-200 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
           <p className="text-sm md:text-base font-medium mb-2 flex justify-between">
-            {card.heading} <BsFillArrowRightCircleFill size={22} color='white'/>
+            {card.DepartmentName} <BsFillArrowRightCircleFill size={22} color='white'/>
           </p>
-          {card.project ? (
-            <p className='font-normal text-base'>{card.project}</p>
-          ) : (
-            <p className='font-normal text-base'>0</p>
-          )}
+          <p className='font-normal text-base'>{card.Project_Count}</p>
         </Link>
       ))}
     </div>
   );
 };
 
+
+
 export default AgencyWork;
+
+
 
 
