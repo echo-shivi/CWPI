@@ -6,11 +6,19 @@ import AgencyDetail from "../components/Widgets/Dashboard/WorkAgency/AgencyDetai
 import ReportCardForm from "../components/Widgets/Dashboard/ReportCards/ReportCardForm";
 import CwpiReport from "../components/Widgets/Dashboard/ReportCards/CwpiReport"
 import DeltaChangeReport from "../components/Widgets/Dashboard/ReportCards/DeltaChangeReport"
-
+import CwpiRankingBottom from "../components/Widgets/Dashboard/ReportCards/CwpiRankingBottom/CwpiRankingSubdetail"
+import CwpiRankingTop from "../components/Widgets/Dashboard/ReportCards/CwpiRankingTop/CwpiRankingSubdetail"
+import DeltaCwpiRankingBottom from "../components/Widgets/Dashboard/ReportCards/DeltaCwpiRankingBottom/CwpiRankingSubdetail"
+import DeltaCwpiRankingTop from "../components/Widgets/Dashboard/ReportCards/DeltaCwpiRankingTop/CwpiRankingSubdetail"
   const reportCardComponents = {
     "1": <ReportCardForm />,
     "2": <CwpiReport />,
     "3": <DeltaChangeReport />,
+    "4": <CwpiRankingBottom />,
+    "5":<DeltaCwpiRankingBottom />,
+    "6":<CwpiRankingTop />,
+    "7":<DeltaCwpiRankingTop />
+
   };
   
   const App = () => {
