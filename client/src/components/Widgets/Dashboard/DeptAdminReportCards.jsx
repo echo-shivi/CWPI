@@ -1,11 +1,11 @@
 import React from 'react';
-import Card from '../Card'; 
+import Card from './Card'; 
 
 const AgencyWork = () => {
   const cardsData = [
-    { heading: 'Card 1', index: 1 },
-    { heading: 'Card 2', index: 2 },
-    { heading: 'Card 3', index: 3 },
+    { heading: 'Flagship Schemes', index: 1 },
+    { heading: 'Over 5 Cr last 3 years', index: 2 },
+    { heading: '50 pending schemens', index: 3 },
     { heading: 'Card 4', index: 4 },
     { heading: 'Card 5', index: 5 },
     { heading: 'Card 6', index: 6 },

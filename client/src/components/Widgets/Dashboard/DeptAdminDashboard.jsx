@@ -17,7 +17,7 @@ const DeptAdminDashboard = () => {
   const DashboardData = [
     { title: 'Agency Details', index: 1, component: <DeptAdminAgencyDetails /> },
     { title: 'Reports', index: 2, component: <DeptAdminReports /> },
-    { title: 'Scheme Reports', index: 3, component: <ReportCards /> },
+    { title: 'Scheme Reports', index: 3, component: <DeptAdminReportCards /> },
     { title: 'Report Cards', index: 4, component: <StageAnalysis />},
     { title: 'Stage Wise Analytics(Graphs)', index: 5, component: <AgencyAnalysis />},
     { title: 'Agency Wise Analytics(Graphs)', index: 6, component: <AgencyAnalysis />},
