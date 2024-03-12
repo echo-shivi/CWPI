@@ -19,7 +19,7 @@ const App = () => {
         <Route path="/scheme-report-details" element={<SchemeReportDetails />} />
         <Route path="/report-card-details" element={<ReportCardDetails />} />
         <Route path="/report-card-details2" element={<CwpiReport />} />
-        <Route path="/scheme-details" element={<SchemeDetails />} />
+        <Route path="/scheme-details" element={<SchemeDetails/>} />
         <Route path="/stagewise" element={<Stagewise/>} />
         <Route path="/employeeview" element={<EmployeeView/>} />
         <Route path="/stageanalysisgraphs" element={<StageAnalysisGraphs/>} />
