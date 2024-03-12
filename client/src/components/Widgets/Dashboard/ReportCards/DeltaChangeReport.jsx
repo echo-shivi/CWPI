@@ -88,7 +88,7 @@ const DeltaChange = () => {
     return (
         <div className="container mx-auto p-4" ref={pdfRef}>
             <div className="justify-between flex py-6">
-                <h1 className="items-center justify-start font-medium text-2xl">CWPI Report</h1>
+                <h1 className="items-center justify-start font-medium text-2xl">Delta Change</h1>
                 <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
                     Download <FaDownload className="ml-2 mt-1" />
                 </button>
