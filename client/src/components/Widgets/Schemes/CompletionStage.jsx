@@ -7,7 +7,7 @@ const customStyles = {
       color: "white",
       fontWeight: "bold",
       textTransform: "uppercase",
-      border: "2px solid white",
+      border: "1px solid white",
       
     },
   },
@@ -21,14 +21,14 @@ const customStyles = {
   },
   rows: {
     style: {
-      fontSize: "20px",
+      fontSize: "12px",
       fontWeight: "bold",
       backgroundColor: "#d3d3d3",
     },
   },
   cells: {
     style: {
-      padding: "10px",
+      padding: "6px",
       // border: "1px solid gray",
     },
   },

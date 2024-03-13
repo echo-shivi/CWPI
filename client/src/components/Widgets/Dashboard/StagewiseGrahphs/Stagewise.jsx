@@ -1,10 +1,10 @@
-
 // import { GiHamburgerMenu } from "react-icons/gi";
 // import React, { useState, useEffect } from "react";
 // import { Line } from "react-chartjs-2";
 // import DatePicker from "react-datepicker";
+// import axios from "axios";
 
-// const Chart = () => {
+// const Stagewise = () => {
 //   const [chartData, setChartData] = useState(null);
 //   const [formData, setFormData] = useState({ selectedDate: null });
 
@@ -12,12 +12,12 @@
 //     fetchData();
 //   }, []);
 
+ 
 //   const fetchData = async () => {
 //     try {
-//       const response = await fetch('http://localhost:8001/api/cwpi/dashboard/stagewisegraphs');
-//       console.log(response);
-//       const data = await response.json();
-//       setChartData(data);
+//       const res = await axios.get("http://localhost:8001/api/dashboard/stagewisegraph/details");
+//       setChartData(res.data); // Fix typo here
+//       console.log(chartData); 
 //     } catch (error) {
 //       console.error('Error fetching chart data:', error);
 //     }
@@ -48,10 +48,6 @@
 //     },
 //   };
 
- 
-//   if (!chartData) return <div>Loading...</div>;
-
- 
 //   return (
 //     <div className="bg-white p-4 rounded">
 //       <h1 className="capitalize mr-4 ">P1 Analytics </h1>
@@ -66,32 +62,36 @@
 //           onChange={handleDateChange}
 //           className="p-5 w-full border border-blue-200 text-sm text-gray-700 font-normal rounded"
 //         />
-//             <button
+//         <button
 //           class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-md"
 //           onClick={handleSubmit}
 //         >
 //           Submit
 //         </button>
 //       </div>
-
+  
 //       <div className="flex flex-row  items-center mt-3 mb-3">
 //         <h2 className="text-xl font-bold justify-center mr-3">Statistics by Average</h2>
 //         <GiHamburgerMenu />
 //       </div>
-//       <div
-//         style={{
-//           width: "600px",
-//           height: "300px",
-//           padding: "20px",
-//         }}
-//       >
-//         <Line data={chartData} options={options}></Line>
-//       </div>
+//       {chartData && (
+//         <div
+//           style={{
+//             width: "600px",
+//             height: "300px",
+//             padding: "20px",
+//           }}
+//         >
+//           <Line data={chartData} options={options}></Line>
+//         </div>
+//       )}
 //     </div>
 //   );
 // };
 
-// export default Chart;
+// export default Stagewise;
+  
+  
 
 
 

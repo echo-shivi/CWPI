@@ -1,12 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const CardComponent = () => {
+const CardComponent = ({ title, content, linkTo }) => {
   return (
     <div className="w-1/2 p-4">
       <div className="bg-white shadow-md rounded-lg p-6">
-        <h3 className="text-lg font-semibold mb-4"></h3>
+        {/* Use Link component for navigation */}
+        <Link to={linkTo} className="no-underline">
+          <h3 className="text-lg font-semibold mb-4">{title}</h3>
+        </Link>
         <p className="text-gray-700">
-         Generate POP for employees
+          {content}
         </p>
       </div>
     </div>
