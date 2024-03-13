@@ -128,7 +128,7 @@ const DeltaChange = () => {
               autoComplete="off"
               selected={startDate}
               onChange={(date) => setStartDate(date)}
-              className='p-5 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
+              className='px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
 
             />
 

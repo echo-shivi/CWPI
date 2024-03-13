@@ -80,7 +80,7 @@ function ReportsForm() {
                     autoComplete="off"
                     selected={formData.selectedDate}
                     onChange={handleDateChange}
-                    className='p-5 w-full border border-blue-200 text-sm text-gray-700 font-normal rounded'
+                    className='px-5 py-4 w-full border border-blue-200 text-sm text-gray-700 font-normal rounded'
 
                 />
             </div>

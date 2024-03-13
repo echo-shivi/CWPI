@@ -86,13 +86,7 @@ const Admins = () => {
 
     return (
         <div className="container mx-auto p-4" ref={pdfRef}>
-            <div className="justify-between flex py-6">
-                <h1 className="items-center justify-start font-medium text-2xl">Admins Details</h1>
-                <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
-                    Download <FaDownload className="ml-2 mt-1" />
-                </button>
-            </div>
-
+            <h1 className="items-center justify-start text-gray-700 font-medium text-2xl pb-6">Admins Details</h1>
             <div className="flex justify-between mb-4">
                 <div className="flex items-center text-lg font-medium">
                     <label className="mr-2">Show:</label>
@@ -102,9 +96,7 @@ const Admins = () => {
                         value={entriesPerPage}
                     >
                         <option value={3}>3</option>
-
                         <option value={5}>5</option>
-
                         <option value={10}>10</option>
                         <option value={20}>20</option>
                         <option value={30}>30</option>
@@ -112,6 +104,7 @@ const Admins = () => {
                     <span className="ml-2">entries</span>
                 </div>
                 <div className="flex items-center">
+
                     <div className="px-4">
                         <SearchForm
                             handleSearch={() => {
@@ -121,8 +114,13 @@ const Admins = () => {
                             setSearchTerm={setSearchTerm}
                         />
                     </div>
+                    <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
+                        Download <FaDownload className="ml-2 mt-1" />
+                    </button>
                 </div>
             </div>
+
+          
 
             <table className="table-auto w-full">
                 <thead>
