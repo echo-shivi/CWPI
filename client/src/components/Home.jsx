@@ -6,8 +6,8 @@ import AgencyDetail from "../components/Widgets/Dashboard/WorkAgency/AgencyDetai
 import ReportCardDetails from "../components/Widgets/Dashboard/ReportCards/ReportCardForm";
 import CwpiReport from "../components/Widgets/Dashboard/PdfReport/CwpiReport"
 import SchemeDetails from "./Widgets/Schemes/SchemeDetails";
-import Stagewise from "./Widgets/Dashboard/StagewiseGrahphs/Stagewise"
-import StageAnalysisGraphs from "./Widgets/Dashboard/StagewiseGrahphs/StageAnalysisGraphs";
+import Stagewise from "./Widgets/Dashboard/StagewiseGraphs/Stagewise"
+import StageAnalysisGraphs from "./Widgets/Dashboard/StagewiseGraphs/StageAnalysisGraphs";
 import EmployeeView from "./Widgets/Schemes/EmployeeView";
 import DropDownMenu from "./Widgets/Dashboard/DropdownMenu";
 import ReactTable from "./Widgets/Dashboard/PdfReport/ReactTable";
@@ -25,11 +25,11 @@ const App = () => {
         <Route path="/scheme-details" element={<SchemeDetails/>} />
         <Route path="/stagewise" element={<Stagewise/>} />
         <Route path="/employeeview" element={<EmployeeView/>} />
-        <Route path="/stageanalysisgraphs" element={<StageAnalysisGraphs/>} />
+        {/* <Route path="/stageanalysisgraphs" element={<StageAnalysisGraphs/>} /> */}
         <Route path="/pdfreport" element={<DropDownMenu/>} />
         <Route path="/masterentry" element={<ReactTable/>}/>
         <Route path="/analytics" element={<DropDownIcon/>}/>
-        <Route path="/" element={<SuperAdmin/>}/>
+        <Route path="/stage" element={<SuperAdmin/>}/>
         
       </Routes>
 

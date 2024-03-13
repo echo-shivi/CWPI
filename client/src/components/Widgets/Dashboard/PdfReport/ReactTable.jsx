@@ -246,7 +246,7 @@ const ReactTable = () => {
   }
 
   return (
-    <div className=" flex flex-wrap justify-start container mt-5">
+    <div className=" flex flex-wrap justify-start container mt-5 ml-10">
       <div className="text-end  flex mr-0  justify-between items-center">
         <h1 className=" ml-4 mb-4  mr-7">Master Entry</h1>
         <input 
