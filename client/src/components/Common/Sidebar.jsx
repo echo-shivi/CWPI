@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { TbReportAnalytics } from "react-icons/tb";
@@ -9,20 +9,34 @@ import { IoMdHelpCircleOutline } from "react-icons/io";
 import { TbAlertSquareRounded } from "react-icons/tb";
 import { ImProfile } from "react-icons/im";
 import { FaPeopleRoof } from "react-icons/fa6";
-import BvmLogo from '../../assets/bvm-logo.png'
+import BvmLogo from '../../assets/bvm-logo.png';
+
 function Sidebar() {
   const menus = [
     { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
     { name: "Add Agencies", link: "/add-agencies", icon: FaPeopleRoof },
     { name: "Add Agency Admin", link: "/add-agency-admin", icon: AiOutlineUser },
     { name: "Add Designation", link: "/add-designation", icon: ImProfile },
-
     { name: "Analytics", link: "/analytics", icon: TbReportAnalytics, margin: true },
     { name: "Alerts", link: "/alerts", icon: TbAlertSquareRounded },
     { name: "Help", link: "/help", icon: IoMdHelpCircleOutline },
     { name: "LogOut", link: "/logout", icon: TbLogout2, margin: true },
   ];
-  const [open, setOpen] = useState(true);
+
+  const [open, setOpen] = useState(window.innerWidth >= 790);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setOpen(window.innerWidth >= 790);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div
       className={`bg-blue-400 min-h-screen ${open ? "w-72" : "w-16"
@@ -67,7 +81,8 @@ function Sidebar() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;
+
