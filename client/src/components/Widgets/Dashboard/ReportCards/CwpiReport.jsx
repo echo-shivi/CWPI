@@ -158,6 +158,7 @@ const CwpiReport = () => {
                                 <td className="border font-medium">{entry?.departmentName}</td>
                                 <td className="border font-medium">{entry?.cwpiScore}</td>
                                 <td className="border font-medium">{entry?.percentile}</td>
+                                <td className="border font-medium"><button className='bg-blue-400  text-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg p-3 my-2'>View Details</button></td>
 
                             </tr>
                         ))

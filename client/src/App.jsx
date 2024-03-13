@@ -8,7 +8,7 @@ const App = () => {
       <Sidebar />
       <div className="mx-0 text-xl w-full text-gray-900 font-semibold flex flex-col">
         <Navbar />
-        <div className="px-10 py-2">
+        <div className="px-10 py-2 ">
           <Home />
         </div>
       </div>
