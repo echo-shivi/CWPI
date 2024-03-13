@@ -10,7 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 const Bottom1 = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [tablesData, setTablesData] = useState([]);
-    const [entriesPerPage, setEntriesPerPage] = useState(10);
+    const [entriesPerPage, setEntriesPerPage] = useState(3);
     const [searchTerm, setSearchTerm] = useState('');
     const [startDate, setStartDate] = useState(null);
     const pdfRef = useRef();
@@ -102,6 +102,8 @@ const Bottom1 = () => {
                         onChange={handleEntriesChange}
                         value={entriesPerPage}
                     >
+                        <option value={3}>3</option>
+                        <option value={5}>5</option>
                         <option value={10}>10</option>
                         <option value={20}>20</option>
                         <option value={30}>30</option>
@@ -118,19 +120,19 @@ const Bottom1 = () => {
                             setSearchTerm={setSearchTerm}
                         />
                     </div>
-                    <div > 
-            <DatePicker
-              placeholderText="DD/MM/YYYY"
-              dateFormat="dd/MM/yyyy"
-              id="start-date"
-              autoComplete="off"
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              className='p-5 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
+                    <div >
+                        <DatePicker
+                            placeholderText="DD/MM/YYYY"
+                            dateFormat="dd/MM/yyyy"
+                            id="start-date"
+                            autoComplete="off"
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            className='p-5 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
 
-            />
+                        />
 
-          </div>
+                    </div>
                 </div>
             </div>
 

@@ -10,7 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 const CwpiReport = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [tablesData, setTablesData] = useState([]);
-    const [entriesPerPage, setEntriesPerPage] = useState(10);
+    const [entriesPerPage, setEntriesPerPage] = useState(3);
     const [searchTerm, setSearchTerm] = useState('');
     const [startDate, setStartDate] = useState(null);
     const pdfRef = useRef();
@@ -102,6 +102,8 @@ const CwpiReport = () => {
                         onChange={handleEntriesChange}
                         value={entriesPerPage}
                     >
+                        <option value={3}>3</option>
+                        <option value={5}>5</option>
                         <option value={10}>10</option>
                         <option value={20}>20</option>
                         <option value={30}>30</option>
