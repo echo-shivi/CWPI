@@ -25,7 +25,7 @@ const DashboardLayout = ({ title, children, index, activeIndex, setActiveIndex }
             </div>
 
             {isActive && (
-                <div className="shadow-3xl rounded-2xl shadow-cyan-500/50 p-4 mb-6">
+                <div className="shadow-3xl rounded-2xl shadow-cyan-500/50 py-4 mb-6">
                     {children}
                 </div>
             )}
