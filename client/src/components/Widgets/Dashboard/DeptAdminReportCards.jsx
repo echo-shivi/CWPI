@@ -1,19 +1,11 @@
 import React from 'react';
 import Card from './Card'; 
 
-const AgencyWork = () => {
+const DeptAdminAgencyWork = () => {
   const cardsData = [
     { heading: 'Flagship Schemes', index: 1 },
     { heading: 'Over 5 Cr last 3 years', index: 2 },
     { heading: '50 pending schemens', index: 3 },
-    { heading: 'Card 4', index: 4 },
-    { heading: 'Card 5', index: 5 },
-    { heading: 'Card 6', index: 6 },
-    { heading: 'Card 7', index: 7 },
-    { heading: 'Card 8', index: 8 },
-    { heading: 'Card 9', index: 9 },
-    { heading: 'Card 10', index: 10 },
-    { heading: 'Card 11', index: 11 },
   ];
 
   return (
@@ -25,4 +17,4 @@ const AgencyWork = () => {
   );
 };
 
-export default AgencyWork;
+export default DeptAdminAgencyWork;

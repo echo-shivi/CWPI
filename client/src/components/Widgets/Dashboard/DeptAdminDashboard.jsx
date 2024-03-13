@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import DashboardLayout from './DashboardLayout';
-import DeptAdminAgencyDetails from './DeptAdminAgencyDetails';
-import DeptAdminReports from './DeptAdminReports'; 
-import ReportCards from './ReportCards'; 
-import StageAnalysis from './StageAnalysis';
-import AgencyAnalysis from './AgencyAnalysis'; 
-import PdfReports from './PdfReport/PdfReports'; 
+import React, { useState } from "react";
+import DashboardLayout from "./DashboardLayout";
+import DeptAdminReports from "./DeptAdminReports";
+import DeptAdminReportCards from "./DeptAdminReportCards";
+import DeptAdminStageAnalysis from "./DeptAdminStageAnalysis";
+import DeptAdminAgencyAnalysis from "./DeptAdminAgencyAnalysis";
+import DeptAdminPendingScheme from "./DeptAdminPendingScheme";
+import DeptAdminConventionalScheme from "./DeptAdminConventionalScheme";
 
 const DeptAdminDashboard = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -15,20 +15,36 @@ const DeptAdminDashboard = () => {
   };
 
   const DashboardData = [
-    { title: 'Agency Details', index: 1, component: <DeptAdminAgencyDetails /> },
-    { title: 'Reports', index: 2, component: <DeptAdminReports /> },
-    { title: 'Scheme Reports', index: 3, component: <DeptAdminReportCards /> },
-    { title: 'Report Cards', index: 4, component: <StageAnalysis />},
-    { title: 'Stage Wise Analytics(Graphs)', index: 5, component: <AgencyAnalysis />},
-    { title: 'Agency Wise Analytics(Graphs)', index: 6, component: <AgencyAnalysis />},
-    { title: 'Pending Schemes for final submission 0', index: 7, component: <PdfReports />},
-    { title: 'Conventional P6 Approvals', index: 8, component: <PdfReports />},
+    { title: "Reports", index: 1, component: <DeptAdminReports /> },
+    { title: "Scheme Reports", index: 2, component: <DeptAdminReportCards /> },
+    { title: "Report Cards", index: 3, component: <DeptAdminStageAnalysis /> },
+    {
+      title: "Stage Wise Analytics(Graphs)",
+      index: 4,
+      component: <DeptAdminAgencyAnalysis />,
+    },
+    {
+      title: "Pending Schemes for final submission 0",
+      index: 6,
+      component: <DeptAdminPendingScheme />,
+    },
+    {
+      title: "Conventional P6 Approvals",
+      index: 7,
+      component: <DeptAdminConventionalScheme />,
+    },
   ];
 
   return (
-    <div className='mx-0 flex flex-col w-full pt-[10px]'>
-      <h1 className='text-[18px] md:text-2xl text-center underline'>Welcome Agency Admin</h1>
-      <div className='pt-10 justify-center items-center'>
+    <div className="mx-0 flex flex-col w-full pt-[10px]">
+      <h1 className="text-[18px] md:text-2xl text-center underline">
+        Welcome Agency Admin
+      </h1>
+      <h1 className="pt-6 flex justify-center text-[18px] md:text-2xl">
+        Agency Name- Environment, Forest & Climate Change Department(EFCCD)
+      </h1>
+      <div className="pt-10 justify-center items-center">
+        <div className="pt-4"></div>
         {DashboardData.map((item) => (
           <DashboardLayout
             key={item.index}
@@ -46,6 +62,3 @@ const DeptAdminDashboard = () => {
 };
 
 export default DeptAdminDashboard;
-
-
-

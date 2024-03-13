@@ -12,7 +12,8 @@ import { FaPeopleRoof } from "react-icons/fa6";
 import BvmLogo from "../../assets/bvm-logo.png";
 function DeptAdminSidebar() {
   const menus = [
-    { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
+    { name: "Dashboard", link: "/home", icon: MdOutlineDashboard },
+    { name: "Agency Wise Analytics", link: "/AgencyAnalytics", icon: MdOutlineDashboard },
     { name: "Employee Entry", link: "/", icon: FaPeopleRoof },
     { name: "Register Master Scheme", link: "/", icon: AiOutlineUser },
     { name: "Master Entry", link: "/", icon: ImProfile },
@@ -23,7 +24,7 @@ function DeptAdminSidebar() {
   const [open, setOpen] = useState(true);
   return (
     <div
-      className={`bg-[#7575bf] min-h-screen ${
+      className={`bg-blue-400 min-h-screen ${
         open ? "w-72" : "w-16"
       } duration-500 text-gray-100 px-4`}
     >

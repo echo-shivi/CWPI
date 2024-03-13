@@ -19,14 +19,14 @@ const DeptAdminReports = () => {
   return (
     <>
     <div className="underline">Number of Schemes submitted Last Month </div>
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 pt-6">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 pt-6">
       {cardsData1.map((card, index) => (
         <Card key={index} {...card} />
       ))}
     </div>
    
     <div className="pt-6 underline">Number of Schemes submitted Last Month</div> 
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 pt-6">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 pt-6">
       {cardsData1.map((card, index) => (
         <Card key={index} {...card} />
       ))}
