@@ -13,7 +13,7 @@ import BvmLogo from '../../assets/bvm-logo.png';
 
 function Sidebar() {
   const menus = [
-    { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
+    { name: "Dashboard", link: "/home", icon: MdOutlineDashboard },
     { name: "Add Agencies", link: "/add-agencies", icon: FaPeopleRoof },
     { name: "Add Agency Admin", link: "/add-agency-admin", icon: AiOutlineUser },
     { name: "Add Designation", link: "/add-designation", icon: ImProfile },

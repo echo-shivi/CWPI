@@ -12,7 +12,7 @@ const EmployeeDetails = () => {
     const [entriesPerPage, setEntriesPerPage] = useState(3);
     const [searchTerm, setSearchTerm] = useState('');
 
-    const pdfRef = useRef();
+  const pdfRef = useRef();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -72,9 +72,9 @@ const EmployeeDetails = () => {
         }
     };
 
-    const handlePageChange = (id) => {
-        setCurrentPage(id);
-    };
+  const handlePageChange = (id) => {
+    setCurrentPage(id);
+  };
 
     const handleEntriesChange = (event) => {
         setEntriesPerPage(parseInt(event.target.value, 10));

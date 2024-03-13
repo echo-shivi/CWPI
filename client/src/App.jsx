@@ -1,19 +1,70 @@
-import React from "react";
-import Home from "./components/Home";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Login from "./components/Login";
+import Forgot from "./components/Forgot";
+import AgencyAnalytics from "./components/Widgets/Dashboard/AgencyAnalytics";
+import SchemeReportDetails from "./components/Widgets/Dashboard/SchemeReports/ReportsForm";
 import Navbar from "./components/Common/Navbar";
 import Sidebar from "./components/Common/Sidebar";
+import Dashboard from "./components/Widgets/Dashboard/Dashboard";
+import AgencyDetail from "./components/Widgets/Dashboard/WorkAgency/AgencyDetail";
+import ReportCardForm from "./components/Widgets/Dashboard/ReportCards/ReportCardForm";
+import CwpiReport from "./components/Widgets/Dashboard/ReportCards/CwpiReport"
+import DeltaChangeReport from "./components/Widgets/Dashboard/ReportCards/DeltaChangeReport"
+import CwpiRankingBottom from "./components/Widgets/Dashboard/ReportCards/CwpiRankingBottom/CwpiRankingSubdetail"
+import CwpiRankingTop from "./components/Widgets/Dashboard/ReportCards/CwpiRankingTop/CwpiRankingSubdetail"
+import DeltaCwpiRankingBottom from "./components/Widgets/Dashboard/ReportCards/DeltaCwpiRankingBottom/CwpiRankingSubdetail"
+import DeltaCwpiRankingTop from "./components/Widgets/Dashboard/ReportCards/DeltaCwpiRankingTop/CwpiRankingSubdetail"
+
+const WithLayout = ({ children }) => (
+  <section className="flex bg-blue-100">
+    <Sidebar />
+    <div className="mx-0 text-xl w-full text-gray-900 font-semibold flex flex-col">
+      <Navbar />
+      <div className="p-10">{children}</div>
+    </div>
+  </section>
+);
+
+const WithoutLayout = ({ children }) => <>{children}</>;
 const App = () => {
+  const reportCardComponents = {
+    "1": <ReportCardForm />,
+    "2": <CwpiReport />,
+    "3": <DeltaChangeReport />,
+    "4": <CwpiRankingBottom />,
+    "5": <DeltaCwpiRankingBottom />,
+    "6": <CwpiRankingTop />,
+    "7": <DeltaCwpiRankingTop />
+  };
+
+  const reportCardRoutes = [];
+  for (const reportCardNumber in reportCardComponents) {
+    reportCardRoutes.push(
+      <Route
+        key={reportCardNumber}
+        path={`/report-card/${reportCardNumber}`}
+        element={reportCardComponents[reportCardNumber]}
+      />
+    );
+  }
+
   return (
-    <section className="flex bg-blue-100 ">
-      <Sidebar />
-      <div className="mx-0 text-xl w-full text-gray-900 font-semibold flex flex-col">
-        <Navbar />
-        <div className="px-10 py-2">
-          <Home />
-        </div>
-      </div>
-    </section>
+    <Router>
+      <Routes>
+        <Route path='/home' element={<WithLayout><Dashboard /></WithLayout>} />
+        <Route path='/' element={<WithoutLayout><Login /></WithoutLayout>} />
+        <Route path='/forgot' element={<WithoutLayout><Forgot /></WithoutLayout>} />
+        <Route path='/AgencyAnalytics' element={<WithLayout><AgencyAnalytics /></WithLayout>} />
+        <Route path='/agency' element={<WithLayout><AgencyDetail /></WithLayout>} />
+        <Route path='/scheme-report-details' element={<WithLayout><SchemeReportDetails /></WithLayout>} />
+        {reportCardRoutes}
+        <Route path='*' element={<Navigate to='/' />} />
+      </Routes>
+    </Router>
   );
 };
 
 export default App;
+
+
