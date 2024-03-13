@@ -120,6 +120,7 @@ const EmployeeDetails = () => {
                     </button>
                 </div>
             </div>
+            <div className="overflow-x-auto">
 
             <table className="table-auto w-full">
                 <thead>
@@ -159,7 +160,7 @@ const EmployeeDetails = () => {
                     )}
                 </tbody>
             </table>
-
+</div>
             <div>
                 <Pagination
                     currentPage={currentPage}

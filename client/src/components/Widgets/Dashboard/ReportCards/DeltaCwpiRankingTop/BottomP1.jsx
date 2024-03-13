@@ -135,6 +135,7 @@ const Bottom1 = () => {
           </div>
                 </div>
             </div>
+            <div className="overflow-x-auto">
 
             <table className="table-auto w-full">
                 <thead>
@@ -167,7 +168,7 @@ const Bottom1 = () => {
                     )}
                 </tbody>
             </table>
-
+</div>
             <div>
                 <Pagination
                     currentPage={currentPage}

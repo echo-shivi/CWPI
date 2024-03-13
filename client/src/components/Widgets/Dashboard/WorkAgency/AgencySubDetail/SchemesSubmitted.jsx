@@ -120,6 +120,7 @@ const SchemeSubmitted = () => {
                     </button>
                 </div>
             </div>
+            <div className="overflow-x-auto">
 
             <table className="table-auto w-full">
                 <thead>
@@ -151,7 +152,7 @@ const SchemeSubmitted = () => {
                     )}
                 </tbody>
             </table>
-
+</div>
             <div>
                 <Pagination
                     currentPage={currentPage}

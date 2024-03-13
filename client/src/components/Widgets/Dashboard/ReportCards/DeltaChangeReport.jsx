@@ -120,57 +120,58 @@ const DeltaChange = () => {
                             setSearchTerm={setSearchTerm}
                         />
                     </div>
-                    <div > 
-            <DatePicker
-              placeholderText="DD/MM/YYYY"
-              dateFormat="dd/MM/yyyy"
-              id="start-date"
-              autoComplete="off"
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              className='px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
+                    <div >
+                        <DatePicker
+                            placeholderText="DD/MM/YYYY"
+                            dateFormat="dd/MM/yyyy"
+                            id="start-date"
+                            autoComplete="off"
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            className='px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
 
-            />
+                        />
 
-          </div>
+                    </div>
                 </div>
             </div>
+            <div className="overflow-x-auto">
 
-            <table className="table-auto w-full">
-                <thead>
-                    <tr>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Rank</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">CWPI Score 01-2024 Alpha</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">CWPI Score 02-2024 Beta</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Change in CWPI Score Delta</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Department Name</th>
+                <table className="table-auto w-full">
+                    <thead>
+                        <tr>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Rank</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">CWPI Score 01-2024 Alpha</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">CWPI Score 02-2024 Beta</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Change in CWPI Score Delta</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Department Name</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    {currentEntries.length > 0 ? (
-                        currentEntries.map((entry, index) => (
-                            <tr
-                                key={entry.rank}
-                                className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}
-                            >
-                                <td className="border font-medium">{entry?.rank}</td>
-                                <td className="border font-medium">{entry?.cwpiScoreAlpha}</td>
-                                <td className="border font-medium">{entry?.cwpiScoreBeta}</td>
-                                <td className="border font-medium">{entry?.cwpiScoreDelta}</td>
-                                <td className="border font-medium">{entry?.department}</td>
-
-
-                            </tr>
-                        ))
-                    ) : (
-                        <tr className="h-10 text-base text-center">
-                            <td className="border font-medium" colSpan="3">No data Available in the table</td>
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {currentEntries.length > 0 ? (
+                            currentEntries.map((entry, index) => (
+                                <tr
+                                    key={entry.rank}
+                                    className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}
+                                >
+                                    <td className="border font-medium">{entry?.rank}</td>
+                                    <td className="border font-medium">{entry?.cwpiScoreAlpha}</td>
+                                    <td className="border font-medium">{entry?.cwpiScoreBeta}</td>
+                                    <td className="border font-medium">{entry?.cwpiScoreDelta}</td>
+                                    <td className="border font-medium">{entry?.department}</td>
 
+
+                                </tr>
+                            ))
+                        ) : (
+                            <tr className="h-10 text-base text-center">
+                                <td className="border font-medium" colSpan="3">No data Available in the table</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
             <div>
                 <Pagination
                     currentPage={currentPage}

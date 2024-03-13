@@ -120,54 +120,55 @@ const Bottom2 = () => {
                             setSearchTerm={setSearchTerm}
                         />
                     </div>
-                    <div > 
-            <DatePicker
-              placeholderText="DD/MM/YYYY"
-              dateFormat="dd/MM/yyyy"
-              id="start-date"
-              autoComplete="off"
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              className='px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
+                    <div >
+                        <DatePicker
+                            placeholderText="DD/MM/YYYY"
+                            dateFormat="dd/MM/yyyy"
+                            id="start-date"
+                            autoComplete="off"
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            className='px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
 
-            />
+                        />
 
-          </div>
+                    </div>
                 </div>
             </div>
+            <div className="overflow-x-auto">
 
-            <table className="table-auto w-full">
-                <thead>
-                    <tr>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Rank</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Department Name</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Average Score</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Stage</th>
+                <table className="table-auto w-full">
+                    <thead>
+                        <tr>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Rank</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Department Name</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Average Score</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Stage</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    {currentEntries.length > 0 ? (
-                        currentEntries.map((entry, index) => (
-                            <tr
-                                key={entry.id}
-                                className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}
-                            >
-                                <td className="border font-medium">{entry?.id}</td>
-                                <td className="border font-medium">{entry?.departmentName}</td>
-                                <td className="border font-medium">{entry?.averageScore}</td>
-                                <td className="border font-medium">{entry?.Stage}</td>
-
-                            </tr>
-                        ))
-                    ) : (
-                        <tr className="h-10 text-base text-center">
-                            <td className="border font-medium" colSpan="3">No data Available in the table</td>
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {currentEntries.length > 0 ? (
+                            currentEntries.map((entry, index) => (
+                                <tr
+                                    key={entry.id}
+                                    className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}
+                                >
+                                    <td className="border font-medium">{entry?.id}</td>
+                                    <td className="border font-medium">{entry?.departmentName}</td>
+                                    <td className="border font-medium">{entry?.averageScore}</td>
+                                    <td className="border font-medium">{entry?.Stage}</td>
 
+                                </tr>
+                            ))
+                        ) : (
+                            <tr className="h-10 text-base text-center">
+                                <td className="border font-medium" colSpan="3">No data Available in the table</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
             <div>
                 <Pagination
                     currentPage={currentPage}
