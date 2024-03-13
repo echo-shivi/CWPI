@@ -25,7 +25,7 @@ const Dashboard = () => {
 
   return (
     <div className='mx-0 flex flex-col w-full pt-[36px]'>
-      <h1 className=' md:text-4xl font-normal text-gray-700 text-lg sm:text-xl'>Welcome TO Super Admin Dashboard</h1>
+      <h1 className='text-xl md:text-2xl font-normal text-gray-700  '>Welcome TO Super Admin Dashboard</h1>
       <div className='pt-8 justify-center items-center'>
         {DashboardData.map((item) => (
          <DashboardLayout
