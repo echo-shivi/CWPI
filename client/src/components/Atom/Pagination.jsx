@@ -16,7 +16,7 @@ const Pagination = ({ currentPage, totalPages, firstIndex, onPageChange, lastInd
         {
           pages.map((page, index) => (
             <li key={index} className={`${currentPage === totalPages ? 'active' : ''}`}>
-              <a href="#" onClick={() => onPageChange(page)} className={`relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 ${currentPage === page ? 'bg-blue-500 text-white' : ''}`}>
+              <a href="#" onClick={() => onPageChange(page)} className={`relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700  border  ${currentPage === page ? 'bg-blue-300 border-blue-300' : 'bg-white border-gray-300'}`}>
                 {page}
               </a>
             </li>
