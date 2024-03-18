@@ -2,7 +2,7 @@
 const express = require('express');
 
 const router = express.Router();
-const BarCharts = require('../../data/dashboard/barchart');
+const BarCharts = require('../../data/dashboard/barChart');
 
 router.get('/details',
   (req, res) => {
