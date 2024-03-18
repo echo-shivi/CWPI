@@ -1,12 +1,12 @@
 const express = require('express');
 
 const router = express.Router();
-const reportCardsDetails = require('../../data/dashboard/reportCards');
+const ReactTable = require('../../data/dashboard/reactTable');
 
 router.get('/details',
   (req, res) => {
-    console.log(reportCardsDetails);
-    res.send(reportCardsDetails);
+    console.log(ReactTable);
+    res.send(ReactTable);
   }
 );
 
