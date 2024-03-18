@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Circle from "./Circle";
-import "../Schemes/style/Progress.css";
 
 const ProgressIndicator = () => {
   const [circle] = useState(4);

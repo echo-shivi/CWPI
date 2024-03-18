@@ -122,37 +122,37 @@ const SchemeSubmitted = () => {
             </div>
             <div className="overflow-x-auto">
 
-            <table className="table-auto w-full">
-                <thead>
-                    <tr>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">S.No.</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Name</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Action</th>
+                <table className="table-auto w-full">
+                    <thead>
+                        <tr>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">S.No.</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Name</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Action</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    {currentEntries.length > 0 ? (
-                        currentEntries.map((entry, index) => (
-                            <tr
-                                key={entry.id}
-                                className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}
-                            >
-                                <td className="border font-medium">{entry?.id}</td>
-                                <td className="border font-medium">{entry?.name}</td>
-                                <td className="border font-medium"><button className='bg-blue-400  text-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg p-3 my-2'>View Details</button></td>
-
-
-                            </tr>
-                        ))
-                    ) : (
-                        <tr className="h-10 text-base text-center">
-                            <td className="border font-medium" colSpan="3">No data Available in the table</td>
                         </tr>
-                    )}
-                </tbody>
-            </table>
-</div>
+                    </thead>
+                    <tbody>
+                        {currentEntries.length > 0 ? (
+                            currentEntries.map((entry, index) => (
+                                <tr
+                                    key={entry.id}
+                                    className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}
+                                >
+                                    <td className="border font-medium">{entry?.id}</td>
+                                    <td className="border font-medium">{entry?.name}</td>
+                                    <td className="border font-medium"><button className='bg-blue-400  text-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg p-3 my-2'>View Details</button></td>
+
+
+                                </tr>
+                            ))
+                        ) : (
+                            <tr className="h-10 text-base text-center">
+                                <td className="border font-medium" colSpan="3">No data Available in the table</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
             <div>
                 <Pagination
                     currentPage={currentPage}
