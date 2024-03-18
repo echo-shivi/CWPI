@@ -25,11 +25,17 @@ const App = () => {
         <Route path="/scheme-details" element={<SchemeDetails/>} />
         <Route path="/stagewise" element={<Stagewise/>} />
         <Route path="/employeeview" element={<EmployeeView/>} />
+
+
+      
         {/* <Route path="/stageanalysisgraphs" element={<StageAnalysisGraphs/>} /> */}
-        <Route path="/pdfreport" element={<DropDownMenu/>} />
+
+
+
+        {/* <Route path="/pdfreport" element={<DropDownMenu/>} />
         <Route path="/masterentry" element={<ReactTable/>}/>
         <Route path="/analytics" element={<DropDownIcon/>}/>
-        <Route path="/stage" element={<SuperAdmin/>}/>
+        <Route path="/stage" element={<SuperAdmin/>}/> */}
         
       </Routes>
 
