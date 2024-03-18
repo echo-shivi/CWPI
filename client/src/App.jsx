@@ -24,6 +24,7 @@ import ReactTable from "./components/Widgets/Dashboard/PdfReport/ReactTable";
 import DropDownIcon from "./components/Widgets/Dashboard/DropDownicon";
 import SuperAdmin from "./components/Widgets/Dashboard/SuperAdmin";
 import AddAgencyAdmin from "./components/Widgets/Agency/AddAgency";
+import Designation from "./components/Widgets/Designation/Designation";
 const WithLayout = ({ children }) => (
   <section className="flex bg-blue-100">
     <Sidebar />
@@ -76,6 +77,8 @@ const App = () => {
         <Route path="/super-admin" element={<WithLayout><SuperAdmin /></WithLayout>} />
         <Route path="/stageanalysisgraphs" element={<WithLayout><StageAnalysisGraphs /></WithLayout>} />
         <Route path='/scheme-report-details' element={<WithLayout><SchemeReportDetails /></WithLayout>} />
+        <Route path='/designation' element={<WithLayout><Designation /></WithLayout>} />
+
         {reportCardRoutes}
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>
