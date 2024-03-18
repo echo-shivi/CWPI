@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const employeeDetails = require('../../../../../data/dashboard/agencyDetail/employeeDetails');
+const employeeDetails = require('../../../../data/dashboard/agencyDetail/employeeDetails');
 
 router.get('/details',
     (req, res) => {
