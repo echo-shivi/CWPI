@@ -27,6 +27,15 @@ const WithLayout = ({ children }) => (
 );
 
 const WithoutLayout = ({ children }) => <>{children}</>;
+import SchemeDetails from "./components/Widgets/Schemes/SchemeDetails";
+import Stagewise from "./components/Widgets/Dashboard/StagewiseGraphs/Stagewise"
+import StageAnalysisGraphs from "./components/Widgets/Dashboard/StagewiseGraphs/StageAnalysisGraphs";
+import EmployeeView from "./components/Widgets/Schemes/EmployeeView";
+import DropDownMenu from "./components/Widgets/Dashboard/DropdownMenu";
+import ReactTable from "./components/Widgets/Dashboard/PdfReport/ReactTable";
+import DropDownIcon from "./components/Widgets/Dashboard/DropDownicon";
+import SuperAdmin from "./components/Widgets/Dashboard/SuperAdmin";
+
 const App = () => {
   const reportCardComponents = {
     "1": <WithLayout><ReportCardForm /></WithLayout>,
@@ -60,7 +69,15 @@ const App = () => {
         <Route path='/scheme-report-details' element={<WithLayout><SchemeReportDetails /></WithLayout>} />
         {reportCardRoutes}
         <Route path='*' element={<Navigate to='/' />} />
-      </Routes>
+        <Route path="/stageanalysisgraphs" element={<StageAnalysisGraphs />} />
+      <Route path="/scheme-details" element={<SchemeDetails />} />
+      <Route path="/stagewise" element={<Stagewise />} />
+      <Route path="/employeeview" element={<EmployeeView />} />
+      <Route path="/pdfreport" element={<DropDownMenu />} />
+      <Route path="/masterentry" element={<ReactTable />} />
+      <Route path="/analytics" element={<DropDownIcon />} />
+      <Route path="/super-admin" element={<SuperAdmin />} />
+    </Routes>
     </Router>
   );
 };

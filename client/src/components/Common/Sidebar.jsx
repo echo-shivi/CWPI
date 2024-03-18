@@ -3,7 +3,7 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { TbReportAnalytics } from "react-icons/tb";
 import { AiOutlineUser } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate hook
 import { TbLogout2 } from "react-icons/tb";
 import { IoMdHelpCircleOutline } from "react-icons/io";
 import { TbAlertSquareRounded } from "react-icons/tb";
@@ -11,12 +11,16 @@ import { ImProfile } from "react-icons/im";
 import { FaPeopleRoof } from "react-icons/fa6";
 import BvmLogo from '../../assets/bvm-logo.png';
 
+import BvmLogo from '../../assets/bvm-logo.png';
+
 function Sidebar() {
+  const navigate = useNavigate(); // Initialize useNavigate hook
   const menus = [
     { name: "Dashboard", link: "/home", icon: MdOutlineDashboard },
     { name: "Add Agencies", link: "/add-agencies", icon: FaPeopleRoof },
     { name: "Add Agency Admin", link: "/add-agency-admin", icon: AiOutlineUser },
-    { name: "Add Designation", link: "/add-designation", icon: ImProfile },
+    { name: "Add Designation", link: "/employeeview", icon: ImProfile }, // Corrected link
+
     { name: "Analytics", link: "/analytics", icon: TbReportAnalytics, margin: true },
     { name: "Alerts", link: "/alerts", icon: TbAlertSquareRounded },
     { name: "Help", link: "/help", icon: IoMdHelpCircleOutline },
@@ -55,9 +59,9 @@ function Sidebar() {
         {!open && <img src={BvmLogo} alt='Logo' className='w-8 h-8' />}
 
         {menus?.map((menu, i) => (
-          <Link
-            to={menu.link}
+          <div
             key={i}
+            onClick={() => navigate(menu.link)} // Use navigate function to redirect
             className={`${menu?.margin && "mt-5"
               } group flex items-center text-lg gap-3.5 font-medium p-2 hover:bg-blue-500 rounded-md`}
           >
@@ -77,7 +81,7 @@ function Sidebar() {
             >
               {menu?.name}
             </h2>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
@@ -85,4 +89,3 @@ function Sidebar() {
 }
 
 export default Sidebar;
-
