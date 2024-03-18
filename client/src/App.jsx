@@ -22,7 +22,6 @@ import EmployeeView from "./components/Widgets/Schemes/EmployeeView";
 import DropDownMenu from "./components/Widgets/Dashboard/DropdownMenu";
 import ReactTable from "./components/Widgets/Dashboard/PdfReport/ReactTable";
 import DropDownIcon from "./components/Widgets/Dashboard/DropDownicon";
-import SuperAdmin from "./components/Widgets/Dashboard/SuperAdmin";
 import AddAgencyAdmin from "./components/Widgets/AgencyAdmin/AddAgencyAdmin";
 import AddAgencies from "./components/Widgets/Agencies/AddAgencies";
 import Designation from "./components/Widgets/Designation/Designation";
@@ -80,7 +79,6 @@ const App = () => {
         <Route path="/pdfreport" element={<WithLayout><DropDownMenu /></WithLayout>} />
         <Route path="/masterentry" element={<WithLayout><ReactTable /></WithLayout>} />
         <Route path="/analytics" element={<WithLayout><DropDownIcon /></WithLayout>} />
-        <Route path="/super-admin" element={<WithLayout><SuperAdmin /></WithLayout>} />
         <Route path="/stageanalysisgraphs" element={<WithLayout><StageAnalysisGraphs /></WithLayout>} />
         <Route path='/scheme-report-details' element={<WithLayout><SchemeReportDetails /></WithLayout>} />
 
