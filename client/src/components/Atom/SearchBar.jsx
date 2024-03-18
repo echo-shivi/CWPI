@@ -27,20 +27,17 @@ const SearchForm = ({ handleSearch, searchTerm, setSearchTerm }) => {
           </svg>
         </div>
        
-         <div className="relative flex border border-blue-500 p-2 bg-white rounded-lg">
           <input
             type="search"
             id="default-search"
-            className="block w-full  ps-10 text-sm border text-blue-400 border-blue-500 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+            className="block w-full  ps-10 text-sm border p-4 text-blue-400 border-blue-500 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Search By Department"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             required
           />
-          <button onClick={handleSearch} className="ml-2 px-4 py-2 border border-blue-500 rounded-lg bg-blue-500 text-white">
-            Submit
-          </button>
-        </div>
+       
+     
 
       </div>
     </form>
