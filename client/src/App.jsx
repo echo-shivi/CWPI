@@ -23,7 +23,7 @@ import DropDownMenu from "./components/Widgets/Dashboard/DropdownMenu";
 import ReactTable from "./components/Widgets/Dashboard/PdfReport/ReactTable";
 import DropDownIcon from "./components/Widgets/Dashboard/DropDownicon";
 import SuperAdmin from "./components/Widgets/Dashboard/SuperAdmin";
-
+import AddAgencyAdmin from "./components/Widgets/Agency/AddAgency";
 const WithLayout = ({ children }) => (
   <section className="flex bg-blue-100">
     <Sidebar />
@@ -62,6 +62,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path='/home' element={<WithLayout><Dashboard /></WithLayout>} />
+        <Route path="/employees" element={<WithLayout><AddAgencyAdmin /></WithLayout>} />
         <Route path='/' element={<WithoutLayout><Login /></WithoutLayout>} />
         <Route path='/forgot' element={<WithoutLayout><Forgot /></WithoutLayout>} />
         <Route path='/AgencyAnalytics' element={<WithLayout><AgencyAnalytics /></WithLayout>} />

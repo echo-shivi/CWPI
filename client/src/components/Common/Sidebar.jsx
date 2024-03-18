@@ -16,7 +16,7 @@ function Sidebar() {
   const menus = [
     { name: "Dashboard", link: "/home", icon: MdOutlineDashboard },
     { name: "Add Agencies", link: "/add-agencies", icon: FaPeopleRoof },
-    { name: "Add Agency Admin", link: "/add-agency-admin", icon: AiOutlineUser },
+    { name: "Add Agency Admin", link: "/employees", icon: AiOutlineUser },
     { name: "Add Designation", link: "/employeeview", icon: ImProfile }, 
 
     { name: "Analytics", link: "/analytics", icon: TbReportAnalytics, margin: true },
@@ -61,7 +61,7 @@ function Sidebar() {
             key={i}
             onClick={() => navigate(menu.link)} // Use navigate function to redirect
             className={`${menu?.margin && "mt-5"
-              } group flex items-center text-lg gap-3.5 font-medium p-2 hover:bg-blue-500 rounded-md`}
+              } group cursor-pointer flex items-center text-lg gap-3.5 font-medium p-2 hover:bg-blue-500 rounded-md`}
           >
             <div>{React.createElement(menu?.icon, { size: "20" })}</div>
             <h2
