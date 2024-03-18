@@ -33,9 +33,7 @@ const SchemeSubmitted = () => {
         return searchTerm
             ? tablesData.filter(
                 (entry) =>
-                    entry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    entry.emailId.toLowerCase().includes(searchTerm.toLowerCase())
-            )
+                    entry.name.toLowerCase().includes(searchTerm.toLowerCase())             )
             : tablesData;
     }, [searchTerm, tablesData]);
 
