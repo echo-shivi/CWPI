@@ -7,7 +7,7 @@ import CompletionStage from "./CompletionStage";
 const SchemeDetails = () => {
   return (
     <>
-      <div className="flex flex-wrap bg-white p-4 rounded ">
+      <div className="flex justify-between bg-white p-4 rounded ">
         <div className="left_content w-1/2 ">
           <h1 className="mb-3">Scheme Details</h1>
           <div className="flex flex-wrap justify-start  w-3/2">
@@ -52,13 +52,10 @@ const SchemeDetails = () => {
               </div>
             </div>
             <BarChart />
-            {/* <div className="flex justifiy-end">
-          <DataTables/>
-        </div> */}
+           
           </div>
         </div>
-        <div className="right-content w-1/2 flex flex-wrap  mt-3 justifiy-end">
-          {/* <ProgressIndicator /> */}
+        <div className=" mt-3  mr-2">
           < CompletionStage/>
         </div>
       </div>
