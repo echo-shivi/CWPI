@@ -25,6 +25,7 @@ import DropDownIcon from "./components/Widgets/Dashboard/DropDownicon";
 import AddAgencyAdmin from "./components/Widgets/AgencyAdmin/AddAgencyAdmin";
 import AddAgencies from "./components/Widgets/Agencies/AddAgencies";
 import Designation from "./components/Widgets/Designation/Designation";
+import Chart  from "./components/Widgets/Schemes/Chart"
 const WithLayout = ({ children }) => (
   <section className="flex bg-blue-100">
     <Sidebar />
@@ -64,13 +65,10 @@ const App = () => {
       <Routes>
         <Route path='/' element={<WithoutLayout><Login /></WithoutLayout>} />
         <Route path='/forgot' element={<WithoutLayout><Forgot /></WithoutLayout>} />
-
         <Route path='/home' element={<WithLayout><Dashboard /></WithLayout>} />
         <Route path='/add-agencies' element={<WithLayout><AddAgencies /></WithLayout>} />
-
         <Route path="/employees" element={<WithLayout><AddAgencyAdmin /></WithLayout>} />
         <Route path='/designation' element={<WithLayout><Designation /></WithLayout>} />
-
         <Route path='/AgencyAnalytics' element={<WithLayout><AgencyAnalytics /></WithLayout>} />
         <Route path='/agency' element={<WithLayout><AgencyDetail /></WithLayout>} />
         <Route path="/scheme-details" element={<WithLayout><SchemeDetails /></WithLayout>} />
@@ -81,7 +79,7 @@ const App = () => {
         <Route path="/analytics" element={<WithLayout><DropDownIcon /></WithLayout>} />
         <Route path="/stageanalysisgraphs" element={<WithLayout><StageAnalysisGraphs /></WithLayout>} />
         <Route path='/scheme-report-details' element={<WithLayout><SchemeReportDetails /></WithLayout>} />
-
+        <Route path='/view-graph-button' element={<WithLayout><Chart /></WithLayout>} />
         {reportCardRoutes}
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>

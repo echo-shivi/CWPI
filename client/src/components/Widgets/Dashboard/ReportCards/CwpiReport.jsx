@@ -7,6 +7,7 @@ import html2canvas from 'html2canvas';
 import { FaDownload } from 'react-icons/fa6';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Link } from 'react-router-dom';
 const CwpiReport = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [tablesData, setTablesData] = useState([]);
@@ -128,7 +129,7 @@ const CwpiReport = () => {
                             autoComplete="off"
                             selected={startDate}
                             onChange={(date) => setStartDate(date)}
-                            className='px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
+                            className='px-5 py-4 my-2 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
 
                         />
 
@@ -159,7 +160,7 @@ const CwpiReport = () => {
                                     <td className="border font-medium">{entry?.departmentName}</td>
                                     <td className="border font-medium">{entry?.cwpiScore}</td>
                                     <td className="border font-medium">{entry?.percentile}</td>
-                                    <td className="border font-medium"><button className='bg-blue-400  text-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg p-3 my-2'>View Details</button></td>
+                                    <td className="border font-medium"><Link to="/view-graph-button" className='bg-blue-400  text-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg p-3 my-2'>View Details</Link></td>
 
                                 </tr>
                             ))
