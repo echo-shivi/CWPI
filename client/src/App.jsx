@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from "./components/Login";
 import Forgot from "./components/Forgot";
 import AgencyAnalytics from "./components/Widgets/Dashboard/AgencyAnalytics";
@@ -15,6 +15,14 @@ import CwpiRankingBottom from "./components/Widgets/Dashboard/ReportCards/CwpiRa
 import CwpiRankingTop from "./components/Widgets/Dashboard/ReportCards/CwpiRankingTop/CwpiRankingSubdetail"
 import DeltaCwpiRankingBottom from "./components/Widgets/Dashboard/ReportCards/DeltaCwpiRankingBottom/CwpiRankingSubdetail"
 import DeltaCwpiRankingTop from "./components/Widgets/Dashboard/ReportCards/DeltaCwpiRankingTop/CwpiRankingSubdetail"
+import SchemeDetails from "./components/Widgets/Schemes/SchemeDetails";
+import Stagewise from "./components/Widgets/Dashboard/StagewiseGraphs/Stagewise"
+import StageAnalysisGraphs from "./components/Widgets/Dashboard/StagewiseGraphs/StageAnalysisGraphs";
+import EmployeeView from "./components/Widgets/Schemes/EmployeeView";
+import DropDownMenu from "./components/Widgets/Dashboard/DropdownMenu";
+import ReactTable from "./components/Widgets/Dashboard/PdfReport/ReactTable";
+import DropDownIcon from "./components/Widgets/Dashboard/DropDownicon";
+import SuperAdmin from "./components/Widgets/Dashboard/SuperAdmin";
 
 const WithLayout = ({ children }) => (
   <section className="flex bg-blue-100">
@@ -27,14 +35,6 @@ const WithLayout = ({ children }) => (
 );
 
 const WithoutLayout = ({ children }) => <>{children}</>;
-import SchemeDetails from "./components/Widgets/Schemes/SchemeDetails";
-import Stagewise from "./components/Widgets/Dashboard/StagewiseGraphs/Stagewise"
-import StageAnalysisGraphs from "./components/Widgets/Dashboard/StagewiseGraphs/StageAnalysisGraphs";
-import EmployeeView from "./components/Widgets/Schemes/EmployeeView";
-import DropDownMenu from "./components/Widgets/Dashboard/DropdownMenu";
-import ReactTable from "./components/Widgets/Dashboard/PdfReport/ReactTable";
-import DropDownIcon from "./components/Widgets/Dashboard/DropDownicon";
-import SuperAdmin from "./components/Widgets/Dashboard/SuperAdmin";
 
 const App = () => {
   const reportCardComponents = {
@@ -66,22 +66,23 @@ const App = () => {
         <Route path='/forgot' element={<WithoutLayout><Forgot /></WithoutLayout>} />
         <Route path='/AgencyAnalytics' element={<WithLayout><AgencyAnalytics /></WithLayout>} />
         <Route path='/agency' element={<WithLayout><AgencyDetail /></WithLayout>} />
+        <Route path="/scheme-details" element={<WithLayout><SchemeDetails /></WithLayout>} />
+        <Route path="/stagewise" element={<WithLayout><Stagewise /></WithLayout>} />
+        <Route path="/employeeview" element={<WithLayout><EmployeeView /></WithLayout>} />
+        <Route path="/pdfreport" element={<WithLayout><DropDownMenu /></WithLayout>} />
+        <Route path="/masterentry" element={<WithLayout><ReactTable /></WithLayout>} />
+        <Route path="/analytics" element={<WithLayout><DropDownIcon /></WithLayout>} />
+        <Route path="/super-admin" element={<WithLayout><SuperAdmin /></WithLayout>} />
+        <Route path="/stageanalysisgraphs" element={<WithLayout><StageAnalysisGraphs /></WithLayout>} />
         <Route path='/scheme-report-details' element={<WithLayout><SchemeReportDetails /></WithLayout>} />
         {reportCardRoutes}
         <Route path='*' element={<Navigate to='/' />} />
-        <Route path="/stageanalysisgraphs" element={<StageAnalysisGraphs />} />
-      <Route path="/scheme-details" element={<SchemeDetails />} />
-      <Route path="/stagewise" element={<Stagewise />} />
-      <Route path="/employeeview" element={<EmployeeView />} />
-      <Route path="/pdfreport" element={<DropDownMenu />} />
-      <Route path="/masterentry" element={<ReactTable />} />
-      <Route path="/analytics" element={<DropDownIcon />} />
-      <Route path="/super-admin" element={<SuperAdmin />} />
-    </Routes>
+      </Routes>
     </Router>
   );
 };
 
 export default App;
+
 
 
