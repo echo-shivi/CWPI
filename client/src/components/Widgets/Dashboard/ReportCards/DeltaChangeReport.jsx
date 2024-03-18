@@ -33,9 +33,7 @@ const DeltaChange = () => {
         return searchTerm
             ? tablesData.filter(
                 (entry) =>
-                    entry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    entry.emailId.toLowerCase().includes(searchTerm.toLowerCase())
-            )
+                    entry.department.toLowerCase().includes(searchTerm.toLowerCase())            )
             : tablesData;
     }, [searchTerm, tablesData]);
 

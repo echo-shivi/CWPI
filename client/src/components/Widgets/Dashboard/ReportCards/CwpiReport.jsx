@@ -34,9 +34,7 @@ const CwpiReport = () => {
         return searchTerm
             ? tablesData.filter(
                 (entry) =>
-                    entry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    entry.emailId.toLowerCase().includes(searchTerm.toLowerCase())
-            )
+                    entry.departmentName.toLowerCase().includes(searchTerm.toLowerCase())            )
             : tablesData;
     }, [searchTerm, tablesData]);
 
