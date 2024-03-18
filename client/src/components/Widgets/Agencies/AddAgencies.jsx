@@ -7,7 +7,7 @@ import html2canvas from 'html2canvas';
 import { FaDownload } from 'react-icons/fa6';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-const CwpiReport = () => {
+const Designation = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [tablesData, setTablesData] = useState([]);
     const [entriesPerPage, setEntriesPerPage] = useState(3);
@@ -18,9 +18,9 @@ const CwpiReport = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8001/api/designation/addDesignation/details');
-                setTablesData(response.data.designation);
-                console.log('API response:', response.data.designation);
+                const response = await axios.get('http://localhost:8001/api/agencies/addAgencies/details');
+                setTablesData(response.data.agenciesDetails);
+                console.log('API response:', response.data.agenciesDetails);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -119,7 +119,19 @@ const CwpiReport = () => {
                             setSearchTerm={setSearchTerm}
                         />
                     </div>
-                    
+                    <div >
+                        <DatePicker
+                            placeholderText="DD/MM/YYYY"
+                            dateFormat="dd/MM/yyyy"
+                            id="start-date"
+                            autoComplete="off"
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            className='px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
+
+                        />
+
+                    </div>
                 </div>
             </div>
             <div className="overflow-x-auto">
@@ -128,7 +140,7 @@ const CwpiReport = () => {
                     <thead>
                         <tr>
                             <th className="border h-16 text-base text-center bg-blue-400 text-white">S.No.</th>
-                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Designation Name</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white"> Name</th>
                             <th className="border h-16 text-base text-center bg-blue-400 text-white">Created At</th>
                             <th className="border h-16 text-base text-center bg-blue-400 text-white">Updated At</th>
                             <th className="border h-16 text-base text-center bg-blue-400 text-white">Action</th>
@@ -143,7 +155,7 @@ const CwpiReport = () => {
                                     className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}
                                 >
                                     <td className="border font-medium">{entry?.id}</td>
-                                    <td className="border font-medium">{entry?.designationName}</td>
+                                    <td className="border font-medium">{entry?.departmentName}</td>
                                     <td className="border font-medium">{entry?.createdAt}</td>
                                     <td className="border font-medium">{entry?.updatedAt}</td>
                                     <td className="border font-medium"><button className='bg-blue-400  text-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg p-3 my-2'>View Details</button></td>
@@ -175,4 +187,4 @@ const CwpiReport = () => {
     );
 };
 
-export default CwpiReport;
+export default Designation;
