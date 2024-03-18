@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useParams } from 'react-router-dom';
 import Login from "./components/Login";
 import Forgot from "./components/Forgot";
 import AgencyAnalytics from "./components/Widgets/Dashboard/AgencyAnalytics";
@@ -29,13 +29,13 @@ const WithLayout = ({ children }) => (
 const WithoutLayout = ({ children }) => <>{children}</>;
 const App = () => {
   const reportCardComponents = {
-    "1": <ReportCardForm />,
-    "2": <CwpiReport />,
-    "3": <DeltaChangeReport />,
-    "4": <CwpiRankingBottom />,
-    "5": <DeltaCwpiRankingBottom />,
-    "6": <CwpiRankingTop />,
-    "7": <DeltaCwpiRankingTop />
+    "1": <WithLayout><ReportCardForm /></WithLayout>,
+    "2": <WithLayout><CwpiReport /></WithLayout>,
+    "3": <WithLayout><DeltaChangeReport /></WithLayout>,
+    "4": <WithLayout><CwpiRankingBottom /></WithLayout>,
+    "5": <WithLayout><DeltaCwpiRankingBottom /></WithLayout>,
+    "6": <WithLayout><CwpiRankingTop /></WithLayout>,
+    "7": <WithLayout><DeltaCwpiRankingTop /></WithLayout>
   };
 
   const reportCardRoutes = [];
