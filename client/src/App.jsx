@@ -27,7 +27,7 @@ import AddAgencies from "./components/Widgets/Agencies/AddAgencies";
 import Designation from "./components/Widgets/Designation/Designation";
 import MasterEntry from './components/Widgets/Dashboard/PdfReport/MasterEntry';
 
-import Chart  from "./components/Widgets/Schemes/Chart"
+import Chart from "./components/Widgets/Schemes/Chart"
 
 
 const WithLayout = ({ children }) => {
@@ -46,15 +46,16 @@ const WithLayout = ({ children }) => {
   }, []);
 
   return (
-    <section className="flex bg-blue-100 relative">
+    <section className="flex relative">
     <Sidebar setOpen={setOpen} open={open} />
-    <div className={`mx-0 absolute ${open ? 'left-72 w-[calc(100%_-_18rem)]' : 'left-16 w-[calc(100%_-_4rem)]'} text-xl w-full text-gray-900 font-semibold flex flex-col`}>
-
+    <div className={`mx-0 absolute  ${open ? 'left-72 w-[calc(100%_-_18rem)]' : 'left-16 w-[calc(100%_-_4rem)]'} text-xl w-full text-gray-900 font-semibold flex flex-col`}>
       <Navbar />
-      <div className="p-10">{children}</div>
+      <div className="p-10 bg-blue-100 min-h-screen">{children}</div>
+
     </div>
   </section>
   
+
   );
 };
 
@@ -98,12 +99,11 @@ const App = () => {
         <Route path="/stagewise" element={<WithLayout><Stagewise /></WithLayout>} />
         <Route path="/employeeview" element={<WithLayout><EmployeeView /></WithLayout>} />
         <Route path="/pdfreport" element={<WithLayout><DropDownMenu /></WithLayout>} />
-        <Route path="/masterentry" element={<WithLayout><MasterEntry/></WithLayout>} />
-        <Route path="/analytics" element={<WithLayout><DropDownIcon /></WithLayout>} />
+        <Route path="/masterentry" element={<WithLayout><MasterEntry /></WithLayout>} />
         <Route path="/stageanalysisgraphs" element={<WithLayout><StageAnalysisGraphs /></WithLayout>} />
         <Route path='/scheme-report-details' element={<WithLayout><SchemeReportDetails /></WithLayout>} />
-        < Route path="/master-entry" element={<WithLayout><MasterEntry/></WithLayout>}/>
-
+        < Route path="/master-entry" element={<WithLayout><MasterEntry /></WithLayout>} />
+        <Route path="/view-graph-button" element={<WithLayout><Chart /></WithLayout>} />
         {reportCardRoutes}
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>
