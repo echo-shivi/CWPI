@@ -11,10 +11,11 @@ const Login = () => {
   return (
     <div>
       <Logintop />
-      <div className="bg-gray-100 rounded-lg shadow-2xl h-[490px] mx-auto my-[4rem] w-[450px] mt-[-38rem]">
+      <div className="bg-gray-100 rounded-lg shadow-2xl  mx-auto my-[4rem] w-[450px] mt-[-38rem]">
         <div className="pt-3 pb-3 px-11">
           <div className="font-raleway tracking-wide pb-6 pt-3 text-center">
-            <h2>LOGIN</h2>
+          <h2 class="text-lg underline-purple-500">Login</h2>
+
             <div className="bg-[#5252df] h-0.5 mx-auto w-[89px]"></div>
           </div>
           <div className="flex flex-col justify-start">

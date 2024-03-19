@@ -10,11 +10,11 @@ const Logintop = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="flex justify-between mx-8 pt-6">
-        <img src={BvmLogo} alt="BVM Logo" className="max-w-full h-[13rem]" />
+        <img src={BvmLogo} alt="BVM Logo" className="max-w-full h-[8rem]" />
         <img
           src={BiharLogo}
           alt="Government of Bihar Logo"
-          className="max-w-full h-[13rem]"
+          className="max-w-full h-[8rem]"
         />
       </div>
     </div>
