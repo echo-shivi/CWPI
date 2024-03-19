@@ -2,10 +2,10 @@ import React from 'react';
 
 import BSLogo from '../../assets/bihar_sarkar_logo.png';
 
-function Navbar() {
+function Navbar({ open, setOpen}) {
   return (
-    <div className='bg-blue-400 text-gray-100 px-4 h-28 w-[100%]'>
-      <div className='flex justify-between px-4 '>
+    <div className={`sticky top-0 z-40 mx-auto  flex-none  dark:bg-slate-900  md:backdrop-blur-sm dark:md:bg-slate-900/90 bg-blue-400 text-gray-100  h-28 w-[100%]`}>
+      <div className='flex px-4 justify-between '>
         <h1 className='mt-12 text-xl md:text-2xl underline'>
           CIVIL WORKS PENDENCY INDEX
         </h1>

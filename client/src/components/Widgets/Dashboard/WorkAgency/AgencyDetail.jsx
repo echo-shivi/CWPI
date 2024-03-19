@@ -12,17 +12,13 @@ export default function AgencyDetail() {
     return (
         <div>
             <h1 className="text-2xl font-medium  text-gray-800 ">Agency Details</h1>
-            <div
-                className="flex flex-col my-8 w-80 p-4 bg-blue-100 border border-t-blue-100 border-blue-400 text-black   rounded-lg shadow-md"
-            >
+            <div className="p-4 flex flex-col my-8 w-80 bg-blue-100 border border-t-blue-100 border-blue-400 text-black   rounded-lg shadow-md">
                 <FaFolderOpen size={30} className='text-blue-400' />
-
 
                 <p className="text-sm md:text-xl pt-2 text-gray-800 font-medium mb-2">
                     {departmentName}
                 </p>
             </div>
-
             <SchemesSubmitted />
             <hr style={{ borderTop: "1px solid lightgrey" }} />
             <EmployeeDetail />
