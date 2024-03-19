@@ -2,7 +2,7 @@ import React from 'react';
 import { BsFillArrowDownCircleFill, BsFillArrowUpCircleFill } from 'react-icons/bs';
 
 const DashboardLayout = ({ title, children, index, activeIndex, setActiveIndex }) => {
-   
+
     const isActive = activeIndex === index;
 
     const handleTogglePanel = () => {
@@ -17,9 +17,11 @@ const DashboardLayout = ({ title, children, index, activeIndex, setActiveIndex }
                 </div>
                 <div className="flex items-center justify-center">
                     {isActive ? (
-                        <BsFillArrowDownCircleFill className='w-8 h-8 text-white' />
-                    ) : (
                         <BsFillArrowUpCircleFill className='w-8 h-8 text-white' />
+
+                    ) : (
+                        <BsFillArrowDownCircleFill className='w-8 h-8 text-white' />
+
                     )}
                 </div>
             </div>
