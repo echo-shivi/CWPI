@@ -11,7 +11,7 @@ import { ImProfile } from "react-icons/im";
 import { FaPeopleRoof } from "react-icons/fa6";
 import BvmLogo from '../../assets/bvm-logo.png';
 
-function Sidebar() {
+function Sidebar({setOpen, open}) {
   const navigate = useNavigate(); 
   const menus = [
     { name: "Dashboard", link: "/home", icon: MdOutlineDashboard },
@@ -19,40 +19,33 @@ function Sidebar() {
     { name: "Add Agency Admin", link: "/employees", icon: AiOutlineUser },
     { name: "Add Designation", link: "/designation", icon: ImProfile }, 
 
-    { name: "Analytics", link: "/analytics", icon: TbReportAnalytics, margin: true },
-    { name: "Alerts", link: "/alerts", icon: TbAlertSquareRounded },
-    { name: "Help", link: "/help", icon: IoMdHelpCircleOutline },
-    { name: "LogOut", link: "/logout", icon: TbLogout2, margin: true },
+    { name: "Analytics", link: "#", icon: TbReportAnalytics, margin: true },
+    { name: "Alerts", link: "#", icon: TbAlertSquareRounded },
+    { name: "Help", link: "#", icon: IoMdHelpCircleOutline },
+    { name: "LogOut", link: "/", icon: TbLogout2, margin: true },
   ];
 
-  const [open, setOpen] = useState(window.innerWidth >= 790);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setOpen(window.innerWidth >= 790);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  
 
   return (
     <div
-      className={`bg-blue-400 min-h-screen ${open ? "w-72" : "w-16"
+      className={`bg-blue-400 fixed top-0 h-screen overflow-x-hidden left-0 z-40  flex-row flex-nowrap overflow-y-auto py-4 shadow-xl transition-all duration-300 ${open ? "w-72" : "w-16"
         } duration-500 text-gray-100 px-4`}
     >
-      <div className="py-3 flex justify-between">
-        {open && <img src={BvmLogo} alt='Logo' className='w-24 h-24' />}
+      <div className="py-3 flex items-center justify-between">
 
-        <HiMenuAlt3
-          size={26}
-          className="cursor-pointer"
-          onClick={() => setOpen(!open)}
-        />
-      </div>
+  {open && <img src={BvmLogo} alt='Logo' className='w-24 h-24 ml-[58px]' />}
+  
+  <div className="flex items-center">
+    <HiMenuAlt3
+      size={26}
+      className="cursor-pointer ml-auto"
+      onClick={() => setOpen(!open)}
+    />
+  </div>
+</div>
+
+
       <div className="mt-4 flex flex-col gap-4 relative">
         {!open && <img src={BvmLogo} alt='Logo' className='w-8 h-8' />}
 

@@ -7,8 +7,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import {
   Chart as ChartJS,
   LineElement,
-  CategoryScale, //x-axis
-  LinearScale, // y axis
+  CategoryScale, 
+  LinearScale, 
   PointElement,
   Legend,
   Tooltip,
@@ -57,7 +57,7 @@ const Chart = () => {
   };
 
   const handleSubmit = () => {
-    // Handle submit logic here
+    
     console.log("Form submitted");
   };
 
