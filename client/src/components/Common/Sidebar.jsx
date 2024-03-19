@@ -32,15 +32,20 @@ function Sidebar({setOpen, open}) {
       className={`bg-blue-400 fixed top-0 h-screen overflow-x-hidden left-0 z-40  flex-row flex-nowrap overflow-y-auto py-4 shadow-xl transition-all duration-300 ${open ? "w-72" : "w-16"
         } duration-500 text-gray-100 px-4`}
     >
-      <div className="py-3 flex justify-between">
-        {open && <img src={BvmLogo} alt='Logo' className='w-24 h-24' />}
+      <div className="py-3 flex items-center justify-between">
 
-        <HiMenuAlt3
-          size={26}
-          className="cursor-pointer"
-          onClick={() => setOpen(!open)}
-        />
-      </div>
+  {open && <img src={BvmLogo} alt='Logo' className='w-24 h-24 ml-[58px]' />}
+  
+  <div className="flex items-center">
+    <HiMenuAlt3
+      size={26}
+      className="cursor-pointer ml-auto"
+      onClick={() => setOpen(!open)}
+    />
+  </div>
+</div>
+
+
       <div className="mt-4 flex flex-col gap-4 relative">
         {!open && <img src={BvmLogo} alt='Logo' className='w-8 h-8' />}
 
