@@ -3,6 +3,7 @@ import BarChart from "./BarChart";
 // import DataTables from "./DataTables";
 import ProgressIndicator from "./ProgressIndicator";
 import CompletionStage from "./CompletionStage";
+import StepProgress from "./StepProgress";
 
 const SchemeDetails = () => {
   return (
@@ -56,6 +57,7 @@ const SchemeDetails = () => {
           </div>
         </div>
         <div className=" mt-3  mr-2">
+          <StepProgress/>
           < CompletionStage/>
         </div>
       </div>

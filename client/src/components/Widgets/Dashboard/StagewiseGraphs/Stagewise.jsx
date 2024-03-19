@@ -68,8 +68,8 @@ const Stagewise = () => {
         </button>
       </div>
 
-      <div className="flex flex-row items-center mt-3 mb-3">
-        <h2 className="text-xl font-bold justify-center mr-3">
+      <div className="flex flex-row items-center mt-3 mx-4">
+        <h2 className="text-xl font-bold justify-center mx-4">
           Statistics by Average
         </h2>
         <GiHamburgerMenu />

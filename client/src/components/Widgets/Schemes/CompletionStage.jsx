@@ -121,6 +121,8 @@ const CompletionStage = () => {
 
   return (
     <div>
+      
+
       <h1>Completion Stage</h1>
       <div className="">
         <DataTable
