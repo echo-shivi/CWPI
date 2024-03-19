@@ -1,30 +1,34 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import SearchForm from '../../.././../Atom/SearchBar';
+import SearchForm from '../../../Atom/SearchBar';
 import axios from 'axios';
-import Pagination from '../../.././../Atom/Pagination';
+import Pagination from '../../../Atom/Pagination';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { FaDownload } from 'react-icons/fa6';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-const Bottom4 = () => {
+
+
+const MasterEntry = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [tablesData, setTablesData] = useState([]);
     const [entriesPerPage, setEntriesPerPage] = useState(3);
     const [searchTerm, setSearchTerm] = useState('');
     const [startDate, setStartDate] = useState(null);
+
     const pdfRef = useRef();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8001/api/dashboard/reportCard/reportDetails/deltaCwpiRankingTop/bottom4/details');
-                setTablesData(response.data.bottom4);
-                console.log('API response:', response.data.bottom4);
+              const response = await axios.get(
+                "http://localhost:8001/api/dashboard/reactTable/details"
+              );
+              setTablesData(response.data.reactTable);
             } catch (error) {
-                console.error('Error fetching data:', error);
+              console.error("Error fetching data:", error);
             }
-        };
+          };
 
         fetchData();
     }, []);
@@ -86,11 +90,9 @@ const Bottom4 = () => {
     };
 
     return (
-        <div className="container bg-white rounded-lg mx-auto p-4 mb-5" ref={pdfRef}>
-        
-            <div className="justify-between flex pb-6 ">
-            <h1 className=" border-gray-300 text-center font-normal bg-gray-100 p-4 rounded-lg  text-gray-700 text-[22px]"> Top P1</h1>
-
+        <div className="container mx-auto p-4" ref={pdfRef}>
+            <div className="justify-between flex py-6">
+                <h1 className="items-center justify-start font-medium text-2xl">Master Entry</h1>
                 <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
                     Download <FaDownload className="ml-2 mt-1" />
                 </button>
@@ -104,7 +106,7 @@ const Bottom4 = () => {
                         onChange={handleEntriesChange}
                         value={entriesPerPage}
                     >
-                         <option value={3}>3</option>
+                        <option value={3}>3</option>
                         <option value={5}>5</option>
                         <option value={10}>10</option>
                         <option value={20}>20</option>
@@ -122,55 +124,63 @@ const Bottom4 = () => {
                             setSearchTerm={setSearchTerm}
                         />
                     </div>
-                    <div > 
-            <DatePicker
-              placeholderText="DD/MM/YYYY"
-              dateFormat="dd/MM/yyyy"
-              id="start-date"
-              autoComplete="off"
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              className='px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
+                    <div >
+                        <DatePicker
+                            placeholderText="DD/MM/YYYY"
+                            dateFormat="dd/MM/yyyy"
+                            id="start-date"
+                            autoComplete="off"
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            className='px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
 
-            />
+                        />
 
-          </div>
+                    </div>
                 </div>
             </div>
             <div className="overflow-x-auto">
 
-            <table className="table-auto w-full">
-                <thead>
-                    <tr>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Rank</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Department Name</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Average Score</th>
-                        <th className="border h-16 text-base text-center bg-blue-400 text-white">Stage</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    {currentEntries.length > 0 ? (
-                        currentEntries.map((entry, index) => (
-                            <tr
-                                key={entry.id}
-                                className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}
-                            >
-                                <td className="border font-medium">{entry?.id}</td>
-                                <td className="border font-medium">{entry?.departmentName}</td>
-                                <td className="border font-medium">{entry?.averageScore}</td>
-                                <td className="border font-medium">{entry?.Stage}</td>
-
-                            </tr>
-                        ))
-                    ) : (
-                        <tr className="h-10 text-base text-center">
-                            <td className="border font-medium" colSpan="3">No data Available in the table</td>
+                <table className="table-auto w-full">
+                    <thead>
+                        <tr>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">S.No</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white"> Name</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Scheme Type</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Employee Name</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Admin Approval Amount</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Format CWPI</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">District</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Action</th>
                         </tr>
-                    )}
-                </tbody>
-            </table>
-</div>
+                    </thead>
+                    <tbody>
+                        {currentEntries.length > 0 ? (
+                            currentEntries.map((entry, index) => (
+                                <tr
+                                    key={entry.id}
+                                    className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}
+                                >
+                                    <td className="border font-medium">{entry?.id}</td>
+                                    <td className="border font-medium">{entry?.name}</td>
+                                    <td className="border font-medium">{entry?.schemeType}</td>
+                                    <td className="border font-medium">{entry?.employeeName}</td>
+                                    <td className="border font-medium">{entry?.adminApprovalAmount}</td>
+                                    <td className="border font-medium">{entry?.formatCWPI}</td>
+                                    <td className="border font-medium">{entry?.district}</td>
+                                    
+                                    <td className="border font-medium"><button className='bg-blue-400  text-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg p-3 my-2'>{entry?.action}</button></td>
+
+                                </tr>
+                            ))
+                        ) : (
+                            <tr className="h-10 text-base text-center">
+                                <td className="border font-medium" colSpan="3">No data Available in the table</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
             <div>
                 <Pagination
                     currentPage={currentPage}
@@ -188,4 +198,5 @@ const Bottom4 = () => {
     );
 };
 
-export default Bottom4;
+export default MasterEntry;
+

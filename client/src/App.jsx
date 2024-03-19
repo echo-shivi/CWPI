@@ -25,6 +25,8 @@ import DropDownIcon from "./components/Widgets/Dashboard/DropDownicon";
 import AddAgencyAdmin from "./components/Widgets/AgencyAdmin/AddAgencyAdmin";
 import AddAgencies from "./components/Widgets/Agencies/AddAgencies";
 import Designation from "./components/Widgets/Designation/Designation";
+import MasterEntry from './components/Widgets/Dashboard/PdfReport/MasterEntry';
+
 const WithLayout = ({ children }) => (
   <section className="flex bg-blue-100">
     <Sidebar />
@@ -77,10 +79,11 @@ const App = () => {
         <Route path="/stagewise" element={<WithLayout><Stagewise /></WithLayout>} />
         <Route path="/employeeview" element={<WithLayout><EmployeeView /></WithLayout>} />
         <Route path="/pdfreport" element={<WithLayout><DropDownMenu /></WithLayout>} />
-        <Route path="/masterentry" element={<WithLayout><ReactTable /></WithLayout>} />
+        <Route path="/masterentry" element={<WithLayout><MasterEntry/></WithLayout>} />
         <Route path="/analytics" element={<WithLayout><DropDownIcon /></WithLayout>} />
         <Route path="/stageanalysisgraphs" element={<WithLayout><StageAnalysisGraphs /></WithLayout>} />
         <Route path='/scheme-report-details' element={<WithLayout><SchemeReportDetails /></WithLayout>} />
+        < Route path="/master-entry" element={<WithLayout><MasterEntry/></WithLayout>}/>
 
         {reportCardRoutes}
         <Route path='*' element={<Navigate to='/' />} />

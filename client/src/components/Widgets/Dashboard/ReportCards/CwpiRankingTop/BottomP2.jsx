@@ -86,13 +86,15 @@ const Bottom2 = () => {
     };
 
     return (
-        <div className="container mx-auto p-4" ref={pdfRef}>
-            <div className="justify-between flex py-6">
-                <h1 className="items-center justify-start font-medium text-2xl">Bottom1</h1>
-                <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
-                    Download <FaDownload className="ml-2 mt-1" />
-                </button>
-            </div>
+        <div className="container bg-white rounded-lg mx-auto p-4 mb-5" ref={pdfRef}>
+        
+        <div className="justify-between flex pb-6 ">
+        <h1 className=" border-gray-300 text-center font-normal bg-gray-100 p-4 rounded-lg  text-gray-700 text-[22px]"> Top P2</h1>
+
+            <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
+                Download <FaDownload className="ml-2 mt-1" />
+            </button>
+        </div>
 
             <div className="flex justify-between mb-4">
                 <div className="flex items-center text-lg font-medium">

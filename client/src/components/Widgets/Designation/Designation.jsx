@@ -88,8 +88,9 @@ const CwpiReport = () => {
     return (
         <div className="container mx-auto p-4" ref={pdfRef}>
             <div className="justify-between flex py-6">
+                
                 <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
-                    Download <FaDownload className="ml-2 mt-1" />
+                    Submit <FaDownload className="ml-2 mt-1" />
                 </button>
             </div>
 
