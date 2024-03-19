@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
+
 const customStyles = {
   headRow: {
     style: {
@@ -8,7 +9,6 @@ const customStyles = {
       fontWeight: "bold",
       textTransform: "uppercase",
       border: "1px solid white",
-      
     },
   },
   headCells: {
@@ -16,7 +16,6 @@ const customStyles = {
       fontSize: "16px",
       fontWeight: "bold",
       backgroundColor: "",
-      // border: "0.7px solid white",
     },
   },
   rows: {
@@ -29,7 +28,6 @@ const customStyles = {
   cells: {
     style: {
       padding: "6px",
-      // border: "1px solid gray",
     },
   },
   pagination: {
@@ -46,9 +44,7 @@ const customStyles = {
     },
   },
   paginationRowsPerPage: {
-    style: {
-      // display: "none",
-    },
+    style: {},
   },
 };
 
@@ -109,7 +105,7 @@ const CompletionStage = () => {
       sortable: true,
       cell: (row) => (
         <button
-          class="bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
+          className="bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
           onClick={() => alert(row.status)}
         >
           Accept
@@ -126,14 +122,12 @@ const CompletionStage = () => {
   return (
     <div>
       <h1>Completion Stage</h1>
-      <div>
+      <div className="">
         <DataTable
           title=""
           style={{ padding: "50px 30%", backgroundColor: "gray" }}
           columns={columns}
           data={records}
-          // selectableRows
-          //selectableRowsHighlight
           fixedHeader
           pagination
           highlightOnHover
@@ -142,7 +136,7 @@ const CompletionStage = () => {
           className="mt-5"
         />
         <div className="flex flex-wrap justify-center items-center bg-white border-line ">
-          <button className="bg-[#0ea5e9] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">
+          <button className="bg-[#0ea5e9] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2 mb-2 md:mb-0">
             Generate Report
           </button>
           <button className="bg-[#0ea5e9] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">

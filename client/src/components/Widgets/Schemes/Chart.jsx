@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import SearchBar from "./Atom/SearchBar";
+import SearchBar from "../../Atom/SearchBar";
 import { Line } from "react-chartjs-2";
-import DatePicker from "./Atom/DatePIcker";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {
   Chart as ChartJS,
   LineElement,
@@ -24,6 +24,8 @@ ChartJS.register(
 );
 
 const Chart = () => {
+  const [startDate, setStartDate] = useState(new Date()); 
+  const [endDate, setEndDate] = useState(new Date());
   const data = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
@@ -60,23 +62,36 @@ const Chart = () => {
   };
 
   return (
-    <div>
-      <h1 class="capitalize ">P1 Analytics </h1>
-      <div class="flex flex-row justify-start items-center mt-3">
-        {/* <SearchBar /> */}
-        <DatePicker />
-        <button
-          class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+    <div className="bg-white p-6 rounded-lg">
+      <h1 className="capitalize">Analytics </h1>
+      <div className="flex mt-3">
+        <DatePicker
+          placeholderText="select from month"
+          dateFormat="MM/yyyy"
+          id="start-date"
+          autoComplete="off"
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          className="px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal"
+        />
+         <DatePicker
+          placeholderText="select to month"
+          dateFormat="MM/yyyy"
+          id="start-date"
+          autoComplete="off"
+          selected={startDate}
+          onChange={(date) => setEndDate(date)}
+          className="px-5 mx-4 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal"
+        />
+         <button
+          className="px-4 py-2 ml-8  bg-blue-500 text-white rounded-md"
           onClick={handleSubmit}
         >
           Submit
         </button>
       </div>
+     
 
-      <div className="flex flex-row items-center ml-16 mt-4 mb-2">
-  <h2 className="text-4xl f font-bold mr-3">Statistics by Average</h2>
-  <GiHamburgerMenu className=" w-25 h-32 bg-white hover:bg-blue-100 cursor-pointer" />
-</div>
 
       <div
         style={{
@@ -92,3 +107,4 @@ const Chart = () => {
 };
 
 export default Chart;
+

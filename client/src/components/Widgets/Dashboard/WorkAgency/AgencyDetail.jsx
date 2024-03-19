@@ -10,7 +10,6 @@ export default function AgencyDetail() {
             <EmployeeDetail />
             <hr style={{ borderTop: "1px solid lightgrey" }} /> 
             <Admin />
-
         </div>
     )
 }
