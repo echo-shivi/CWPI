@@ -7,8 +7,8 @@ import DatePicker from "./Atom/DatePIcker";
 import {
   Chart as ChartJS,
   LineElement,
-  CategoryScale, //x-axis
-  LinearScale, // y axis
+  CategoryScale, 
+  LinearScale, 
   PointElement,
   Legend,
   Tooltip,
@@ -55,18 +55,19 @@ const Chart = () => {
   };
 
   const handleSubmit = () => {
-    // Handle submit logic here
+    
     console.log("Form submitted");
   };
 
   return (
-    <div>
-      <h1 class="capitalize ">P1 Analytics </h1>
-      <div class="flex flex-row justify-start items-center mt-3">
-        {/* <SearchBar /> */}
+    <div className="bg-white rounded">
+      <h1 className="capitalize ">P1 Analytics </h1>
+      <div className="flex flex-row justify-start items-center mt-3">
+        
+        <DatePicker />
         <DatePicker />
         <button
-          class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+          className="ml-4 px-4 py-2 bg-blue-500 text-white rounded-md"
           onClick={handleSubmit}
         >
           Submit
