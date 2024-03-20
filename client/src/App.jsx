@@ -46,14 +46,16 @@ const WithLayout = ({ children }) => {
   }, []);
 
   return (
-    <section className="flex relative">
+    <div className="flex">
     <Sidebar setOpen={setOpen} open={open} />
-    <div className={`mx-0 absolute  ${open ? 'left-72 w-[calc(100%_-_18rem)]' : 'left-16 w-[calc(100%_-_4rem)]'} text-xl w-full text-gray-900 font-semibold flex flex-col`}>
-      <Navbar />
-      <div className="p-10 bg-blue-100 min-h-screen">{children}</div>
+    <div className={`mx-0 ${open ? 'ml-72' : 'ml-16'} flex flex-col w-full`}>
 
+      <Navbar />
+      <div className="p-10 bg-blue-100 min-h-screen">
+        {children}
+        </div>
     </div>
-  </section>
+  </div>
   
 
   );
