@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { TbReportAnalytics } from "react-icons/tb";
 import { AiOutlineUser } from "react-icons/ai";
-import {  useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { TbLogout2 } from "react-icons/tb";
 import { IoMdHelpCircleOutline } from "react-icons/io";
 import { TbAlertSquareRounded } from "react-icons/tb";
@@ -11,13 +11,13 @@ import { ImProfile } from "react-icons/im";
 import { FaPeopleRoof } from "react-icons/fa6";
 import BvmLogo from '../../assets/bvm-logo.png';
 
-function Sidebar({setOpen, open}) {
-  const navigate = useNavigate(); 
+function Sidebar({ setOpen, open }) {
+  const navigate = useNavigate();
   const menus = [
     { name: "Dashboard", link: "/home", icon: MdOutlineDashboard },
     { name: "Add Agencies", link: "/add-agencies", icon: FaPeopleRoof },
     { name: "Add Agency Admin", link: "/employees", icon: AiOutlineUser },
-    { name: "Add Designation", link: "/designation", icon: ImProfile }, 
+    { name: "Add Designation", link: "/designation", icon: ImProfile },
 
     { name: "Analytics", link: "#", icon: TbReportAnalytics, margin: true },
     { name: "Alerts", link: "#", icon: TbAlertSquareRounded },
@@ -25,7 +25,7 @@ function Sidebar({setOpen, open}) {
     { name: "LogOut", link: "/", icon: TbLogout2, margin: true },
   ];
 
-  
+
 
   return (
     <div
@@ -34,16 +34,16 @@ function Sidebar({setOpen, open}) {
     >
       <div className="py-3 flex items-center justify-between">
 
-  {open && <img src={BvmLogo} alt='Logo' className='w-24 h-24 ml-[58px]' />}
-  
-  <div className="flex items-center">
-    <HiMenuAlt3
-      size={26}
-      className="cursor-pointer ml-auto"
-      onClick={() => setOpen(!open)}
-    />
-  </div>
-</div>
+        {open && <img src={BvmLogo} alt='Logo' className='w-24 h-24 ml-[58px]' />}
+
+        <div className="flex items-center">
+          <HiMenuAlt3
+            size={26}
+            className="cursor-pointer ml-auto"
+            onClick={() => setOpen(!open)}
+          />
+        </div>
+      </div>
 
 
       <div className="mt-4 flex flex-col gap-4 relative">

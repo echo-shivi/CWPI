@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import DashboardLayout from "./DashboardLayout";
-import DeptAdminReports from "./DeptAdminReports";
-import DeptAdminReportCards from "./DeptAdminReportCards";
-import DeptAdminStageAnalysis from "./DeptAdminStageAnalysis";
-import DeptAdminAgencyAnalysis from "./DeptAdminAgencyAnalysis";
-import DeptAdminPendingScheme from "./DeptAdminPendingScheme";
-import DeptAdminConventionalScheme from "./DeptAdminConventionalScheme";
+import DeptAdminReports from "../DeptAdminReports";
+import DeptAdminReportCards from "../DeptAdminReportCards";
+import DeptAdminStageAnalysis from "../DeptAdminStageAnalysis";
+import DeptAdminAgencyAnalysis from "../DeptAdminAgencyAnalysis";
+import DeptAdminPendingScheme from "../DeptAdminPendingScheme";
+import DeptAdminConventionalScheme from "../DeptAdminConventionalScheme";
+import DeptAdminSchemeReports from "../DeptAdminSchemeReports"
+import SchemeSubmittedLastMonth from "../SchemeLastMonth";
+import SchemeSubmittedThisMonth from "../SchemeThisMonth";
 
 const DeptAdminDashboard = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -16,27 +19,27 @@ const DeptAdminDashboard = () => {
 
   const DashboardData = [
     { title: "Reports", index: 1, component: <DeptAdminReports /> },
-    { title: "Scheme Reports", index: 2, component: <DeptAdminReportCards /> },
-    { title: "Report Cards", index: 3, component: <DeptAdminStageAnalysis /> },
+    { title: "Scheme Reports", index: 2, component: <DeptAdminSchemeReports /> },
+    { title: "Report Cards", index: 3, component: <DeptAdminReportCards /> },
     {
       title: "Stage Wise Analytics(Graphs)",
       index: 4,
-      component: <DeptAdminAgencyAnalysis />,
+      component: <DeptAdminStageAnalysis />,
     },
     {
       title: "Pending Schemes for final submission 0",
-      index: 6,
+      index: 5,
       component: <DeptAdminPendingScheme />,
     },
     {
       title: "Conventional P6 Approvals",
-      index: 7,
+      index: 6,
       component: <DeptAdminConventionalScheme />,
     },
   ];
 
   return (
-    <div className="mx-0 flex flex-col w-full pt-[10px]">
+    <div className="mx-0 flex flex-col w-full pt-[10px] cursor-pointer">
       <h1 className="text-[18px] md:text-2xl text-center underline">
         Welcome Agency Admin
       </h1>
@@ -62,3 +65,6 @@ const DeptAdminDashboard = () => {
 };
 
 export default DeptAdminDashboard;
+
+
+
