@@ -12,19 +12,24 @@ const Login = ({ setUserRole }) => {
   const handleLoginClick = () => {
     if (email === "deptAdmin@gmail.com" && password === "deptAdminPassword") {
       setUserRole("deptadmin");
+      localStorage.setItem("userRole", "deptadmin");
       navigate("/home");
     } else if (email === "superadmin@gmail.com" && password === "superAdminPassword") {
       setUserRole("superadmin");
+      localStorage.setItem("userRole", "superadmin");
+
       navigate("/home");
     } else {
       setError("Incorrect email or password");
     }
   };
 
+
+
   return (
     <div>
       <Logintop />
-      <div className="absolute  md:left-8 md:right-8 top-48 lg:left-80 lg:right-80 w-[450px] bg-gray-100 rounded-lg shadow-2xl justify-center items-center  mx-auto my-[4rem]">
+      <div className="absolute md:left-8 md:right-8 top-48 lg:left-80 lg:right-80 w-[450px] bg-gray-100 rounded-lg shadow-2xl justify-center items-center mx-auto my-[4rem]">
         <div className="pt-3 pb-3 px-11">
           <div className="font-raleway tracking-wide pb-6 pt-3 text-center">
             <h2 className="text-lg underline-purple-500">Login</h2>
@@ -58,7 +63,7 @@ const Login = ({ setUserRole }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <div className="bg-[#5252df] h-px w-full"></div>
-            <p className="text-red-500">{error}</p> 
+            <p className="text-red-500">{error}</p>
             <Link
               to="/forgot"
               className="text-[#5252df] font-raleway text-base mt-5 text-right"
@@ -72,6 +77,7 @@ const Login = ({ setUserRole }) => {
               value="LOGIN"
               onClick={handleLoginClick}
             />
+
           </div>
         </div>
       </div>
@@ -80,6 +86,7 @@ const Login = ({ setUserRole }) => {
 };
 
 export default Login;
+
 
 
 

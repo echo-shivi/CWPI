@@ -1,8 +1,6 @@
 import React from "react";
-import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
-import DeptAdminSidebar from "../Common/DeptAdminSidebar";
-import Navbar from "../../Common/Navbar";
+
 const AgencyAnalytics = () => {
   const data = {
     labels: ["January", "February", "March", "April", "May", "June"],
@@ -40,19 +38,13 @@ const AgencyAnalytics = () => {
   };
 
   return (
-    <section className="flex bg-blue-100">
-      <DeptAdminSidebar />
-      <div className="mx-0 text-xl w-full text-gray-900 font-semibold flex flex-col">
-        <Navbar />
-        <div className=" p-10">
-          <h2>Analytics</h2>
-          <div className="h-[650px] w-full pt-8">
-            <Bar data={data} options={options} />
-          </div>
-        </div>
+    <div className="mx-0 text-xl w-full text-gray-900 font-semibold flex flex-col">
+
+      <h2>Analytics</h2>
+      <div className="h-[650px] w-full pt-8">
+        <Bar data={data} options={options} />
       </div>
-    </section>
-  );
+    </div>);
 };
 
 export default AgencyAnalytics;

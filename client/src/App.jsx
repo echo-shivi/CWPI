@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from "./components/Login";
 import Forgot from "./components/Forgot";
 import AgencyAnalytics from "./components/DeptAdmin/Widgets/AgencyAnalytics";
@@ -27,36 +27,38 @@ import WithSuperAdminLayout from "./components/Layouts/WithSuperAdminLayout";
 import WithDeptAdminLayout from "./components/Layouts/WithDeptAdminLayout";
 import WithoutLayout from "./components/Layouts/WithoutLayouts";
 import DeptAdminDashboard from "./components/DeptAdmin/Widgets/Dashboard/Dashboard";
-const ReportCardRoutes = () => {
-  return (
-    <Routes>
-      <Route path="1" element={<ReportCardForm />} />
-      <Route path="2" element={<CwpiReport />} />
-      <Route path="3" element={<DeltaChangeReport />} />
-      <Route path="4" element={<CwpiRankingBottom />} />
-      <Route path="5" element={<DeltaCwpiRankingBottom />} />
-      <Route path="6" element={<CwpiRankingTop />} />
-      <Route path="7" element={<DeltaCwpiRankingTop />} />
-    </Routes>
-  );
+
+
+const reportCardComponents = {
+  "1": <ReportCardForm />,
+  "2": <CwpiReport />,
+  "3": <DeltaChangeReport />,
+  "4": <CwpiRankingBottom />,
+  "5": <DeltaCwpiRankingBottom />,
+  "6": <CwpiRankingTop />,
+  "7": <DeltaCwpiRankingTop />
 };
 
 const App = () => {
-  const [userRole, setUserRole] = useState("");
+  const storedRole = localStorage.getItem("userRole");
+  const [userRole, setUserRole] = useState(storedRole === "deptadmin" || storedRole === "superadmin" ? storedRole : null);
+
   const setUserRoleHandler = (role) => {
-    setUserRole(role);
+    setUserRole(localStorage.setItem("role", role));
   };
+
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<WithoutLayout><Login setUserRole={setUserRoleHandler} /></WithoutLayout>} />
-        {userRole === 'superadmin' ? (
+        <Route path='/' element={<Login setUserRole={setUserRoleHandler} />} />
+        <Route path='/forgot' element={<Forgot />} />
+
+        {userRole === 'superadmin' && (
           <>
             <Route path='/home' element={<WithSuperAdminLayout><Dashboard /></WithSuperAdminLayout>} />
             <Route path='/add-agencies' element={<WithSuperAdminLayout><AddAgencies /></WithSuperAdminLayout>} />
             <Route path="/employees" element={<WithSuperAdminLayout><AddAgencyAdmin /></WithSuperAdminLayout>} />
             <Route path='/designation' element={<WithSuperAdminLayout><Designation /></WithSuperAdminLayout>} />
-            <Route path='/AgencyAnalytics' element={<WithSuperAdminLayout><AgencyAnalytics /></WithSuperAdminLayout>} />
             <Route path='/agency' element={<WithSuperAdminLayout><AgencyDetail /></WithSuperAdminLayout>} />
             <Route path="/scheme-details" element={<WithSuperAdminLayout><SchemeDetails /></WithSuperAdminLayout>} />
             <Route path="/stagewise" element={<WithSuperAdminLayout><Stagewise /></WithSuperAdminLayout>} />
@@ -66,9 +68,17 @@ const App = () => {
             <Route path="/stageanalysisgraphs" element={<WithSuperAdminLayout><StageAnalysisGraphs /></WithSuperAdminLayout>} />
             <Route path='/scheme-report-details' element={<WithSuperAdminLayout><SchemeReportDetails /></WithSuperAdminLayout>} />
             <Route path="/view-graph-button" element={<WithSuperAdminLayout><Chart /></WithSuperAdminLayout>} />
-            <Route path="/report-card/:reportCardNumber" element={<WithSuperAdminLayout><ReportCardRoutes /></WithSuperAdminLayout>} />
+            {Object.entries(reportCardComponents).map(([reportCardNumber, component]) => (
+              <Route
+                key={reportCardNumber}
+                path={`/report-card/${reportCardNumber}`}
+                element={<WithSuperAdminLayout>{component}</WithSuperAdminLayout>}
+              />
+            ))}
           </>
-        ) : userRole === 'deptadmin' ? (
+        )}
+
+        {userRole === 'deptadmin' && (
           <>
             <Route path='/home' element={<WithDeptAdminLayout><DeptAdminDashboard /></WithDeptAdminLayout>} />
             <Route path='/add-agencies' element={<WithDeptAdminLayout><AddAgencies /></WithDeptAdminLayout>} />
@@ -84,11 +94,14 @@ const App = () => {
             <Route path="/stageanalysisgraphs" element={<WithDeptAdminLayout><StageAnalysisGraphs /></WithDeptAdminLayout>} />
             <Route path='/scheme-report-details' element={<WithDeptAdminLayout><SchemeReportDetails /></WithDeptAdminLayout>} />
             <Route path="/view-graph-button" element={<WithDeptAdminLayout><Chart /></WithDeptAdminLayout>} />
-            <Route path="/report-card/:reportCardNumber" element={<WithDeptAdminLayout><ReportCardRoutes /></WithDeptAdminLayout>} />
+            {Object.entries(reportCardComponents).map(([reportCardNumber, component]) => (
+              <Route
+                key={reportCardNumber}
+                path={`/report-card/${reportCardNumber}`}
+                element={<WithDeptAdminLayout>{component}</WithDeptAdminLayout>}
+              />
+            ))}
           </>
-        ) : (
-          <Route path='*' element={<Navigate to='/' />} />
-
         )}
 
       </Routes>
@@ -97,6 +110,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
