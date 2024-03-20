@@ -1,113 +1,96 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from "./components/Login";
 import Forgot from "./components/Forgot";
-import AgencyAnalytics from "./components/Widgets/Dashboard/AgencyAnalytics";
+import AgencyAnalytics from "./components/DeptAdmin/Widgets/AgencyAnalytics";
 import SchemeReportDetails from "./components/Widgets/Dashboard/SchemeReports/ReportsForm";
-import Navbar from "./components/Common/Navbar";
-import Sidebar from "./components/Common/Sidebar";
 import Dashboard from "./components/Widgets/Dashboard/Dashboard";
 import AgencyDetail from "./components/Widgets/Dashboard/WorkAgency/AgencyDetail";
 import ReportCardForm from "./components/Widgets/Dashboard/ReportCards/ReportCardForm";
-import CwpiReport from "./components/Widgets/Dashboard/ReportCards/CwpiReport"
-import DeltaChangeReport from "./components/Widgets/Dashboard/ReportCards/DeltaChangeReport"
-import CwpiRankingBottom from "./components/Widgets/Dashboard/ReportCards/CwpiRankingBottom/CwpiRankingSubdetail"
-import CwpiRankingTop from "./components/Widgets/Dashboard/ReportCards/CwpiRankingTop/CwpiRankingSubdetail"
-import DeltaCwpiRankingBottom from "./components/Widgets/Dashboard/ReportCards/DeltaCwpiRankingBottom/CwpiRankingSubdetail"
-import DeltaCwpiRankingTop from "./components/Widgets/Dashboard/ReportCards/DeltaCwpiRankingTop/CwpiRankingSubdetail"
+import CwpiReport from "./components/Widgets/Dashboard/ReportCards/CwpiReport";
+import DeltaChangeReport from "./components/Widgets/Dashboard/ReportCards/DeltaChangeReport";
+import CwpiRankingBottom from "./components/Widgets/Dashboard/ReportCards/CwpiRankingBottom/CwpiRankingSubdetail";
+import CwpiRankingTop from "./components/Widgets/Dashboard/ReportCards/CwpiRankingTop/CwpiRankingSubdetail";
+import DeltaCwpiRankingBottom from "./components/Widgets/Dashboard/ReportCards/DeltaCwpiRankingBottom/CwpiRankingSubdetail";
+import DeltaCwpiRankingTop from "./components/Widgets/Dashboard/ReportCards/DeltaCwpiRankingTop/CwpiRankingSubdetail";
 import SchemeDetails from "./components/Widgets/Schemes/SchemeDetails";
-import Stagewise from "./components/Widgets/Dashboard/StagewiseGraphs/Stagewise"
+import Stagewise from "./components/Widgets/Dashboard/StagewiseGraphs/Stagewise";
 import StageAnalysisGraphs from "./components/Widgets/Dashboard/StagewiseGraphs/StageAnalysisGraphs";
 import EmployeeView from "./components/Widgets/Schemes/EmployeeView";
 import DropDownMenu from "./components/Widgets/Dashboard/DropdownMenu";
-import ReactTable from "./components/Widgets/Dashboard/PdfReport/ReactTable";
 import AddAgencyAdmin from "./components/Widgets/AgencyAdmin/AddAgencyAdmin";
 import AddAgencies from "./components/Widgets/Agencies/AddAgencies";
 import Designation from "./components/Widgets/Designation/Designation";
 import MasterEntry from './components/Widgets/Dashboard/PdfReport/MasterEntry';
-
-import Chart from "./components/Widgets/Schemes/Chart"
-
-
-const WithLayout = ({ children }) => {
-  const [open, setOpen] = useState(window.innerWidth >= 790);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setOpen(window.innerWidth >= 790);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
+import Chart from "./components/Widgets/Schemes/Chart";
+import WithSuperAdminLayout from "./components/Layouts/WithSuperAdminLayout";
+import WithDeptAdminLayout from "./components/Layouts/WithDeptAdminLayout";
+import WithoutLayout from "./components/Layouts/WithoutLayouts";
+import DeptAdminDashboard from "./components/DeptAdmin/Widgets/Dashboard/Dashboard";
+const ReportCardRoutes = () => {
   return (
-    <div className="flex">
-    <Sidebar setOpen={setOpen} open={open} />
-    <div className={`mx-0 ${open ? 'ml-72' : 'ml-16'} flex flex-col w-full`}>
-
-      <Navbar />
-      <div className="p-10 bg-blue-100 min-h-screen">
-        {children}
-        </div>
-    </div>
-  </div>
-  
-
+    <Routes>
+      <Route path="1" element={<ReportCardForm />} />
+      <Route path="2" element={<CwpiReport />} />
+      <Route path="3" element={<DeltaChangeReport />} />
+      <Route path="4" element={<CwpiRankingBottom />} />
+      <Route path="5" element={<DeltaCwpiRankingBottom />} />
+      <Route path="6" element={<CwpiRankingTop />} />
+      <Route path="7" element={<DeltaCwpiRankingTop />} />
+    </Routes>
   );
 };
 
-const WithoutLayout = ({ children }) => <>{children}</>;
-
 const App = () => {
-  const reportCardComponents = {
-    "1": <WithLayout><ReportCardForm /></WithLayout>,
-    "2": <WithLayout><CwpiReport /></WithLayout>,
-    "3": <WithLayout><DeltaChangeReport /></WithLayout>,
-    "4": <WithLayout><CwpiRankingBottom /></WithLayout>,
-    "5": <WithLayout><DeltaCwpiRankingBottom /></WithLayout>,
-    "6": <WithLayout><CwpiRankingTop /></WithLayout>,
-    "7": <WithLayout><DeltaCwpiRankingTop /></WithLayout>
+  const [userRole, setUserRole] = useState("");
+  const setUserRoleHandler = (role) => {
+    setUserRole(role);
   };
-
-  const reportCardRoutes = [];
-  for (const reportCardNumber in reportCardComponents) {
-    reportCardRoutes.push(
-      <Route
-        key={reportCardNumber}
-        path={`/report-card/${reportCardNumber}`}
-        element={reportCardComponents[reportCardNumber]}
-      />
-    );
-  }
-
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<WithoutLayout><Login /></WithoutLayout>} />
-        <Route path='/forgot' element={<WithoutLayout><Forgot /></WithoutLayout>} />
-        <Route path='/home' element={<WithLayout><Dashboard /></WithLayout>} />
-        <Route path='/add-agencies' element={<WithLayout><AddAgencies /></WithLayout>} />
-        <Route path="/employees" element={<WithLayout><AddAgencyAdmin /></WithLayout>} />
-        <Route path='/designation' element={<WithLayout><Designation /></WithLayout>} />
-        <Route path='/AgencyAnalytics' element={<WithLayout><AgencyAnalytics /></WithLayout>} />
-        {/* <Route path='/agency/:departmentName' element={<WithLayout><AgencyDetail /></WithLayout>} /> */}
-        <Route path='/agency' element={<WithLayout><AgencyDetail /></WithLayout>} />
-        <Route path="/scheme-details" element={<WithLayout><SchemeDetails /></WithLayout>} />
-        <Route path="/stagewise" element={<WithLayout><Stagewise /></WithLayout>} />
-        <Route path="/employeeview" element={<WithLayout><EmployeeView /></WithLayout>} />
-        <Route path="/pdfreport" element={<WithLayout><DropDownMenu /></WithLayout>} />
-        <Route path="/masterentry" element={<WithLayout><MasterEntry /></WithLayout>} />
-        <Route path="/stageanalysisgraphs" element={<WithLayout><StageAnalysisGraphs /></WithLayout>} />
-        <Route path='/scheme-report-details' element={<WithLayout><SchemeReportDetails /></WithLayout>} />
-        < Route path="/master-entry" element={<WithLayout><MasterEntry /></WithLayout>} />
-        <Route path="/view-graph-button" element={<WithLayout><Chart /></WithLayout>} />
-        {reportCardRoutes}
-        <Route path='*' element={<Navigate to='/' />} />
+        <Route path='/' element={<WithoutLayout><Login setUserRole={setUserRoleHandler} /></WithoutLayout>} />
+        {userRole === 'superadmin' ? (
+          <>
+            <Route path='/home' element={<WithSuperAdminLayout><Dashboard /></WithSuperAdminLayout>} />
+            <Route path='/add-agencies' element={<WithSuperAdminLayout><AddAgencies /></WithSuperAdminLayout>} />
+            <Route path="/employees" element={<WithSuperAdminLayout><AddAgencyAdmin /></WithSuperAdminLayout>} />
+            <Route path='/designation' element={<WithSuperAdminLayout><Designation /></WithSuperAdminLayout>} />
+            <Route path='/AgencyAnalytics' element={<WithSuperAdminLayout><AgencyAnalytics /></WithSuperAdminLayout>} />
+            <Route path='/agency' element={<WithSuperAdminLayout><AgencyDetail /></WithSuperAdminLayout>} />
+            <Route path="/scheme-details" element={<WithSuperAdminLayout><SchemeDetails /></WithSuperAdminLayout>} />
+            <Route path="/stagewise" element={<WithSuperAdminLayout><Stagewise /></WithSuperAdminLayout>} />
+            <Route path="/employeeview" element={<WithSuperAdminLayout><EmployeeView /></WithSuperAdminLayout>} />
+            <Route path="/pdfreport" element={<WithSuperAdminLayout><DropDownMenu /></WithSuperAdminLayout>} />
+            <Route path="/masterentry" element={<WithSuperAdminLayout><MasterEntry /></WithSuperAdminLayout>} />
+            <Route path="/stageanalysisgraphs" element={<WithSuperAdminLayout><StageAnalysisGraphs /></WithSuperAdminLayout>} />
+            <Route path='/scheme-report-details' element={<WithSuperAdminLayout><SchemeReportDetails /></WithSuperAdminLayout>} />
+            <Route path="/view-graph-button" element={<WithSuperAdminLayout><Chart /></WithSuperAdminLayout>} />
+            <Route path="/report-card/:reportCardNumber" element={<WithSuperAdminLayout><ReportCardRoutes /></WithSuperAdminLayout>} />
+          </>
+        ) : userRole === 'deptadmin' ? (
+          <>
+            <Route path='/home' element={<WithDeptAdminLayout><DeptAdminDashboard /></WithDeptAdminLayout>} />
+            <Route path='/add-agencies' element={<WithDeptAdminLayout><AddAgencies /></WithDeptAdminLayout>} />
+            <Route path="/employees" element={<WithDeptAdminLayout><AddAgencyAdmin /></WithDeptAdminLayout>} />
+            <Route path='/designation' element={<WithDeptAdminLayout><Designation /></WithDeptAdminLayout>} />
+            <Route path='/AgencyAnalytics' element={<WithDeptAdminLayout><AgencyAnalytics /></WithDeptAdminLayout>} />
+            <Route path='/agency' element={<WithDeptAdminLayout><AgencyDetail /></WithDeptAdminLayout>} />
+            <Route path="/scheme-details" element={<WithDeptAdminLayout><SchemeDetails /></WithDeptAdminLayout>} />
+            <Route path="/stagewise" element={<WithDeptAdminLayout><Stagewise /></WithDeptAdminLayout>} />
+            <Route path="/employeeview" element={<WithDeptAdminLayout><EmployeeView /></WithDeptAdminLayout>} />
+            <Route path="/pdfreport" element={<WithDeptAdminLayout><DropDownMenu /></WithDeptAdminLayout>} />
+            <Route path="/masterentry" element={<WithDeptAdminLayout><MasterEntry /></WithDeptAdminLayout>} />
+            <Route path="/stageanalysisgraphs" element={<WithDeptAdminLayout><StageAnalysisGraphs /></WithDeptAdminLayout>} />
+            <Route path='/scheme-report-details' element={<WithDeptAdminLayout><SchemeReportDetails /></WithDeptAdminLayout>} />
+            <Route path="/view-graph-button" element={<WithDeptAdminLayout><Chart /></WithDeptAdminLayout>} />
+            <Route path="/report-card/:reportCardNumber" element={<WithDeptAdminLayout><ReportCardRoutes /></WithDeptAdminLayout>} />
+          </>
+        ) : (
+          <Route path='*' element={<Navigate to='/' />} />
+
+        )}
+
       </Routes>
     </Router>
   );
