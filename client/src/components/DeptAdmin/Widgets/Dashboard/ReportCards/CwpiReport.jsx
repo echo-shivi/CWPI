@@ -85,7 +85,7 @@ const CwpiReport = () => {
     };
 
     return (
-        <div className="container mx-auto p-4" ref={pdfRef}>
+        <div className="  container mx-auto p-4" ref={pdfRef}>
             <div className="justify-between flex py-6">
                 <h1 className="items-center justify-start font-medium text-2xl">CWPI Report</h1>
                 <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
@@ -158,7 +158,7 @@ const CwpiReport = () => {
                                     <td className="border font-medium">{entry?.departmentName}</td>
                                     <td className="border font-medium">{entry?.cwpiScore}</td>
                                     <td className="border font-medium">{entry?.percentile}</td>
-                                    <td className="border font-medium"><Link to="/view-graph-button" className='bg-blue-400  text-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg p-3 my-2'>View Details</Link></td>
+                                    <td className="border font-medium"><Link to="/view-graph-button" className='bg-blue-400 mx-4 text-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg p-4 my-2'>View Details</Link></td>
 
                                 </tr>
                             ))

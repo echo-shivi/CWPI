@@ -85,7 +85,7 @@ const CwpiReport = () => {
     };
 
     return (
-        <div className="container mx-auto p-4" ref={pdfRef}>
+        <div className="bg-slate-100 rounded-lg container mx-auto p-4" ref={pdfRef}>
             <div className="justify-between flex py-6">
                 <h1 className="items-center justify-start font-medium text-2xl">CWPI Report</h1>
                 <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">

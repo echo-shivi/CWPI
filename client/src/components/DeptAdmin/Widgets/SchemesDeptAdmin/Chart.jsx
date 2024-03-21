@@ -4,8 +4,6 @@ import SearchBar from "../../Atom/SearchBar";
 import { Line } from "react-chartjs-2";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
-
 import {
   Chart as ChartJS,
   LineElement,
