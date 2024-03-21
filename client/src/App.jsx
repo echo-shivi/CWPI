@@ -33,7 +33,7 @@ import MasterEntryDeptAdmin from './components/DeptAdmin/Widgets/MasterEntry/Mas
 import Scheme from './components/DeptAdmin/Widgets/SchemesDeptAdmin/SchemeDetails';
 import Analytics from "./components/DeptAdmin/Widgets/AgencywiseAnalytics/AgencywiseAnalytics"
 import Help from "./components/DeptAdmin/Atom/Cardhelp"
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const reportCardComponents = {
   "1": <ReportCardForm />,
