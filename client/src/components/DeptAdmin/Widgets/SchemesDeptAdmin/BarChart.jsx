@@ -21,7 +21,7 @@ const BarChart = () => {
     const fetchData = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:8001/api/dashboard/barchart/details"
+                `${process.env.REACT_APP_API_BASE_URL}dashboard/barchart/details`
             );
             console.log(response.data.barChart); 
             setChartData(response.data.barChart);

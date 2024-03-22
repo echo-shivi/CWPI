@@ -18,7 +18,7 @@ const DeltaChange = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8001/api/dashboard/reportCard/reportDetails/deltaChange/details');
+                const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}dashboard/reportCard/reportDetails/deltaChange/details`);
                 setTablesData(response.data.deltaChange);
                 console.log('API response:', response.data.deltaChange);
             } catch (error) {

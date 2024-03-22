@@ -7,7 +7,7 @@ const StageAnalysis = () => {
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8001/api/dashboard/stageWise/details')
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}dashboard/stageWise/details`)
       .then((response) => {
         console.log('API response:', response.data);
         setCardsData(response.data.StageWiseAnalyticsDetails);

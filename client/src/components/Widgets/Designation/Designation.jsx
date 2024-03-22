@@ -17,7 +17,7 @@ const CwpiReport = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8001/api/designation/addDesignation/details');
+                const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}designation/addDesignation/details`);
                 setTablesData(response.data.designation);
                 console.log('API response:', response.data.designation);
             } catch (error) {

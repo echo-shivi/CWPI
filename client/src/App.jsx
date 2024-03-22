@@ -24,7 +24,7 @@ import Designation from "./components/Widgets/Designation/Designation";
 import MasterEntry from './components/Widgets/Dashboard/PdfReport/MasterEntry';
 import Chart from "./components/Widgets/Schemes/Chart";
 import WithSuperAdminLayout from "./components/Layouts/WithSuperAdminLayout";
-import WithEmployeeLayout from "./components/Layouts/withEmployeeLayout";
+import WithEmployeeLayout from "./components/Layouts/WithEmployeeLayout";
 import WithDeptAdminLayout from "./components/Layouts/WithDeptAdminLayout";
 import DeptAdminDashboard from "./components/DeptAdmin/Widgets/Dashboard/Dashboard";
 import EmployeeEntry from './components/DeptAdmin/Widgets/Employee/EmployeeEntry';

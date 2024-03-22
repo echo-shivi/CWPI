@@ -6,7 +6,7 @@ const SchemeReport = () => {
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8001/api/dashboard/schemeReport/details')
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}dashboard/schemeReport/details`)
       .then((response) => {
         console.log('API response:', response.data);
         setCardsData(response.data.schemeReportDetails);

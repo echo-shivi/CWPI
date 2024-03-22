@@ -21,7 +21,7 @@ const Designation = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8001/api/agencies/addAgencies/details"
+          `${process.env.REACT_APP_API_BASE_URL}agencies/addAgencies/details`
         );
         setTablesData(response.data.agenciesDetails);
         console.log("API response:", response.data.agenciesDetails);

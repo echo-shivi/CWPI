@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import UserSidebar from "../Employee/Common/UserSidebar";
 import Navbar from "../Common/Navbar";
 
-const withEmployeeLayout = ({ children }) => {
+const WithEmployeeLayout = ({ children }) => {
   const [open, setOpen] = useState(window.innerWidth >= 790);
 
   useEffect(() => {
@@ -30,4 +30,4 @@ const withEmployeeLayout = ({ children }) => {
   );
 };
 
-export default withEmployeeLayout;
+export default WithEmployeeLayout;

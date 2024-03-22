@@ -18,7 +18,7 @@ const Bottom5 = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8001/api/dashboard/reportCard/reportDetails/cwpiRankingTop/bottom5/details');
+                const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}dashboard/reportCard/reportDetails/cwpiRankingTop/bottom5/details`);
                 setTablesData(response.data.bottom5);
                 console.log('API response:', response.data.bottom5);
             } catch (error) {
