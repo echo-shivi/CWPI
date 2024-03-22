@@ -12,7 +12,6 @@ const CwpiReport = () => {
     const [tablesData, setTablesData] = useState([]);
     const [entriesPerPage, setEntriesPerPage] = useState(3);
     const [searchTerm, setSearchTerm] = useState('');
-    const [startDate, setStartDate] = useState(null);
     const pdfRef = useRef();
 
     useEffect(() => {
@@ -33,9 +32,7 @@ const CwpiReport = () => {
         return searchTerm
             ? tablesData.filter(
                 (entry) =>
-                    entry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    entry.emailId.toLowerCase().includes(searchTerm.toLowerCase())
-            )
+                    entry.designationName.toLowerCase().includes(searchTerm.toLowerCase())            )
             : tablesData;
     }, [searchTerm, tablesData]);
 
@@ -88,20 +85,19 @@ const CwpiReport = () => {
     return (
         <div className="container mx-auto p-4" ref={pdfRef}>
 
-            <div className="justify-between flex pb-6">
-                <div className='flex flex-col justify-start'>
-                    <h1 className=" font-medium text-lg">Add Designation Name</h1>
-                    <div className='flex-1 shrink-0 grow'>
-                        <input type="text" className=" border border-gray-300 p-3 rounded text-lg" placeholder="Enter Designation Name" />
-                        <button className='bg-blue-400 mx-2 text-white hover:bg-blue-300 p-3 text-lg'>Submit</button>
-                    </div>
-                </div>
-                <div>
-                    <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
-                        Download <FaDownload className="ml-2 mt-1" />
-                    </button>
-                </div>
-            </div>
+            <div className="flex justify-between mb-6 gap-4">
+          <div className="flex">
+            <input type="text" className=" flex-1 border border-gray-300 p-3 rounded text-lg" placeholder="Enter Agencies Name" />
+            <button className='bg-blue-400 mx-2 text-white hover:bg-blue-300 p-3 text-lg'>Submit</button>
+          </div>
+
+        <div>
+          <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
+          Download <FaDownload className="ml-2 mt-1" />
+        </button>
+        </div>
+        
+      </div>
 
             <div className="flex justify-between mb-4">
                 <div className="flex items-center text-lg font-medium">

@@ -36,10 +36,8 @@ const Designation = () => {
   const filteredEntries = useMemo(() => {
     return searchTerm
       ? tablesData.filter(
-          (entry) =>
-            entry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            entry.emailId.toLowerCase().includes(searchTerm.toLowerCase())
-        )
+        (entry) =>
+          entry.departmentName.toLowerCase().includes(searchTerm.toLowerCase())       )
       : tablesData;
   }, [searchTerm, tablesData]);
 
@@ -99,23 +97,23 @@ const Designation = () => {
     setCurrentPage(1);
   };
 
-    return (
-        <div className=" bg-slate-100 rounded-lg container mx-auto p-4" ref={pdfRef}>
-            <div className="justify-between flex pb-6">
-                <div className='flex-1  flex-col justify-start'>
-                    <h1 className=" font-medium text-lg mb-5">Add Agencies Name</h1>
-                    <div className='flex flex-wrap  justify-between shrink-0 grow'>
-                        <input type="text" className=" flex-1 flex-shrink border border-gray-300 p-3 rounded text-lg" placeholder="Enter Agencies Name" />
-                        <button className=' flex-1 flex-shrink bg-blue-400 mx-2 text-white hover:bg-blue-300 p-3 text-lg'>Submit</button>
-                        <button onClick={downloadPDF} className="btn-blue p-4 flex  text-white font-medium rounded">
-                        Download <FaDownload className="ml-2 mt-1" />
-                    </button>
-                    </div>
-                </div>
-                <div>
-                    
-                </div>
-            </div>
+  return (
+    <div className="container mx-auto p-4" ref={pdfRef}>
+
+      <div className="flex justify-between mb-6 gap-4">
+        <div className="flex">
+          <input type="text" className=" flex-1 border border-gray-300 p-3 rounded text-lg" placeholder="Enter Agencies Name" />
+          <button className='bg-blue-400 mx-2 text-white hover:bg-blue-300 p-3 text-lg'>Submit</button>
+        </div>
+
+        <div>
+          <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
+            Download <FaDownload className="ml-2 mt-1" />
+          </button>
+        </div>
+
+      </div>
+
 
       <div className="flex justify-between mb-4">
         <div className="flex items-center text-lg font-medium">
@@ -183,9 +181,8 @@ const Designation = () => {
               currentEntries.map((entry, index) => (
                 <tr
                   key={entry.id}
-                  className={`${
-                    index % 2 === 0 ? "bg-[#fff]" : "bg-gray-100"
-                  } h-10 text-base text-center`}
+                  className={`${index % 2 === 0 ? "bg-[#fff]" : "bg-gray-100"
+                    } h-10 text-base text-center`}
                 >
                   <td className="border font-medium">{entry?.id}</td>
                   <td className="border font-medium">
