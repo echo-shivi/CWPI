@@ -12,11 +12,11 @@ const FormComponent = () => {
 
     return (
 
-        <div className="bg-white p-8 px-4 h-full w-full ">
+        <div className="bg-white p-6 px-4  ">
 
-            <div className="grid gap-2 p-4 text-sm grid-cols-1 lg:grid-cols-2">
+            <div className="grid gap-2 p-4 text-sm grid-cols-1">
 
-                <div className="mx-4 bg-gray-50 shadow-lg rounded-lg justify-center items-center my-32  text-gray-900">
+                {/* <div className="mx-4 justify-center items-center my-32  text-gray-900">
 
                     <div className="mx-auto w-32 h-32   border-4 border-white rounded-full overflow-hidden">
                         <img className="object-cover object-center h-32" src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ' alt='Woman looking front' />
@@ -44,11 +44,14 @@ const FormComponent = () => {
                         </li>
                     </ul>
 
-                </div>
+                </div> */}
 
-                <div className=" p-8">
+                <div className=" p-2">
                     <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                         <div className="md:col-span-5">
+                        <div className="mx-auto w-32 h-32   border-4 border-white rounded-full overflow-hidden">
+                        <img className="object-cover object-center h-32" src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ' alt='Woman looking front' />
+                    </div>
                             <label htmlFor="department">Department</label>
                             <input type="text" name="department" id="department" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value={department} onChange={(e) => setDepartment(e.target.value)} />
                         </div>
