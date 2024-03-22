@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Table from "./Table"
 
 function Update() {
   const [formData, setFormData] = useState({
@@ -28,6 +29,7 @@ function Update() {
   };
 
   return (
+    <>
     <form onSubmit={onSubmitHandler} className="mx-auto m-12 px-10">
       <h1 className="font-normal mt-3 mb-5 text-left text-lg">P1</h1>
 
@@ -43,7 +45,7 @@ function Update() {
           placeholder="Select Scheme"
           aria-placeholder="Select Scheme"
         >
-          <option value="">Select Occupation</option>
+          <option value="">Select Scheme</option>
           <option value="EFCCD">Enivironment, Forest & Climate Change Department (EFCCD)</option>
           <option value="agency2">Agency 2</option>
           <option value="other">Other</option>
@@ -92,6 +94,8 @@ function Update() {
         </button>
       </div>
     </form>
+    <Table/>
+    </>
   );
 }
 
