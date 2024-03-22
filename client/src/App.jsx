@@ -33,6 +33,7 @@ import Scheme from './components/DeptAdmin/Widgets/SchemesDeptAdmin/SchemeDetail
 import Analytics from "./components/DeptAdmin/Widgets/AgencywiseAnalytics/AgencywiseAnalytics"
 import Help from "./components/DeptAdmin/Atom/Cardhelp"
 // import { Link } from 'react-router-dom';
+import Update from "./components/Employee/Widgets/Conventional Schemes/Update"
 
 const reportCardComponents = {
   "1": <ReportCardForm />,
@@ -108,6 +109,7 @@ const App = () => {
             <Route path="/schemes" element={<WithDeptAdminLayout><Scheme/></WithDeptAdminLayout>}/>
             <Route path="/analytics" element={<WithDeptAdminLayout><Analytics/></WithDeptAdminLayout>}/>
             <Route path="/help" element={<WithDeptAdminLayout><Help/></WithDeptAdminLayout>}/>
+            <Route path ="/update" element={<WithDeptAdminLayout><Update/></WithDeptAdminLayout>}/>
             {Object.entries(reportCardComponents).map(([reportCardNumber, component]) => (
               <Route
                 key={reportCardNumber}
