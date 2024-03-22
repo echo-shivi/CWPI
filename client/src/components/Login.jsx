@@ -17,6 +17,9 @@ const Login = ({ setUserRole }) => {
     } else if (email === "superadmin@gmail.com" && password === "super123") {
       setUserRole("superadmin");
       navigate("/home");
+    }else if (email === "employee1@gmail.com" && password === "employee123") {
+      setUserRole("employee");
+      navigate("/home");
     } else {
       setError("Incorrect email or password");
     }
