@@ -22,6 +22,10 @@ function DeptAdminSidebar({ setOpen, open }) {
     { name: "LogOut", link: "/", icon: TbLogout2, margin: true },
   ];
 
+  const handleLogout = () => {
+    localStorage.removeItem("userRole");
+    navigate("/");
+  };
 
   return (
     <div
@@ -48,7 +52,7 @@ function DeptAdminSidebar({ setOpen, open }) {
         {menus?.map((menu, i) => (
           <div
             key={i}
-            onClick={() => navigate(menu.link)} // Use navigate function to redirect
+            onClick={menu.name === "LogOut" ? handleLogout : () => navigate(menu.link)} 
             className={`${menu?.margin && "mt-5"
               } group cursor-pointer flex items-center text-lg gap-3.5 font-medium p-2 hover:bg-blue-500 rounded-md`}
           >
@@ -76,3 +80,4 @@ function DeptAdminSidebar({ setOpen, open }) {
 }
 
 export default DeptAdminSidebar;
+

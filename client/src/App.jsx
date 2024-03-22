@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from "./components/Login";
 import Forgot from "./components/Forgot";
 import AgencyAnalytics from "./components/DeptAdmin/Widgets/AgencyAnalytics";
@@ -25,7 +25,6 @@ import MasterEntry from './components/Widgets/Dashboard/PdfReport/MasterEntry';
 import Chart from "./components/Widgets/Schemes/Chart";
 import WithSuperAdminLayout from "./components/Layouts/WithSuperAdminLayout";
 import WithDeptAdminLayout from "./components/Layouts/WithDeptAdminLayout";
-import WithoutLayout from "./components/Layouts/WithoutLayouts";
 import DeptAdminDashboard from "./components/DeptAdmin/Widgets/Dashboard/Dashboard";
 import EmployeeEntry from './components/DeptAdmin/Widgets/Employee/EmployeeEntry';
 import RegisterEntry from './components/DeptAdmin/Widgets/RegisterMasterScheme/RegisterEntry';
@@ -46,11 +45,13 @@ const reportCardComponents = {
 };
 
 const App = () => {
-  const storedRole = localStorage.getItem("userRole");
-  const [userRole, setUserRole] = useState(storedRole === "deptadmin" || storedRole === "superadmin" ? storedRole : null);
+
+  const [userRole, setUserRole] = useState(localStorage.getItem("userRole") || "");
 
   const setUserRoleHandler = (role) => {
-    setUserRole(localStorage.setItem("role", role));
+    setUserRole(role);
+    localStorage.setItem("userRole", role);
+
   };
 
   return (
@@ -81,6 +82,7 @@ const App = () => {
                 element={<WithSuperAdminLayout>{component}</WithSuperAdminLayout>}
               />
             ))}
+
           </>
         )}
 
@@ -115,7 +117,6 @@ const App = () => {
             ))}
           </>
         )}
-
       </Routes>
     </Router>
   );
