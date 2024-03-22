@@ -5,19 +5,13 @@ import { AiOutlineUser } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { TbLogout2 } from "react-icons/tb";
 import { IoMdHelpCircleOutline } from "react-icons/io";
-import { ImProfile } from "react-icons/im";
-import { FaPeopleRoof } from "react-icons/fa6";
 import BvmLogo from '../../../assets/bvm-logo.png';
 
 function DeptAdminSidebar({ setOpen, open }) {
   const navigate = useNavigate();
   const menus = [
     { name: "Dashboard", link: "/home", icon: MdOutlineDashboard },
-    { name: "Agency Wise Analytics", link: "/AgencyAnalytics", icon: MdOutlineDashboard },
-    { name: "Employee Entry", link: "/employee-entry", icon: FaPeopleRoof },
-    { name: "Register Master Scheme", link: "/register-entry", icon: AiOutlineUser },
-    { name: "Master Entry", link: "/master-entry", icon: ImProfile },
-  
+    { name: "Profile", link: "/profile", icon: AiOutlineUser },
     { name: "Help", link: "/help", icon: IoMdHelpCircleOutline },
     { name: "LogOut", link: "/", icon: TbLogout2, margin: true },
   ];
@@ -80,4 +74,3 @@ function DeptAdminSidebar({ setOpen, open }) {
 }
 
 export default DeptAdminSidebar;
-

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import DeptAdminSidebar from "../DeptAdmin/Common/DeptAdminSidebar";
+import UserSidebar from "../Employee/Common/UserSidebar";
 import Navbar from "../Common/Navbar";
 
-const DeptAdminDeptLayout = ({ children }) => {
+const withEmployeeLayout = ({ children }) => {
   const [open, setOpen] = useState(window.innerWidth >= 790);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const DeptAdminDeptLayout = ({ children }) => {
 
   return (
     <div className="flex">
-      <DeptAdminSidebar setOpen={setOpen} open={open} />
+      <UserSidebar setOpen={setOpen} open={open} />
       <div className={`mx-0 bg-blue-100 min-h-screen ${open ? 'ml-72' : 'ml-16'} flex flex-col w-full`}>
         <Navbar open={open}/>
         <div className={`p-10 bg-blue-100 overflow-x-auto `}>
@@ -30,4 +30,4 @@ const DeptAdminDeptLayout = ({ children }) => {
   );
 };
 
-export default DeptAdminDeptLayout;
+export default withEmployeeLayout;
