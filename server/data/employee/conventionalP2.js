@@ -59,3 +59,4 @@ const conventionalP2 = [
         "Score": "85"
     }
 ]
+module.exports = {conventionalP2}

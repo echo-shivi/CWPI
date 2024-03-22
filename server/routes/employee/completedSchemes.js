@@ -1,12 +1,12 @@
 const express = require('express');
 
 const router = express.Router();
-const designationDetails = require('../../data/designation/designation');
+const completedSchemesDetails = require('../../data/employee/completedSchemes');
 
 router.get('/details',
   (req, res) => {
-    console.log(designationDetails);
-    res.send(designationDetails);
+    console.log(completedSchemesDetails);
+    res.send(completedSchemesDetails);
   }
 );
 

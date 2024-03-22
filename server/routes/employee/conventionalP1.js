@@ -1,67 +1,13 @@
-const conventionalP1 = [
-    {
-        "id" : 1,
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Administrative Approval": "2024-03-22",
-        "Date Of Technical Sanction": "2024-03-25",
-        "Total Allowed Time": "365 days",
-        "Actual Time Taken": "150 days",
-        "Status": "Completed",
-        "Score": "85"
-    },
-    {
-        "id" : 2,
+const express = require('express');
 
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Administrative Approval": "2024-03-22",
-        "Date Of Technical Sanction": "2024-03-25",
-        "Total Allowed Time": "365 days",
-        "Actual Time Taken": "150 days",
-        "Status": "Completed",
-        "Score": "85"
-    },
-    {
-        "id" : 3,
+const router = express.Router();
+const conventionalP1Details = require('../../data/employee/conventionalP1');
 
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Administrative Approval": "2024-03-22",
-        "Date Of Technical Sanction": "2024-03-25",
-        "Total Allowed Time": "365 days",
-        "Actual Time Taken": "150 days",
-        "Status": "Completed",
-        "Score": "85"
-    },
-    {
-        "id" : 4,
+router.get('/details',
+  (req, res) => {
+    console.log(conventionalP1Details);
+    res.send(conventionalP1Details);
+  }
+);
 
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Administrative Approval": "2024-03-22",
-        "Date Of Technical Sanction": "2024-03-25",
-        "Total Allowed Time": "365 days",
-        "Actual Time Taken": "150 days",
-        "Status": "Completed",
-        "Score": "85"
-    },
-    {
-        "id" : 5,
-
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Administrative Approval": "2024-03-22",
-        "Date Of Technical Sanction": "2024-03-25",
-        "Total Allowed Time": "365 days",
-        "Actual Time Taken": "150 days",
-        "Status": "Completed",
-        "Score": "85"
-    },
-    {
-        "id" : 6,
-
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Administrative Approval": "2024-03-22",
-        "Date Of Technical Sanction": "2024-03-25",
-        "Total Allowed Time": "365 days",
-        "Actual Time Taken": "150 days",
-        "Status": "Completed",
-        "Score": "85"
-    }
-]
+module.exports = router;

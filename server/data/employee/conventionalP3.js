@@ -60,3 +60,4 @@ const conventionalP3 = [
         "Score": "85"
     }
 ]
+module.exports = {conventionalP3}

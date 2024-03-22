@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
 import DashboardLayout from "./DashboardLayout";
-
-
+import PendingScheme from "./PendingScheme";
+import CompletedScheme from "./CompletedScheme";
+import Conventional from "./Conventional/Conventional";
 const DeptAdminDashboard = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -11,9 +12,9 @@ const DeptAdminDashboard = () => {
   };
 
   const DashboardData = [
-    { title: "Pending Scheme", index: 1, component: null },
-    { title: "Completed Scheme", index: 2, component: null },
-    { title: "Conventional", index: 3, component: null },
+    { title: "Pending Scheme", index: 1, component: <PendingScheme/>},
+    { title: "Completed Scheme", index: 2, component: <CompletedScheme/> },
+    { title: "Conventional", index: 3, component: <Conventional/> },
     {
       title: "Epc",
       index: 4,

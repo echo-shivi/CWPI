@@ -6,3 +6,4 @@ const schemes_names = [
     {"schemes_name": "Development works related to Karamchat Dam (Durgavati Reservoir).", "id": 5,"access_level": "P2","cwpi_format":"departmental"},
     {"schemes_name": "Repair and Renovation of city park with 4 feet wide walking track along boundary wall at city park. Bhabhua.", "id": 6,"access_level": "P2","cwpi_format":"departmental"}
 ]
+module.exports = {schemes_names}

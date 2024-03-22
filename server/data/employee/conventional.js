@@ -30,3 +30,5 @@ const conventionalCards = [
         
     }
 ]
+
+module.exports = {conventionalCards}
