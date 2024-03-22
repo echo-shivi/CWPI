@@ -20,11 +20,11 @@ const DeptAdminDeptLayout = ({ children }) => {
   return (
     <div className="flex">
       <DeptAdminSidebar setOpen={setOpen} open={open} />
-      <div className={`mx-0 ${open ? 'ml-72' : 'ml-16'} flex flex-col w-full`}>
-        <Navbar />
-        <div className="p-10 bg-blue-100 min-h-screen">
+      <div className={`mx-0 bg-blue-100 min-h-screen ${open ? 'ml-72' : 'ml-16'} flex flex-col w-full`}>
+        <Navbar open={open}/>
+        <div className={`p-10 bg-blue-100 overflow-x-auto `}>
           {children}
-        </div>
+          </div>
       </div>
     </div>
   );

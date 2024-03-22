@@ -29,7 +29,7 @@ function DeptAdminSidebar({ setOpen, open }) {
 
   return (
     <div
-      className={`bg-blue-400 fixed top-0 h-screen overflow-x-hidden left-0 z-40  flex-row flex-nowrap overflow-y-auto py-4 shadow-xl transition-all duration-300 ${open ? "w-72" : "w-16"
+      className={`bg-blue-400 fixed top-0 h-screen overflow-x-hidden left-0 z-40  flex-row flex-nowrap overflow-y-auto py-4  transition-all duration-300 ${open ? "w-72" : "w-16"
         } duration-500 text-gray-100 px-4`}
     >
       <div className="py-3 flex items-center justify-between">

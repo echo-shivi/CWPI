@@ -20,9 +20,9 @@ const WithSuperAdminLayout = ({ children }) => {
   return (
     <div className="flex">
       <Sidebar setOpen={setOpen} open={open} />
-      <div className={`mx-0 bg-blue-100 min-h-screen  ${open ? 'ml-72' : 'ml-16'} flex flex-col w-full`}>
-        <Navbar />
-        <div className="p-10  ">
+      <div className={`mx-0 bg-blue-100 min-h-screen ${open ? 'ml-72' : 'ml-16'} flex flex-col w-full`}>
+        <Navbar open={open}/>
+        <div className={`p-10 bg-blue-100 overflow-x-auto `}>
           {children}
         </div>
       </div>

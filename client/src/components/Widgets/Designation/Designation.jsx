@@ -85,8 +85,8 @@ const CwpiReport = () => {
     return (
         <div className="container mx-auto p-4" ref={pdfRef}>
 
-            <div className="flex justify-between mb-6 gap-4">
-          <div className="flex">
+            <div className="flex md:flex-col lg:flex-row justify-between mb-6 gap-4">
+          <div className="flex ">
             <input type="text" className=" flex-1 border border-gray-300 p-3 rounded text-lg" placeholder="Enter Agencies Name" />
             <button className='bg-blue-400 mx-2 text-white hover:bg-blue-300 p-3 text-lg'>Submit</button>
           </div>
