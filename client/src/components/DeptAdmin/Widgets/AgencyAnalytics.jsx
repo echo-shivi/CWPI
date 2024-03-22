@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const AgencyAnalytics = () => {
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
   const data = {
     labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [
@@ -37,14 +42,44 @@ const AgencyAnalytics = () => {
     },
   };
 
+  const handleSubmit = () => {
+    console.log("Form submitted");
+  };
+
   return (
     <div className="mx-0 text-xl w-full text-gray-900 font-semibold flex flex-col">
-
-      <h2>Analytics</h2>
-      <div className="h-[650px] w-full pt-8">
-        <Bar data={data} options={options} />
+      <div className="container bg-slate-100 text-slate-900 rounded-lg">
+        <h2 className="font-semibold capitalize mt-5 ml-8">Analytics</h2>
+        <div className="flex mt-6 ml-6">
+          <DatePicker
+            placeholderText="select from month"
+            dateFormat="MM/yyyy"
+            autoComplete="off"
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            className="px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal sm:px-8 sm:ml-2"
+          />
+          <DatePicker
+            placeholderText="select to month"
+            dateFormat="MM/yyyy"
+            autoComplete="off"
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            className="px-5 mx-4 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal"
+          />
+          <button
+            className="px-4 py-2 ml-8 bg-blue-500 text-white rounded-md"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </div>
+        <div className="h-[650px] md:w-[700px] px-9 py-8 pt-8 sm:w-[400px] sm:h-[750px]">
+          <Bar data={data} options={options} />
+        </div>
       </div>
-    </div>);
+    </div>
+  );
 };
 
 export default AgencyAnalytics;

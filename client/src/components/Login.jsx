@@ -27,7 +27,7 @@ const Login = ({ setUserRole }) => {
   return (
     <div>
       <Logintop />
-      <div className="absolute md:left-8 md:right-8 top-48 lg:left-80 lg:right-80 w-[450px] bg-gray-100 rounded-lg shadow-2xl justify-center items-center mx-auto my-[4rem]">
+      <div className="absolute sm:left-4 sm:right-4 sm:top-14 md:left-10 md:right-3 top-40 lg:left-80 lg:right-80 w-[450px] bg-gray-100 rounded-lg shadow-2xl  items-center mx-auto my-[4rem]">
         <div className="pt-3 pb-3 px-11">
           <div className="font-raleway tracking-wide pb-6 pt-3 text-center">
             <h2 className="text-lg underline-purple-500">Login</h2>

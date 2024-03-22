@@ -14,11 +14,11 @@ function DeptAdminSidebar({ setOpen, open }) {
   const menus = [
     { name: "Dashboard", link: "/home", icon: MdOutlineDashboard },
     { name: "Agency Wise Analytics", link: "/AgencyAnalytics", icon: MdOutlineDashboard },
-    { name: "Employee Entry", link: "/", icon: FaPeopleRoof },
-    { name: "Register Master Scheme", link: "/", icon: AiOutlineUser },
-    { name: "Master Entry", link: "/", icon: ImProfile },
+    { name: "Employee Entry", link: "/employee-entry", icon: FaPeopleRoof },
+    { name: "Register Master Scheme", link: "/register-entry", icon: AiOutlineUser },
+    { name: "Master Entry", link: "/master-entry", icon: ImProfile },
   
-    { name: "Help", link: "/", icon: IoMdHelpCircleOutline },
+    { name: "Help", link: "/help", icon: IoMdHelpCircleOutline },
     { name: "LogOut", link: "/", icon: TbLogout2, margin: true },
   ];
 

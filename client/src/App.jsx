@@ -26,7 +26,13 @@ import Chart from "./components/Widgets/Schemes/Chart";
 import WithSuperAdminLayout from "./components/Layouts/WithSuperAdminLayout";
 import WithDeptAdminLayout from "./components/Layouts/WithDeptAdminLayout";
 import DeptAdminDashboard from "./components/DeptAdmin/Widgets/Dashboard/Dashboard";
-
+import EmployeeEntry from './components/DeptAdmin/Widgets/Employee/EmployeeEntry';
+import RegisterEntry from './components/DeptAdmin/Widgets/RegisterMasterScheme/RegisterEntry';
+import MasterEntryDeptAdmin from './components/DeptAdmin/Widgets/MasterEntry/MasterEntryDeptAdmin';
+import Scheme from './components/DeptAdmin/Widgets/SchemesDeptAdmin/SchemeDetails';
+import Analytics from "./components/DeptAdmin/Widgets/AgencywiseAnalytics/AgencywiseAnalytics"
+import Help from "./components/DeptAdmin/Atom/Cardhelp"
+import { Link } from 'react-router-dom';
 
 const reportCardComponents = {
   "1": <ReportCardForm />,
@@ -96,6 +102,12 @@ const App = () => {
             <Route path="/stageanalysisgraphs" element={<WithDeptAdminLayout><StageAnalysisGraphs /></WithDeptAdminLayout>} />
             <Route path='/scheme-report-details' element={<WithDeptAdminLayout><SchemeReportDetails /></WithDeptAdminLayout>} />
             <Route path="/view-graph-button" element={<WithDeptAdminLayout><Chart /></WithDeptAdminLayout>} />
+            <Route path="/employee-entry" element={<WithDeptAdminLayout><EmployeeEntry/></WithDeptAdminLayout>}/>
+            <Route path ="/register-entry" element={<WithDeptAdminLayout><RegisterEntry/></WithDeptAdminLayout>}/>
+            <Route path="/master-entry" element={<WithDeptAdminLayout><MasterEntryDeptAdmin/></WithDeptAdminLayout>}/>
+            <Route path="/schemes" element={<WithDeptAdminLayout><Scheme/></WithDeptAdminLayout>}/>
+            <Route path="/analytics" element={<WithDeptAdminLayout><Analytics/></WithDeptAdminLayout>}/>
+            <Route path="/help" element={<WithDeptAdminLayout><Help/></WithDeptAdminLayout>}/>
             {Object.entries(reportCardComponents).map(([reportCardNumber, component]) => (
               <Route
                 key={reportCardNumber}

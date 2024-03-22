@@ -4,27 +4,30 @@ import axios from 'axios';
 import Pagination from '../../../Atom/Pagination';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-import { FaDownload } from 'react-icons/fa6';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-const DeltaChange = () => {
+
+
+
+
+const Completion = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [tablesData, setTablesData] = useState([]);
     const [entriesPerPage, setEntriesPerPage] = useState(3);
     const [searchTerm, setSearchTerm] = useState('');
     const [startDate, setStartDate] = useState(null);
+
     const pdfRef = useRef();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8001/api/dashboard/reportCard/reportDetails/deltaChange/details');
-                setTablesData(response.data.deltaChange);
-                console.log('API response:', response.data.deltaChange);
+              const response = await axios.get(
+                "http://localhost:8001/api/dashboard/reactTable/details"
+              );
+              setTablesData(response.data.reactTable);
             } catch (error) {
-                console.error('Error fetching data:', error);
+              console.error("Error fetching data:", error);
             }
-        };
+          };
 
         fetchData();
     }, []);
@@ -33,7 +36,9 @@ const DeltaChange = () => {
         return searchTerm
             ? tablesData.filter(
                 (entry) =>
-                    entry.department.toLowerCase().includes(searchTerm.toLowerCase())            )
+                    entry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    entry.emailId.toLowerCase().includes(searchTerm.toLowerCase())
+            )
             : tablesData;
     }, [searchTerm, tablesData]);
 
@@ -84,12 +89,10 @@ const DeltaChange = () => {
     };
 
     return (
-        <div className="bg-slate-100  rounded-lg container mx-auto p-4" ref={pdfRef}>
+        <div className="container mx-auto p-4" ref={pdfRef}>
             <div className="justify-between flex py-6">
-                <h1 className="items-center justify-start font-medium text-2xl">Delta Change</h1>
-                <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
-                    Download <FaDownload className="ml-2 mt-1" />
-                </button>
+                <h1 className="items-center justify-start font-medium text-2xl">Completion Stage</h1>
+                
             </div>
 
             <div className="flex justify-between mb-4">
@@ -108,41 +111,20 @@ const DeltaChange = () => {
                     </select>
                     <span className="ml-2">entries</span>
                 </div>
-                <div className="flex items-center">
-                    <div className="px-4">
-                        <SearchForm
-                            handleSearch={() => {
-                                handleSearch();
-                            }}
-                            searchTerm={searchTerm}
-                            setSearchTerm={setSearchTerm}
-                        />
-                    </div>
-                    <div >
-                        <DatePicker
-                            placeholderText="DD/MM/YYYY"
-                            dateFormat="dd/MM/yyyy"
-                            id="start-date"
-                            autoComplete="off"
-                            selected={startDate}
-                            onChange={(date) => setStartDate(date)}
-                            className='px-5 py-4 w-full border border-blue-500 rounded-lg text-sm text-gray-700 font-normal'
+                
+                        
 
-                        />
-
-                    </div>
-                </div>
+                 
             </div>
             <div className="overflow-x-auto">
 
                 <table className="table-auto w-full">
                     <thead>
                         <tr>
-                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Rank</th>
-                            <th className="border h-16 text-base text-center bg-blue-400 text-white">CWPI Score 01-2024 Alpha</th>
-                            <th className="border h-16 text-base text-center bg-blue-400 text-white">CWPI Score 02-2024 Beta</th>
-                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Change in CWPI Score Delta</th>
-                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Department Name</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Level</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white"> Officer Responsible </th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Status</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Score</th>
 
                         </tr>
                     </thead>
@@ -150,15 +132,13 @@ const DeltaChange = () => {
                         {currentEntries.length > 0 ? (
                             currentEntries.map((entry, index) => (
                                 <tr
-                                    key={entry.rank}
+                                    key={entry.id}
                                     className={`${index % 2 === 0 ? 'bg-[#fff]' : 'bg-gray-100'} h-10 text-base text-center`}
                                 >
-                                    <td className="border font-medium">{entry?.rank}</td>
-                                    <td className="border font-medium">{entry?.cwpiScoreAlpha}</td>
-                                    <td className="border font-medium">{entry?.cwpiScoreBeta}</td>
-                                    <td className="border font-medium">{entry?.cwpiScoreDelta}</td>
-                                    <td className="border font-medium">{entry?.department}</td>
-
+                                    <td className="border font-medium">{entry?.id}</td>
+                                    <td className="border font-medium">{entry?.employeeName}</td>
+                                    <td className="border font-medium"><button className='bg-blue-400  text-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-xl p-1 my-2'>{entry?.action}</button></td>
+                                    <td className="border font-medium">{entry?.formatCWPI}</td>
 
                                 </tr>
                             ))
@@ -187,4 +167,5 @@ const DeltaChange = () => {
     );
 };
 
-export default DeltaChange;
+export default Completion;
+
