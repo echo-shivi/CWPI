@@ -100,19 +100,20 @@ const Designation = () => {
   };
 
     return (
-        <div className="container mx-auto p-4" ref={pdfRef}>
+        <div className=" bg-slate-100 rounded-lg container mx-auto p-4" ref={pdfRef}>
             <div className="justify-between flex pb-6">
-                <div className='flex flex-col justify-start'>
-                    <h1 className=" font-medium text-lg">Add Agencies Name</h1>
-                    <div className='flex-1 shrink-0 grow'>
-                        <input type="text" className=" border border-gray-300 p-3 rounded text-lg" placeholder="Enter Agencies Name" />
-                        <button className='bg-blue-400 mx-2 text-white hover:bg-blue-300 p-3 text-lg'>Submit</button>
+                <div className='flex-1  flex-col justify-start'>
+                    <h1 className=" font-medium text-lg mb-5">Add Agencies Name</h1>
+                    <div className='flex flex-wrap  justify-between shrink-0 grow'>
+                        <input type="text" className=" flex-1 flex-shrink border border-gray-300 p-3 rounded text-lg" placeholder="Enter Agencies Name" />
+                        <button className=' flex-1 flex-shrink bg-blue-400 mx-2 text-white hover:bg-blue-300 p-3 text-lg'>Submit</button>
+                        <button onClick={downloadPDF} className="btn-blue p-4 flex  text-white font-medium rounded">
+                        Download <FaDownload className="ml-2 mt-1" />
+                    </button>
                     </div>
                 </div>
                 <div>
-                    <button onClick={downloadPDF} className="btn-blue p-4 flex text-white font-medium rounded">
-                        Download <FaDownload className="ml-2 mt-1" />
-                    </button>
+                    
                 </div>
             </div>
 
