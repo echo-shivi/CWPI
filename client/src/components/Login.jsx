@@ -10,14 +10,12 @@ const Login = ({ setUserRole }) => {
   const [error, setError] = useState("");
 
   const handleLoginClick = () => {
-    if (email === "deptAdmin@gmail.com" && password === "deptAdminPassword") {
-      setUserRole("deptadmin");
-      localStorage.setItem("userRole", "deptadmin");
-      navigate("/home");
-    } else if (email === "superadmin@gmail.com" && password === "superAdminPassword") {
-      setUserRole("superadmin");
-      localStorage.setItem("userRole", "superadmin");
 
+    if (email === "deptAdmin@gmail.com" && password === "dept123") {
+      setUserRole("deptadmin");
+      navigate("/home");
+    } else if (email === "superadmin@gmail.com" && password === "super123") {
+      setUserRole("superadmin");
       navigate("/home");
     } else {
       setError("Incorrect email or password");
