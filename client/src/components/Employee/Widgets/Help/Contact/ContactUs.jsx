@@ -8,6 +8,7 @@ function ContactUs() {
     designation: '',
     mobileNumber: '',
     whatsAppNumber: '',
+    note:'',
     languages: [],
   });
 
@@ -37,10 +38,10 @@ function ContactUs() {
 
   return (
     <form onSubmit={onSubmitHandler} className=" mx-auto m-12 px-10  ">
-        <h1 className='font-bold mt-3 mb-5 text-left text-lg'>Add Employee </h1>
+        <h1 className='font-semibold mt-1 mb-5 text-left text-2xl'>Contact Us </h1>
       <div className="mb-4">
         <label htmlFor="username" className="block text-gray-700 text-base font-normal mb-2">
-          Employee Name
+        Name
         </label>
         <input
           type="text"
@@ -64,7 +65,7 @@ function ContactUs() {
       </div>
       <div className="mb-4">
         <label htmlFor="occupation" className="block text-gray-700 text-base font-normal mb-2">
-          Name of the Agency
+          Department
         </label>
         <select
           className="w-full p-3  font-normal bg-white  border border-blue-200  text-sm  rounded"
@@ -72,8 +73,8 @@ function ContactUs() {
           onChange={onChangeHandler}
           value={formData.occupation}
         >
-          <option value="student">Agency 1</option>
-          <option value="employee">Agency 2</option>
+          <option value="student">Dept 1</option>
+          <option value="employee">Dept 2</option>
           <option value="other">Other</option>
         </select>
       </div>
@@ -114,6 +115,18 @@ function ContactUs() {
           name="whatsAppNumber"
           onChange={onChangeHandler}
           value={formData.whatsAppNumber}
+        />
+      </div>
+      <div className="mb-4">
+        <label htmlFor="WhatsappNumber" className="block text-gray-700  text-base font-normal mb-2">
+          Note
+        </label>
+        <input
+          type="text"
+          className="w-full p-3  bg-white border text-base  border-blue-200 rounded"
+          name="whatsAppNumber"
+          onChange={onChangeHandler}
+          value={formData.note}
         />
       </div>
       <div className="mb-4">

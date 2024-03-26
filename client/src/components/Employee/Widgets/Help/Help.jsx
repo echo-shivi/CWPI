@@ -2,18 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({ label }) => {
+  // Define the destination based on the label
+  const destination = label === "Contact Us" ? "/contact" : "/";
+
   return (
-    <div className=" p-4">
+    <div className="p-4">
       {/* Wrap the card content with Link */}
-      <Link to={`/#/`} className="card-link">
+      <Link to={destination} className="card-link">
         <div className="bg-blue-400 text-white shadow-md rounded-lg p-6 flex-col flex-wrap items-center w-full justify-left hover:scale-200 hover:translate-y-1 transition-transform duration-300">
-          <div className="flex ">{/* Place your content here */}</div>
+          <div className="flex">{/* Place your content here */}</div>
           <p className="text-white">{label}</p>
         </div>
       </Link>
     </div>
   );
 };
+
 
 const Help = () => {
   const labels = ["Contact Us", "FAQ"];
