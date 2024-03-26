@@ -24,7 +24,7 @@ import Designation from "./components/Widgets/Designation/Designation";
 import MasterEntry from './components/Widgets/Dashboard/PdfReport/MasterEntry';
 import Chart from "./components/Widgets/Schemes/Chart";
 import WithSuperAdminLayout from "./components/Layouts/WithSuperAdminLayout";
-import WithEmployeeLayout from "./components/Layouts/withEmployeeLayout";
+import WithEmployeeLayout from "./components/Layouts/WithEmployeeLayout";
 import WithDeptAdminLayout from "./components/Layouts/WithDeptAdminLayout";
 import DeptAdminDashboard from "./components/DeptAdmin/Widgets/Dashboard/Dashboard";
 import EmployeeEntry from './components/DeptAdmin/Widgets/Employee/EmployeeEntry';
@@ -35,9 +35,13 @@ import Analytics from "./components/DeptAdmin/Widgets/AgencywiseAnalytics/Agency
 import Help from "./components/DeptAdmin/Atom/Cardhelp"
 // import { Link } from 'react-router-dom';
 import Update from "./components/Employee/Widgets/Conventional Schemes/Update"
+import Updatedate from './components/Employee/Widgets/Conventional Schemes/Updatedate';
+import Updatedatedate from './components/Employee/Widgets/Conventional Schemes/Updateddatedate';
 
 import EmployeeDashboard from "./components/Employee/Widgets/Dashboard/Dashboard"
 import UserProfileForm from './components/Employee/Widgets/Profile';
+import DoubleForm from './components/Employee/Widgets/Conventional Schemes/DoubleForm';
+
 const reportCardComponents = {
   "1": <ReportCardForm />,
   "2": <CwpiReport />,
@@ -112,6 +116,10 @@ const App = () => {
             <Route path="/schemes" element={<WithDeptAdminLayout><Scheme /></WithDeptAdminLayout>} />
             <Route path="/analytics" element={<WithDeptAdminLayout><Analytics /></WithDeptAdminLayout>} />
             <Route path="/help" element={<WithDeptAdminLayout><Help /></WithDeptAdminLayout>} />
+            <Route path="/update" element={<WithSuperAdminLayout><Update/></WithSuperAdminLayout>}/>
+            <Route path="/updatedate" element={<WithDeptAdminLayout><Updatedate/></WithDeptAdminLayout>}/>
+            <Route path="/updatedatedate" element={<WithDeptAdminLayout><Updatedatedate/></WithDeptAdminLayout>}/>
+            <Route path="/doubleform" element={<WithSuperAdminLayout><DoubleForm/></WithSuperAdminLayout>}/>
             {Object.entries(reportCardComponents).map(([reportCardNumber, component]) => (
               <Route
                 key={reportCardNumber}
@@ -136,6 +144,8 @@ const App = () => {
             <Route path="/stageanalysisgraphs" element={<WithSuperAdminLayout><StageAnalysisGraphs /></WithSuperAdminLayout>} />
             <Route path='/scheme-report-details' element={<WithSuperAdminLayout><SchemeReportDetails /></WithSuperAdminLayout>} />
             <Route path="/view-graph-button" element={<WithSuperAdminLayout><Chart /></WithSuperAdminLayout>} />
+            <Route path="/update" element={<WithSuperAdminLayout><Update/></WithSuperAdminLayout>}/>
+            
             {Object.entries(reportCardComponents).map(([reportCardNumber, component]) => (
               <Route
                 key={reportCardNumber}
