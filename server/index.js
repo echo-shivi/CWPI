@@ -16,6 +16,6 @@ app.get("/", (req, res) => {
 
 app.listen(port, () => {
   console.log(`Successfully started the server on PORT: ${port}`);
+ 
+
 });
-
-
