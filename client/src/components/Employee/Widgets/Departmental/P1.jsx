@@ -68,6 +68,7 @@ const DoubleForm = () => {
             autoComplete="off"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
+            wrapperClassName="w-full"
             className='px-5 py-4 w-full border border-blue-200 rounded text-sm text-gray-700 font-normal'
           />
         </div>
@@ -113,6 +114,7 @@ const DoubleForm = () => {
             autoComplete="off"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
+            wrapperClassName="w-full"
             className='px-5 py-4 w-full border border-blue-200 rounded text-sm text-gray-700 font-normal'
           />
         </div>
