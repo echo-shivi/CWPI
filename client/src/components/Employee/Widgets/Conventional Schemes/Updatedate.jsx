@@ -41,7 +41,7 @@ function Updatedate() {
             Select Scheme
           </label>
           <select
-            className=" p-3 font-normal bg-white border border-blue-200 text-sm rounded"
+            className="w-full p-3 font-normal bg-white border border-blue-200 text-sm rounded"
             name="selectscheme"
             onChange={onChangeHandler}
             value={formData.selectscheme}
@@ -66,6 +66,7 @@ function Updatedate() {
             autoComplete="off"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
+            wrapperClassName="w-full"
             className='px-5 py-4 w-full border border-blue-200 rounded text-sm text-gray-700 font-normal'
           />
         </div>

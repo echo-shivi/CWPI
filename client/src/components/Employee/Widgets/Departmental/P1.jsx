@@ -36,7 +36,7 @@ const DoubleForm = () => {
     <div className='flex justify-between'>
     <div className='left_content w-1/2'>
     <form onSubmit={onSubmitHandler} className="mx-auto m-12 px-10">
-        <h1 className="font-normal mt-3 mb-5 text-left text-lg">Select Date of Administrative approval</h1>
+        <h1 className="font-bold mt-3 mb-5 text-left text-lg">Select Date of Administrative approval</h1>
 
         <div className="mt-10 mb-4">
           <label htmlFor="selectscheme" className="block text-gray-700 text-base font-normal mb-2">
@@ -68,7 +68,6 @@ const DoubleForm = () => {
             autoComplete="off"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            wrapperClassName="w-full"
             className='px-5 py-4 w-full border border-blue-200 rounded text-sm text-gray-700 font-normal'
           />
         </div>
@@ -114,7 +113,6 @@ const DoubleForm = () => {
             autoComplete="off"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            wrapperClassName="w-full"
             className='px-5 py-4 w-full border border-blue-200 rounded text-sm text-gray-700 font-normal'
           />
         </div>

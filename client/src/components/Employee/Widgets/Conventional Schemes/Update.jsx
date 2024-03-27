@@ -30,8 +30,8 @@ function Update() {
 
   return (
     <>
-    <form onSubmit={onSubmitHandler} className="mx-auto m-12 px-10">
-      <h1 className="font-normal mt-3 mb-5 text-left text-lg">P1</h1>
+    <form onSubmit={onSubmitHandler} className="mx-auto m-12 px-10 ">
+      <h1 className="font-normal mt-0 mb-5 text-left text-lg"></h1>
 
       <div className="mt-10 mb-4">
         <label htmlFor="selectscheme" className="block text-gray-700 text-base font-normal mb-2">

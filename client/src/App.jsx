@@ -118,10 +118,10 @@ const App = () => {
             <Route path="/schemes" element={<WithDeptAdminLayout><Scheme /></WithDeptAdminLayout>} />
             <Route path="/analytics" element={<WithDeptAdminLayout><Analytics /></WithDeptAdminLayout>} />
             <Route path="/help" element={<WithDeptAdminLayout><Help /></WithDeptAdminLayout>} />
-            <Route path="/update" element={<WithSuperAdminLayout><Update/></WithSuperAdminLayout>}/>
+            {/* <Route path="/update" element={<WithSuperAdminLayout><Update/></WithSuperAdminLayout>}/>
             <Route path="/updatedate" element={<WithDeptAdminLayout><Updatedate/></WithDeptAdminLayout>}/>
             <Route path="/updatedatedate" element={<WithDeptAdminLayout><Updatedatedate/></WithDeptAdminLayout>}/>
-            <Route path="/doubleform" element={<WithSuperAdminLayout><DoubleForm/></WithSuperAdminLayout>}/>
+            <Route path="/doubleform" element={<WithSuperAdminLayout><DoubleForm/></WithSuperAdminLayout>}/> */}
             {Object.entries(reportCardComponents).map(([reportCardNumber, component]) => (
               <Route
                 key={reportCardNumber}

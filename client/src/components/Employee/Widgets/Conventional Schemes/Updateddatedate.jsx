@@ -35,7 +35,7 @@ function Updatedatedate() {
   return (
     <>
       <form onSubmit={onSubmitHandler} className="mx-auto m-12 px-10">
-        <h1 className="font-normal mt-3 mb-5 text-left text-lg">P1</h1>
+        <h1 className="font-normal mt-3 mb-5 text-left text-lg"></h1>
 
         <div className="mt-10 mb-4">
           <label htmlFor="selectscheme" className="block text-gray-700 text-base font-normal mb-2">
@@ -56,37 +56,39 @@ function Updatedatedate() {
           </select>
         </div>
 
-       <div className="flex flex-wrap w-full">
-       <div className="mb-4">
-          <label htmlFor="cumulative" className="block text-gray-700 text-base font-normal mb-2">
-            Start Date of Tender Finalization
-          </label>
-          <DatePicker
-            placeholderText="DD/MM/YYYY"
-            dateFormat="dd/MM/yyyy"
-            id="start-date"
-            autoComplete="off"
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            className='px-4  py-4 w-full border border-blue-200 rounded-lg text-sm text-gray-700 font-normal'
-          />
-        </div>
+        <div className="flex flex-wrap w-full ">
+          <div className="mb-4 w-full ">
+            <label htmlFor="cumulative" className="block text-gray-700 text-base font-normal mb-2">
+              Start Date of Tender Finalization
+            </label>
+            <DatePicker
+              placeholderText="DD/MM/YYYY"
+              dateFormat="dd/MM/yyyy"
+              id="start-date"
+              autoComplete="off"
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              wrapperClassName="w-full"
+              className="px-4 py-4 w-full border border-blue-200 rounded-lg text-sm text-gray-700 font-normal "
+            />
+          </div>
 
-        <div className="md:ml-8 mb-4">
-          <label htmlFor="cumulative" className=" block text-gray-700 text-base font-normal mb-2">
-            End Date of Tender Finalization
-          </label>
-          <DatePicker
-            placeholderText="DD/MM/YYYY"
-            dateFormat="dd/MM/yyyy"
-            id="end-date"
-            autoComplete="off"
-            selected={endDate}
-            onChange={(date) => setEndDate(date)}
-            className='px-5  py-4 w-full border border-blue-200 rounded-lg text-sm text-gray-700 font-normal'
-          />
+          <div className="mb-4 w-full  ">
+            <label htmlFor="cumulative" className="block text-gray-700 text-base font-normal mb-2">
+              End Date of Tender Finalization
+            </label>
+            <DatePicker
+              placeholderText="DD/MM/YYYY"
+              dateFormat="dd/MM/yyyy"
+              id="end-date"
+              autoComplete="off"
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              wrapperClassName="w-full"
+              className="px-5 py-4 w-full border border-blue-200 rounded-lg text-sm text-gray-700 font-normal"
+            />
+          </div>
         </div>
-       </div>
 
         <div className="mb-4">
           <button className="btn-blue text-white font-medium rounded" type="submit">
