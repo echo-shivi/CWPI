@@ -43,7 +43,7 @@ import EmployeeDashboard from "./components/Employee/Widgets/Dashboard/Dashboard
 import UserProfileForm from './components/Employee/Widgets/Profile';
 import DoubleForm from './components/Employee/Widgets/Conventional Schemes/DoubleForm';
 import ContactUs from './components/Employee/Widgets/Help/Contact/ContactUs';
-
+import ConventionalP1 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP1'
 const reportCardComponents = {
   "1": <ReportCardForm />,
   "2": <CwpiReport />,
@@ -53,6 +53,16 @@ const reportCardComponents = {
   "6": <CwpiRankingTop />,
   "7": <DeltaCwpiRankingTop />
 };
+const conventionalComponents = {
+  "1": <ConventionalP1 />,
+  "2": <CwpiReport />,
+  "3": <DeltaChangeReport />,
+  "4": <CwpiRankingBottom />,
+  "5": <DeltaCwpiRankingBottom />,
+  "6": <CwpiRankingTop />,
+  "7": <DeltaCwpiRankingTop />
+};
+
 
 const App = () => {
 
@@ -135,30 +145,13 @@ const App = () => {
           <>
             <Route path='/home' element={<WithEmployeeLayout><EmployeeDashboard /></WithEmployeeLayout>} />
             <Route path='/profile' element={<WithEmployeeLayout><UserProfileForm/></WithEmployeeLayout>} />
-            <Route path="/employees" element={<WithEmployeeLayout><AddAgencyAdmin /></WithEmployeeLayout>} />
-            <Route path='/designation' element={<WithEmployeeLayout><Designation /></WithEmployeeLayout>} />
-            <Route path='/agency' element={<WithEmployeeLayout><AgencyDetail /></WithEmployeeLayout>} />
-            <Route path="/scheme-details" element={<WithEmployeeLayout><SchemeDetails /></WithEmployeeLayout>} />
-            <Route path="/stagewise" element={<WithEmployeeLayout><Stagewise /></WithEmployeeLayout>} />
-            <Route path="/employeeview" element={<WithEmployeeLayout><EmployeeView /></WithEmployeeLayout>} />
-            <Route path="/pdfreport" element={<WithEmployeeLayout><DropDownMenu /></WithEmployeeLayout>} />
-            <Route path="/masterentry" element={<WithEmployeeLayout><MasterEntry /></WithEmployeeLayout>} />
-            <Route path="/stageanalysisgraphs" element={<WithEmployeeLayout><StageAnalysisGraphs /></WithEmployeeLayout>} />
-            <Route path='/scheme-report-details' element={<WithEmployeeLayout><SchemeReportDetails /></WithEmployeeLayout>} />
-            <Route path="/view-graph-button" element={<WithEmployeeLayout><Chart /></WithEmployeeLayout>} />
-            <Route path="/update" element={<WithEmployeeLayout><Update/></WithEmployeeLayout>}/>
-            <Route path="/ehelp" element={<WithEmployeeLayout><EHelp /></WithEmployeeLayout>} />
-            <Route path="/update" element={<WithEmployeeLayout><Update/></WithEmployeeLayout>}/>
-            <Route path="/updatedate" element={<WithEmployeeLayout><Updatedate/></WithEmployeeLayout>}/>
-            <Route path="/updatedatedate" element={<WithEmployeeLayout><Updatedatedate/></WithEmployeeLayout>}/>
-            <Route path="/doubleform" element={<WithEmployeeLayout><DoubleForm/></WithEmployeeLayout>}/>
-            <Route path="/contact" element={<WithEmployeeLayout><ContactUs/></WithEmployeeLayout>}/>
+            <Route path='/conventionalP1' element={<WithEmployeeLayout><SchemeReportDetails /></WithEmployeeLayout>} />
             
-            {Object.entries(reportCardComponents).map(([reportCardNumber, component]) => (
+            {Object.entries(conventionalComponents).map(([conventionalComponents, component]) => (
               <Route
-                key={reportCardNumber}
-                path={`/report-card/${reportCardNumber}`}
-                element={<WithSuperAdminLayout>{component}</WithSuperAdminLayout>}
+                key={conventionalComponents}
+                path={`/conventional/P${conventionalComponents}`}
+                element={<WithEmployeeLayout>{component}</WithEmployeeLayout>}
               />
             ))}
 
