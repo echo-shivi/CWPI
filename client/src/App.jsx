@@ -49,6 +49,11 @@ import ConventionalP3 from './components/Employee/Widgets/Dashboard/Conventional
 import ConventionalP4 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP4'
 import ConventionalP5 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP5'
 import ConventionalP6 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP6'
+import Dept1 from "./components/Employee/Widgets/Departmental/P1";
+import Dept2 from "./components/Employee/Widgets/Departmental/P2";
+import Dept3 from "./components/Employee/Widgets/Departmental/P3";
+import Dept4 from "./components/Employee/Widgets/Departmental/P4";
+
 
 const reportCardComponents = {
   "1": <ReportCardForm />,
@@ -100,6 +105,7 @@ const App = () => {
             <Route path="/stageanalysisgraphs" element={<WithSuperAdminLayout><StageAnalysisGraphs /></WithSuperAdminLayout>} />
             <Route path='/scheme-report-details' element={<WithSuperAdminLayout><SchemeReportDetails /></WithSuperAdminLayout>} />
             <Route path="/view-graph-button" element={<WithSuperAdminLayout><Chart /></WithSuperAdminLayout>} />
+
             {Object.entries(reportCardComponents).map(([reportCardNumber, component]) => (
               <Route
                 key={reportCardNumber}
@@ -150,6 +156,28 @@ const App = () => {
           <>
             <Route path='/home' element={<WithEmployeeLayout><EmployeeDashboard /></WithEmployeeLayout>} />
             <Route path='/profile' element={<WithEmployeeLayout><UserProfileForm/></WithEmployeeLayout>} />
+            <Route path="/employees" element={<WithEmployeeLayout><AddAgencyAdmin /></WithEmployeeLayout>} />
+            <Route path='/designation' element={<WithEmployeeLayout><Designation /></WithEmployeeLayout>} />
+            <Route path='/agency' element={<WithEmployeeLayout><AgencyDetail /></WithEmployeeLayout>} />
+            <Route path="/scheme-details" element={<WithEmployeeLayout><SchemeDetails /></WithEmployeeLayout>} />
+            <Route path="/stagewise" element={<WithEmployeeLayout><Stagewise /></WithEmployeeLayout>} />
+            <Route path="/employeeview" element={<WithEmployeeLayout><EmployeeView /></WithEmployeeLayout>} />
+            <Route path="/pdfreport" element={<WithEmployeeLayout><DropDownMenu /></WithEmployeeLayout>} />
+            <Route path="/masterentry" element={<WithEmployeeLayout><MasterEntry /></WithEmployeeLayout>} />
+            <Route path="/stageanalysisgraphs" element={<WithEmployeeLayout><StageAnalysisGraphs /></WithEmployeeLayout>} />
+            <Route path='/scheme-report-details' element={<WithEmployeeLayout><SchemeReportDetails /></WithEmployeeLayout>} />
+            <Route path="/view-graph-button" element={<WithEmployeeLayout><Chart /></WithEmployeeLayout>} />
+            <Route path="/update" element={<WithEmployeeLayout><Update/></WithEmployeeLayout>}/>
+            <Route path="/ehelp" element={<WithEmployeeLayout><EHelp /></WithEmployeeLayout>} />
+            <Route path="/update" element={<WithEmployeeLayout><Update/></WithEmployeeLayout>}/>
+            <Route path="/updatedate" element={<WithEmployeeLayout><Updatedate/></WithEmployeeLayout>}/>
+            <Route path="/updatedatedate" element={<WithEmployeeLayout><Updatedatedate/></WithEmployeeLayout>}/>
+            <Route path="/doubleform" element={<WithEmployeeLayout><DoubleForm/></WithEmployeeLayout>}/>
+            <Route path="/contact" element={<WithEmployeeLayout><ContactUs/></WithEmployeeLayout>}/>
+            <Route path="/deptP1" element={<WithEmployeeLayout><Dept1/></WithEmployeeLayout>}/>
+            <Route path="/deptP2" element={<WithEmployeeLayout><Dept2/></WithEmployeeLayout>}/>
+            <Route path="/deptP3" element={<WithEmployeeLayout><Dept3/></WithEmployeeLayout>}/>
+            <Route path="/deptP4" element={<WithEmployeeLayout><Dept4/></WithEmployeeLayout>}/>
             <Route path='/conventionalP1' element={<WithEmployeeLayout><SchemeReportDetails /></WithEmployeeLayout>} />
             
             {Object.entries(conventionalComponents).map(([conventionalComponents, component]) => (
