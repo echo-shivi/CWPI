@@ -19,7 +19,7 @@ const SchemeSubmitted = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8001/api/dashboard/workAgency/agencyDetails/schemeSubmitted/details"
+          `${process.env.REACT_APP_API_BASE_URL}dashboard/workAgency/agencyDetails/schemeSubmitted/details`
         );
         setTablesData(response.data.schemeSubmitted);
         console.log("API response:", response.data);

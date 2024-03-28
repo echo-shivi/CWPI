@@ -1,4 +1,3 @@
-// src/components/Layouts/WithEmployeeLayout.jsx
 import React, { useState, useEffect } from 'react';
 import UserSidebar from "../Employee/Common/UserSidebar";
 import Navbar from "../Common/Navbar";
@@ -25,7 +24,7 @@ const WithEmployeeLayout = ({ children }) => {
         <Navbar open={open}/>
         <div className={`p-10 bg-blue-100 overflow-x-auto `}>
           {children}
-        </div>
+          </div>
       </div>
     </div>
   );

@@ -13,6 +13,8 @@ const Login = ({ setUserRole }) => {
 
     if (email === "deptAdmin@gmail.com" && password === "dept123") {
       setUserRole("deptadmin");
+      console.log(process.env.REACT_APP_API_BASE_URL);
+
       navigate("/home");
     } else if (email === "superadmin@gmail.com" && password === "super123") {
       setUserRole("superadmin");
