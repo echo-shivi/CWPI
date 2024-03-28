@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Table from "./Table";
+import Table from "./Tables/TableP1";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DoubleForm = () => {
+const DeptP1 = () => {
     const [startDate, setStartDate] = useState(null); // Define startDate state
     const [endDate, setEndDate] = useState(null);
     const [formData, setFormData] = useState({
@@ -82,7 +82,7 @@ const DoubleForm = () => {
     </div>
     <div className='right_content w-1/2'>
     <form onSubmit={onSubmitHandler} className="mx-auto m-12 px-10">
-        <h1 className="font-normal mt-3 mb-5 text-left text-lg">Select Date of Administrative approval</h1>
+        <h1 className="font-bold mt-3 mb-5 text-left text-lg">Select Date of Administrative approval</h1>
 
         <div className="mt-10 mb-4">
           <label htmlFor="selectscheme" className="block text-gray-700 text-base font-normal mb-2">
@@ -127,9 +127,9 @@ const DoubleForm = () => {
       </form>
     </div>
     </div>
-      <Table/>
+      <Table className="ml-10 px-4"/>
     </>
   )
 }
 
-export default DoubleForm
+export default DeptP1;
