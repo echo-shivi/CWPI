@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Table from "./Table";
+import Table from "../Conventional Schemes/Table";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
