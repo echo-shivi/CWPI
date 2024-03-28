@@ -12,7 +12,7 @@ function DeptAdminSidebar({ setOpen, open }) {
   const menus = [
     { name: "Dashboard", link: "/home", icon: MdOutlineDashboard },
     { name: "Profile", link: "/profile", icon: AiOutlineUser },
-    { name: "Help", link: "/help", icon: IoMdHelpCircleOutline },
+    { name: "Help", link: "/ehelp", icon: IoMdHelpCircleOutline },
     { name: "LogOut", link: "/", icon: TbLogout2, margin: true },
   ];
 
@@ -41,7 +41,7 @@ function DeptAdminSidebar({ setOpen, open }) {
 
 
       <div className="mt-4 flex flex-col gap-4 relative">
-        {!open && <img src={BvmLogo} alt='Logo' className='w-8 h-8' />}
+        {!open && <img src={BvmLogo} alt='Logo' className='w-8 h-8 md:h-3 md:w-5' />}
 
         {menus?.map((menu, i) => (
           <div
