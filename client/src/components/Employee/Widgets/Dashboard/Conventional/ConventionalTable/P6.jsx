@@ -6,7 +6,7 @@ import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { FaDownload } from 'react-icons/fa6';
 
-const P2 = () => {
+const CompletedScheme = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [tablesData, setTablesData] = useState([]);
     const [entriesPerPage, setEntriesPerPage] = useState(3);
@@ -16,9 +16,9 @@ const P2 = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}employee/conventionalP2/details`);
-                setTablesData(response.data.conventionalP2);
-                console.log('API response:', response.data.conventionalP2);
+                const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}employee/conventionalP6/details`);
+                setTablesData(response.data.conventionalP6);
+                console.log('API response:', response.data.conventionalP6);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -128,9 +128,9 @@ const P2 = () => {
                             <th className="border h-16 text-base text-center bg-blue-400 text-white">S.No.</th>
 
                             <th className="border h-16 text-base text-center bg-blue-400 text-white">Master Scheme</th>
-                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Date Of Notice Inviting Tender</th>
-                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Total Allowed Time</th>
-                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Actual Time Taken </th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Tender Amount(in Rs Lakhs) </th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Cumulative Mb Booked Till Date(in RS. Lakhs)</th>
+                            <th className="border h-16 text-base text-center bg-blue-400 text-white">Achievement</th>
                             <th className="border h-16 text-base text-center bg-blue-400 text-white">Status</th>
                             <th className="border h-16 text-base text-center bg-blue-400 text-white">Score</th>
 
@@ -147,9 +147,9 @@ const P2 = () => {
                                 >
                                     <td className="border font-medium">{entry?.id}</td>
                                     <td className="border font-medium">{entry?.Master_Scheme}</td>
-                                    <td className="border font-medium">{entry?.Date_Of_Notice_Inviting_Tender}</td>
-                                    <td className="border font-medium">{entry?.Total_Allowed_Time}</td>
-                                    <td className="border font-medium">{entry?.Actual_Time_Taken}</td>
+                                    <td className="border font-medium">{entry?.Tendered_Amount}</td>
+                                    <td className="border font-medium">{entry?.Cumulative_Mb_Booked_Till_Date}</td>
+                                    <td className="border font-medium">{entry?.Achievement}</td>
                                     <td className="border font-medium">{entry?.Status}</td>
                                     <td className="border font-medium">{entry?.Score}</td>
 
@@ -182,4 +182,4 @@ const P2 = () => {
     );
 };
 
-export default P2;
+export default CompletedScheme;

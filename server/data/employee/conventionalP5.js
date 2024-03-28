@@ -1,57 +1,57 @@
-const conventionalP4 = [
+const conventionalP5 = [
     {
         "id" : 1,
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Completion As Per Agreement": "2024-03-22",
-        "Actual Date Of Completion": "365 days",
+        "Master_Scheme": "Dummy Master_Scheme 1",
+        "Date_Of_Completion_As_Per_Agreement": "2024-03-22",
+        "Actual_Date_Of_Completion": "365 days",
         "Spillage": "150 days",
         "Status": "Completed",
         "Score": "85"
     },
     {
         "id" : 2,
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Completion As Per Agreement": "2024-03-22",
-        "Actual Date Of Completion": "365 days",
+        "Master_Scheme": "Dummy Master_Scheme 1",
+        "Date_Of_Completion_As_Per_Agreement": "2024-03-22",
+        "Actual_Date_Of_Completion": "365 days",
         "Spillage": "150 days",
         "Status": "Completed",
         "Score": "85"
     },
     {
         "id" : 3,
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Completion As Per Agreement": "2024-03-22",
-        "Actual Date Of Completion": "365 days",
+        "Master_Scheme": "Dummy Master_Scheme 1",
+        "Date_Of_Completion_As_Per_Agreement": "2024-03-22",
+        "Actual_Date_Of_Completion": "365 days",
         "Spillage": "150 days",
         "Status": "Completed",
         "Score": "85"
     },
     {
         "id" : 4,
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Completion As Per Agreement": "2024-03-22",
-        "Actual Date Of Completion": "365 days",
+        "Master_Scheme": "Dummy Master_Scheme 1",
+        "Date_Of_Completion_As_Per_Agreement": "2024-03-22",
+        "Actual_Date_Of_Completion": "365 days",
         "Spillage": "150 days",
         "Status": "Completed",
         "Score": "85"
     },
     {
         "id" : 5,
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Completion As Per Agreement": "2024-03-22",
-        "Actual Date Of Completion": "365 days",
+        "Master_Scheme": "Dummy Master_Scheme 1",
+        "Date_Of_Completion_As_Per_Agreement": "2024-03-22",
+        "Actual_Date_Of_Completion": "365 days",
         "Spillage": "150 days",
         "Status": "Completed",
         "Score": "85"
     },
     {
         "id" : 6,
-        "Master Scheme": "Dummy Master Scheme 1",
-        "Date Of Completion As Per Agreement": "2024-03-22",
-        "Actual Date Of Completion": "365 days",
+        "Master_Scheme": "Dummy Master_Scheme 1",
+        "Date_Of_Completion_As_Per_Agreement": "2024-03-22",
+        "Actual_Date_Of_Completion": "365 days",
         "Spillage": "150 days",
         "Status": "Completed",
         "Score": "85"
     }
 ]
-module.exports = {conventionalP4}
+module.exports = {conventionalP5}

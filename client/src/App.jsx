@@ -44,6 +44,12 @@ import UserProfileForm from './components/Employee/Widgets/Profile';
 import DoubleForm from './components/Employee/Widgets/Conventional Schemes/DoubleForm';
 import ContactUs from './components/Employee/Widgets/Help/Contact/ContactUs';
 import ConventionalP1 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP1'
+import ConventionalP2 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP2'
+import ConventionalP3 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP3'
+import ConventionalP4 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP4'
+import ConventionalP5 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP5'
+import ConventionalP6 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP6'
+
 const reportCardComponents = {
   "1": <ReportCardForm />,
   "2": <CwpiReport />,
@@ -55,12 +61,11 @@ const reportCardComponents = {
 };
 const conventionalComponents = {
   "1": <ConventionalP1 />,
-  "2": <CwpiReport />,
-  "3": <DeltaChangeReport />,
-  "4": <CwpiRankingBottom />,
-  "5": <DeltaCwpiRankingBottom />,
-  "6": <CwpiRankingTop />,
-  "7": <DeltaCwpiRankingTop />
+  "2": <ConventionalP2 />,
+  "3": <ConventionalP3 />,
+  "4": <ConventionalP4 />,
+  "5": <ConventionalP5 />,
+  "6": <ConventionalP6 />,
 };
 
 
