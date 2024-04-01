@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Table from "../Conventional Schemes/Table";
+import Table from "./Tables/TableP3";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -57,7 +57,7 @@ function Updatedate() {
 
         <div className="mb-4 ">
           <label htmlFor="cumulative" className="block text-gray-700 text-base font-normal mb-2">
-            Date of Work Commencement
+            Date of Tender Finalization
           </label>
           <DatePicker
             placeholderText="DD/MM/YYYY"

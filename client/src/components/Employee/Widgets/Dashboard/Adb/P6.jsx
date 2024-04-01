@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Table from "../Conventional Schemes/Table";
+import Table from "./Tables/TableP6";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function Updatedate() {
+function Updatedatedate() {
   const [formData, setFormData] = useState({
     selectscheme: "",
     agreementamount: "",
@@ -11,6 +11,7 @@ function Updatedate() {
   });
   const [progress, setProgress] = useState(0);
   const [startDate, setStartDate] = useState(null); // Define startDate state
+  const [endDate, setEndDate] = useState(null);
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
@@ -34,7 +35,7 @@ function Updatedate() {
   return (
     <>
       <form onSubmit={onSubmitHandler} className="mx-auto m-12 px-10">
-        <h1 className="font-normal mt-3 mb-5 text-left text-lg">Select Date of Administrative approval</h1>
+        <h1 className="font-normal mt-3 mb-5 text-left text-lg"></h1>
 
         <div className="mt-10 mb-4">
           <label htmlFor="selectscheme" className="block text-gray-700 text-base font-normal mb-2">
@@ -55,20 +56,38 @@ function Updatedate() {
           </select>
         </div>
 
-        <div className="mb-4 ">
-          <label htmlFor="cumulative" className="block text-gray-700 text-base font-normal mb-2">
-            Date of Notice Inviting Tender Publication
-          </label>
-          <DatePicker
-            placeholderText="DD/MM/YYYY"
-            dateFormat="dd/MM/yyyy"
-            id="start-date"
-            autoComplete="off"
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            wrapperClassName="w-full"
-            className='px-5 py-4 w-full border border-blue-200 rounded text-sm text-gray-700 font-normal'
-          />
+        <div className="flex flex-wrap w-full ">
+          <div className="mb-4 w-full ">
+            <label htmlFor="cumulative" className="block text-gray-700 text-base font-normal mb-2">
+              Date of Completion as per work Commencement
+            </label>
+            <DatePicker
+              placeholderText="DD/MM/YYYY"
+              dateFormat="dd/MM/yyyy"
+              id="start-date"
+              autoComplete="off"
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              wrapperClassName="w-full"
+              className="px-4 py-4 w-full border border-blue-200 rounded-lg text-sm text-gray-700 font-normal "
+            />
+          </div>
+
+          <div className="mb-4 w-full  ">
+            <label htmlFor="cumulative" className="block text-gray-700 text-base font-normal mb-2">
+              Actual Date of Completion
+            </label>
+            <DatePicker
+              placeholderText="DD/MM/YYYY"
+              dateFormat="dd/MM/yyyy"
+              id="end-date"
+              autoComplete="off"
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              wrapperClassName="w-full"
+              className="px-5 py-4 w-full border border-blue-200 rounded-lg text-sm text-gray-700 font-normal"
+            />
+          </div>
         </div>
 
         <div className="mb-4">
@@ -82,4 +101,4 @@ function Updatedate() {
   );
 }
 
-export default Updatedate;
+export default Updatedatedate;

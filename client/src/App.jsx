@@ -53,6 +53,13 @@ import Epc3 from "./components/Employee/Widgets/Epc/P3";
 import Epc4 from "./components/Employee/Widgets/Epc/P4";
 import Epc5 from "./components/Employee/Widgets/Epc/P5";
 import Epc6 from "./components/Employee/Widgets/Epc/P6";
+import ABD1 from "./components/Employee/Widgets/Dashboard/Adb/P1"
+import ABD2 from "./components/Employee/Widgets/Dashboard/Adb/P2"
+import ABD3 from "./components/Employee/Widgets/Dashboard/Adb/P3"
+import ABD4 from "./components/Employee/Widgets/Dashboard/Adb/P4"
+import ABD5 from "./components/Employee/Widgets/Dashboard/Adb/P5"
+import ABD6 from "./components/Employee/Widgets/Dashboard/Adb/P6"
+import ABD7 from "./components/Employee/Widgets/Dashboard/Adb/P7"
 
 
 const reportCardComponents = {
@@ -86,7 +93,15 @@ const departmentalComponents = {
   "3": <Dept3 />,
   "4": <Dept4 />
 };
-
+const abdComponents = {
+  "1": <ABD1 />,
+  "2": <ABD2 />,
+  "3": <ABD3 />,
+  "4": <ABD4 />,
+  "5": <ABD5 />,
+  "6": <ABD6 />,
+  "7": <ABD7 />,
+};
 
 const App = () => {
 
@@ -194,6 +209,13 @@ const App = () => {
               <Route
                 key={departmentalComponents}
                 path={`/departmental/P${departmentalComponents}`}
+                element={<WithEmployeeLayout>{component}</WithEmployeeLayout>}
+              />
+            ))}
+              {Object.entries(abdComponents).map(([abdComponents, component]) => (
+              <Route
+                key={abdComponents}
+                path={`/abd/P${abdComponents}`}
                 element={<WithEmployeeLayout>{component}</WithEmployeeLayout>}
               />
             ))}

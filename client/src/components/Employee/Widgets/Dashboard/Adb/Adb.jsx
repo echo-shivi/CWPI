@@ -6,7 +6,7 @@ const SchemeReport = () => {
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_BASE_URL}employee/conventional/details`)
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}employee/abd/details`)
       .then((response) => {
         console.log('API response:', response.data.conventionalCards);
         setCardsData(response.data.conventionalCards);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Table from "../Conventional Schemes/Table"
+import Table from "./Tables/TableP7"
 
 function Update() {
   const [formData, setFormData] = useState({
