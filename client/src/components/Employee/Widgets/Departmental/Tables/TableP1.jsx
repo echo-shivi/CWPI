@@ -92,7 +92,7 @@ const TableP1 = () => {
                 
             </div>
             <div className="flex flex-wrap justify-start">
-                <div className="px-3 mb-6">
+                <div className="flex justify-start  items-end mb-6">
                     <SearchForm
                         handleSearch={() => {
                             handleSearch();

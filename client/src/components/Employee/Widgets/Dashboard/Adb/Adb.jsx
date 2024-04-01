@@ -8,8 +8,8 @@ const SchemeReport = () => {
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_BASE_URL}employee/abd/details`)
       .then((response) => {
-        console.log('API response:', response.data.conventionalCards);
-        setCardsData(response.data.conventionalCards);
+        console.log('API response:', response.data.abdDetails);
+        setCardsData(response.data.abdDetails);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -25,7 +25,7 @@ const SchemeReport = () => {
       {cardsData.map((card, index) => (
         <Link
           key={index}
-          to={`/adb/P${card.id}`}
+          to={`/abd/P${card.id}`}
           className="flex justify-between p-4 lg:p-6 bg-blue-300 text-black border border-gray-200 rounded-lg shadow hover:bg-blue-200 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
         >
 

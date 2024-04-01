@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Table from "../Conventional Schemes/Table";
+import Table from "./Tables/TableP1"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -43,7 +43,7 @@ const DoubleForm = () => {
             Select Scheme
           </label>
           <select
-            className=" p-3 font-normal bg-white border border-blue-200 text-sm rounded"
+            className=" p-3 font-normal w-full bg-white border border-blue-200 text-sm rounded"
             name="selectscheme"
             onChange={onChangeHandler}
             value={formData.selectscheme}
@@ -89,7 +89,7 @@ const DoubleForm = () => {
             Select Scheme
           </label>
           <select
-            className=" p-3 font-normal bg-white border border-blue-200 text-sm rounded"
+            className=" p-3 font-normal w-full bg-white border border-blue-200 text-sm rounded"
             name="selectscheme"
             onChange={onChangeHandler}
             value={formData.selectscheme}

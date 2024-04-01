@@ -43,7 +43,7 @@ const DeptP1 = () => {
             Select Scheme
           </label>
           <select
-            className=" p-3 font-normal bg-white border border-blue-200 text-sm rounded"
+            className=" p-3 w-full font-normal bg-white border border-blue-200 text-sm rounded"
             name="selectscheme"
             onChange={onChangeHandler}
             value={formData.selectscheme}
@@ -89,7 +89,7 @@ const DeptP1 = () => {
             Select Scheme
           </label>
           <select
-            className=" p-3 font-normal bg-white border border-blue-200 text-sm rounded"
+            className=" p-3 w-full font-normal bg-white border border-blue-200 text-sm rounded"
             name="selectscheme"
             onChange={onChangeHandler}
             value={formData.selectscheme}
@@ -127,7 +127,7 @@ const DeptP1 = () => {
       </form>
     </div>
     </div>
-      <Table className="ml-10 px-4"/>
+      <Table className=" ml-10 px-4"/>
     </>
   )
 }

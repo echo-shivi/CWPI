@@ -53,7 +53,7 @@ import Epc3 from "./components/Employee/Widgets/Epc/P3";
 import Epc4 from "./components/Employee/Widgets/Epc/P4";
 import Epc5 from "./components/Employee/Widgets/Epc/P5";
 import Epc6 from "./components/Employee/Widgets/Epc/P6";
-import ABD1 from "./components/Employee/Widgets/Dashboard/Adb/P1"
+import Abd1 from "./components/Employee/Widgets/Dashboard/Adb/P1"
 import ABD2 from "./components/Employee/Widgets/Dashboard/Adb/P2"
 import ABD3 from "./components/Employee/Widgets/Dashboard/Adb/P3"
 import ABD4 from "./components/Employee/Widgets/Dashboard/Adb/P4"
@@ -94,7 +94,7 @@ const departmentalComponents = {
   "4": <Dept4 />
 };
 const abdComponents = {
-  "1": <ABD1 />,
+  "1": <Abd1 />,
   "2": <ABD2 />,
   "3": <ABD3 />,
   "4": <ABD4 />,
