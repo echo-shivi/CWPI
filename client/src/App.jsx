@@ -43,10 +43,10 @@ import ConventionalP3 from './components/Employee/Widgets/Dashboard/Conventional
 import ConventionalP4 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP4'
 import ConventionalP5 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP5'
 import ConventionalP6 from './components/Employee/Widgets/Dashboard/Conventional/ConventionalP6'
-import Dept1 from "./components/Employee/Widgets/Departmental/P1";
-import Dept2 from "./components/Employee/Widgets/Departmental/P2";
-import Dept3 from "./components/Employee/Widgets/Departmental/P3";
-import Dept4 from "./components/Employee/Widgets/Departmental/P4";
+import Dept1 from "./components/Employee/Widgets/Dashboard/Departmental/P1";
+import Dept2 from "./components/Employee/Widgets/Dashboard/Departmental/P2";
+import Dept3 from "./components/Employee/Widgets/Dashboard/Departmental/P3";
+import Dept4 from "./components/Employee/Widgets/Dashboard/Departmental/P4";
 import Epc1 from "./components/Employee/Widgets/Epc/P1";
 import Epc2 from "./components/Employee/Widgets/Epc/P2";
 import Epc3 from "./components/Employee/Widgets/Epc/P3";

@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import SearchForm from '../../../Atom/Searchbar';
+import SearchForm from '../../../../Atom/Searchbar';
+
 import axios from 'axios';
-import Pagination from '../../../Atom/Pagination';
+import Pagination from '../../../../Atom/Pagination';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -10,7 +11,6 @@ const TableP2 = () => {
     const [tablesData, setTablesData] = useState([]);
     const [entriesPerPage, setEntriesPerPage] = useState(3);
     const [searchTerm, setSearchTerm] = useState('');
-    const [startDate, setStartDate] = useState(null);
 
     const pdfRef = useRef();
 
