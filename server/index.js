@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", apiRoutes); 
 
-const port = process.env.PORT || 8001;
+const port = process.env.PORT || 8002;
 
 app.get("/", (req, res) => {
   res.send("Hello, Welcome to Bvm-Project-Management-System-Backend!");
